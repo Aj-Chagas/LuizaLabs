@@ -22,7 +22,10 @@ public final class RemoteTwitterProfile: TwitterProfile {
                              completion: @escaping (TwitterProfile.Result) -> Void) {
         httpGetClient.get(to: url, with: fetchTwitterProfileModel.toData()) { result in
             switch result {
-            case .success: break
+            case .success(let data):
+                if let model: TwitterProfileModel = data?.toModel() {
+                    completion(.success(model))
+                }
             case .failure: completion(.failure(.unexpected))
             }
             

@@ -36,7 +36,13 @@ class RemoteTwitterProfileTests: XCTestCase {
     }
 
     func test_fetchTwitterProfile_should_complete_with_success_if_client_with_valid_data() {
+        let httpGetClient = HttpGetClientSpy()
+        let sut = makeSut(httpGetClient: httpGetClient)
+        let model = makeTwitterProfileModel()
         
+        expect(sut, expectedResult: .success(model), when: {
+            httpGetClient.completionWithSuccess(model.toData())
+        })
     }
 
 }
@@ -92,6 +98,10 @@ class HttpGetClientSpy: HttpGetClient {
     
     func completionWithError(_ httpError: HttpError = .noConnectivity) {
         completion?(.failure(httpError))
+    }
+    
+    func completionWithSuccess(_ data: Data?) {
+        completion?(.success(data))
     }
 
 }
