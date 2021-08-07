@@ -65,11 +65,11 @@ class URLSessionAdapterTests: XCTestCase {
 }
 
 extension URLSessionAdapterTests {
-    func makeSut() -> URLSessionAdapter {
+    func makeSut() -> AlamofireAdapter {
         let configuration = URLSessionConfiguration.default
         configuration.protocolClasses = [URLProtocolStubs.self]
         let session = URLSession(configuration: configuration)
-        let sut = URLSessionAdapter(session: session)
+        let sut = AlamofireAdapter(session: session)
         return sut
     }
     
