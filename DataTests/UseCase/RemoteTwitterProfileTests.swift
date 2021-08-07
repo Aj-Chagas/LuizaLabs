@@ -14,13 +14,15 @@ class RemoteTwitterProfileTests: XCTestCase {
     func test_fetchTwitterProfile_should_call_httpGetClient_with_correct_params() {
         let httpClient = HttpGetClientSpy()
         let url = makeUrl()
+        let model = makeFetchTwitterProfileModel()
         let sut = RemoteTwitterProfile(url: url, httpGetClient: httpClient)
         
         // When
-        sut.fetchTwitterProfile(fetchTwitterProfileModel: makeFetchTwitterProfileModel()) { _ in }
+        sut.fetchTwitterProfile(fetchTwitterProfileModel: model) { _ in }
         
         // Then
         XCTAssertEqual(httpClient.urls, [url])
+        XCTAssertEqual(httpClient.data, model.toData())
     }
 
 }

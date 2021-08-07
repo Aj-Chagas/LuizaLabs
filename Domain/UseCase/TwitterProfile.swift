@@ -12,7 +12,7 @@ public protocol TwitterProfile {
     func fetchTwitterProfile(fetchTwitterProfileModel: FetchTwitterProfileModel, completion: @escaping (Result) -> Void )
 }
 
-public struct FetchTwitterProfileModel {
+public struct FetchTwitterProfileModel: Model {
     public let userName: String
 
     public init(userName: String) {

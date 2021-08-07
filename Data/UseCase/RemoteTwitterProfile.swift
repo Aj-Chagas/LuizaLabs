@@ -20,7 +20,7 @@ public final class RemoteTwitterProfile: TwitterProfile {
 
     public func fetchTwitterProfile(fetchTwitterProfileModel: FetchTwitterProfileModel,
                              completion: @escaping (TwitterProfile.Result) -> Void) {
-        httpGetClient.get(to: url, with: Data(), completion: { _ in })
+        httpGetClient.get(to: url, with: fetchTwitterProfileModel.toData(), completion: { _ in })
     }
     
 }

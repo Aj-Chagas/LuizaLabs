@@ -8,14 +8,16 @@
 import Foundation
 
 public struct TwitterProfileModel: Model {
+    
     public let data: Profile
     
     public init(data: Profile) {
         self.data = data
     }
+
 }
 
-public struct Profile {
+public struct Profile: Model {
     public let id: String
     public let name: String
     public let userName: String
