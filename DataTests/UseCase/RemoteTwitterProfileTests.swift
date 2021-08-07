@@ -45,6 +45,15 @@ class RemoteTwitterProfileTests: XCTestCase {
         })
     }
 
+    func test_fetchTwitterProfile_should_complete_with_error_if_client_with_invalid_data() {
+        let httpGetClient = HttpGetClientSpy()
+        let sut = makeSut(httpGetClient: httpGetClient)
+        
+        expect(sut, expectedResult: .failure(.unexpected), when: {
+            httpGetClient.completionWithSuccess(makeInvalidData())
+        })
+    }
+
 }
 
 extension RemoteTwitterProfileTests {

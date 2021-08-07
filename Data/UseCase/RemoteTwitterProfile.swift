@@ -25,6 +25,8 @@ public final class RemoteTwitterProfile: TwitterProfile {
             case .success(let data):
                 if let model: TwitterProfileModel = data?.toModel() {
                     completion(.success(model))
+                } else {
+                    completion(.failure(.unexpected))
                 }
             case .failure: completion(.failure(.unexpected))
             }
