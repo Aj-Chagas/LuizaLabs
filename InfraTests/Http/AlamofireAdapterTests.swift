@@ -8,8 +8,9 @@
 import XCTest
 import Data
 import Infra
+import Alamofire
 
-class URLSessionAdapterTests: XCTestCase {
+class AlamofireAdapterTests: XCTestCase {
 
     func test_get_should_make_request_with_valid_url_and_method() {
         let sut = makeSut()
@@ -17,22 +18,22 @@ class URLSessionAdapterTests: XCTestCase {
         let url = URL(string: "http://any-url.com")!
         var request: URLRequest?
         URLProtocolStubs.observerRequest(completion: { request = $0 })
-        sut.get(to: url, with: makeValidData(), completion: { _ in exp.fulfill() })
+        sut.get(to: url, params: nil, headers: nil, completion: { _ in exp.fulfill() })
         wait(for: [exp], timeout: 1)
         XCTAssertEqual(url, request?.url)
         XCTAssertEqual("GET", request?.httpMethod)
     }
     
     func test_get_should_complete_with_error_when_received_error() {
-        expectResult(.failure(.serverError), when: (data: nil, response: nil, error: makeError()))
+        expectResult(.failure(.noConnectivity), when: (data: nil, response: nil, error: makeError()))
     }
     
     func test_get_should_complete_with_error_when_received_data_and_error() {
-        expectResult(.failure(.serverError), when: (data: makeValidData(), response: nil, error: makeError()))
+        expectResult(.failure(.noConnectivity), when: (data: makeValidData(), response: nil, error: makeError()))
     }
     
     func test_get_should_complete_with_error_when_not_received_data_and_error() {
-        expectResult(.failure(.serverError), when: (data: nil, response: nil, error: nil))
+        expectResult(.failure(.noConnectivity), when: (data: nil, response: nil, error: nil))
     }
 
     func test_get_should_complete_with_success_when_request_completes_with_data_and_status_code_200() {
@@ -64,11 +65,11 @@ class URLSessionAdapterTests: XCTestCase {
 
 }
 
-extension URLSessionAdapterTests {
+extension AlamofireAdapterTests {
     func makeSut() -> AlamofireAdapter {
         let configuration = URLSessionConfiguration.default
         configuration.protocolClasses = [URLProtocolStubs.self]
-        let session = URLSession(configuration: configuration)
+        let session = Session(configuration: configuration)
         let sut = AlamofireAdapter(session: session)
         return sut
     }
@@ -80,7 +81,7 @@ extension URLSessionAdapterTests {
         let exp = expectation(description: "Waiting")
         URLProtocolStubs.requestSimulate(data: stub.data, response: stub.response, error: stub.error)
     
-        sut.get(to: makeUrl(), with: makeValidData()) { receivedResult in
+        sut.get(to: makeUrl(), params: nil, headers: nil) { receivedResult in
             switch (expectedResult, receivedResult) {
             case (.failure(let expectedError), .failure(let receivedError)): XCTAssertEqual(expectedError, receivedError, file: file, line: line)
             case (.success(let expectedSuccess), .success(let receivedSuccess)): XCTAssertEqual(expectedSuccess, receivedSuccess, file: file, line: line)
