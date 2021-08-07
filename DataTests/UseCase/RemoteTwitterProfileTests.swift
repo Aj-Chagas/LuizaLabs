@@ -26,7 +26,20 @@ class RemoteTwitterProfileTests: XCTestCase {
     }
 
     func test_fetchTwitterProfile_should_complete_with_error_if_client_completes_with_error() {
+        let httpGetClient = HttpGetClientSpy()
+        let sut = makeSut(httpGetClient: httpGetClient)
+        let model = makeFetchTwitterProfileModel()
         
+        let exp = expectation(description: "waiting")
+        sut.fetchTwitterProfile(fetchTwitterProfileModel: model) { result in
+            switch result {
+            case .success: XCTFail("expected failure and receive success instead")
+            case .failure:
+                exp.fulfill()
+            }
+        }
+        httpGetClient.completionWithError()
+        wait(for: [exp], timeout: 1)
     }
 
 }
@@ -54,6 +67,10 @@ class HttpGetClientSpy: HttpGetClient {
         self.urls.append(url)
         self.data = data
         self.completion = completion
+    }
+    
+    func completionWithError(_ httpError: HttpError = .noConnectivity) {
+        completion?(.failure(httpError))
     }
 
 }
