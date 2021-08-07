@@ -56,9 +56,9 @@ class URLSessionAdapterTests: XCTestCase {
     }
     
     func test_get_should_complete_with_success_when_request_completes_with_data_status_code_non_between_200_to_599() {
-        expectResult(.failure(.noConnectivy), when: (data: makeValidData(), response: makeHttpResponse(statusCode: 600), error: nil))
-        expectResult(.failure(.noConnectivy), when: (data: makeValidData(), response: makeHttpResponse(statusCode: 100), error: nil))
-        expectResult(.failure(.noConnectivy), when: (data: makeValidData(), response: makeHttpResponse(statusCode: 800), error: nil))
+        expectResult(.failure(.noConnectivity), when: (data: makeValidData(), response: makeHttpResponse(statusCode: 600), error: nil))
+        expectResult(.failure(.noConnectivity), when: (data: makeValidData(), response: makeHttpResponse(statusCode: 100), error: nil))
+        expectResult(.failure(.noConnectivity), when: (data: makeValidData(), response: makeHttpResponse(statusCode: 800), error: nil))
     }
     
 

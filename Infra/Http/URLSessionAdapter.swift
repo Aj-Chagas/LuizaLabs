@@ -34,7 +34,7 @@ public final class URLSessionAdapter: HttpGetClient {
             case 500...599:
                 completion(.failure(.serverError))
             default:
-                completion(.failure(.noConnectivy))
+                completion(.failure(.noConnectivity))
             }
         }
         task.resume()
