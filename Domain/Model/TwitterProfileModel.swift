@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct TwitterProfileModel {
+public struct TwitterProfileModel: Model {
     public let data: Profile
     
     public init(data: Profile) {
