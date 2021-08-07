@@ -27,3 +27,11 @@ func makeInvalidData() -> Data {
 func makeValidData() -> Data {
     Data("{\"name\": \"Anderson\"}".utf8)
 }
+
+func makeHttpResponse(statusCode: Int = 200) -> HTTPURLResponse {
+    HTTPURLResponse(url: makeUrl(), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
+}
+
+func makeError() -> NSError {
+    NSError(domain: "any_error", code: 0)
+}
