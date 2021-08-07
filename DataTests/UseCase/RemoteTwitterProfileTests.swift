@@ -28,18 +28,15 @@ class RemoteTwitterProfileTests: XCTestCase {
     func test_fetchTwitterProfile_should_complete_with_error_if_client_completes_with_error() {
         let httpGetClient = HttpGetClientSpy()
         let sut = makeSut(httpGetClient: httpGetClient)
-        let model = makeFetchTwitterProfileModel()
+
+        expect(sut, expectedResult: .failure(.unexpected), when: {
+            httpGetClient.completionWithError()
+        })
+
+    }
+
+    func test_fetchTwitterProfile_should_complete_with_success_if_client_with_valid_data() {
         
-        let exp = expectation(description: "waiting")
-        sut.fetchTwitterProfile(fetchTwitterProfileModel: model) { result in
-            switch result {
-            case .success: XCTFail("expected failure and receive success instead")
-            case .failure:
-                exp.fulfill()
-            }
-        }
-        httpGetClient.completionWithError()
-        wait(for: [exp], timeout: 1)
     }
 
 }
@@ -51,11 +48,35 @@ extension RemoteTwitterProfileTests {
                  line: UInt = #line) -> RemoteTwitterProfile {
         let sut = RemoteTwitterProfile(url: url, httpGetClient: httpGetClient)
         addTeardownBlock { [weak sut] in
-            XCTAssertNil(sut)
+            XCTAssertNil(sut, file: file, line: line)
         }
         return sut
     }
+    
+    func expect(_ sut: RemoteTwitterProfile,
+                expectedResult: TwitterProfile.Result,
+                when action: () -> Void,
+                file: StaticString = #filePath,
+                line: UInt = #line) {
+        
+        let exp = expectation(description: "waiting")
+        sut.fetchTwitterProfile(fetchTwitterProfileModel: makeFetchTwitterProfileModel()) { receivedResult in
+            switch (expectedResult, receivedResult) {
+            case (.failure(let expectedError), .failure(let receivedError)):
+                XCTAssertEqual(expectedError, receivedError, file: file, line: line)
+            case (.success(let expectedTwitterProfile), .success(let receivedTwitterProfile)):
+                XCTAssertEqual(expectedTwitterProfile, receivedTwitterProfile, file: file, line: line)
+            default:
+                XCTFail("Expected \(expectedResult) received \(receivedResult) instead")
+            }
+            exp.fulfill()
+        }
+        action()
+        wait(for: [exp], timeout: 1)
+    }
+    
 }
+    
 
 class HttpGetClientSpy: HttpGetClient {
     
