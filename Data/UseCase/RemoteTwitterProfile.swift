@@ -8,11 +8,19 @@
 import Foundation
 import Domain
 
-class RemoteTwitterProfile: TwitterProfile {
+public final class RemoteTwitterProfile: TwitterProfile {
+    
+    private let url: URL
+    private let httpGetClient: HttpGetClient
+    
+    public init(url: URL, httpGetClient: HttpGetClient) {
+        self.url = url
+        self.httpGetClient = httpGetClient
+    }
 
-    func fetchTwitterProfile(fetchTwitterProfileModel: FetchTwitterProfileModel,
+    public func fetchTwitterProfile(fetchTwitterProfileModel: FetchTwitterProfileModel,
                              completion: @escaping (TwitterProfile.Result) -> Void) {
-        
+        httpGetClient.get(to: url, with: Data(), completion: { _ in })
     }
     
 }
