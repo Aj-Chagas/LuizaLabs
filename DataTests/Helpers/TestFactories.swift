@@ -21,7 +21,7 @@ func makeHeader() -> [String: String] {
 }
 
 func makeUrl() -> URL {
-    URL(string: "http://any-url.com")!
+    URL(string: "http://any-url.com/")!
 }
 
 func makeInvalidData() -> Data {

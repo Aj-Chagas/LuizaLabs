@@ -13,15 +13,16 @@ class RemoteTwitterProfileTests: XCTestCase {
 
     func test_fetchTwitterProfile_should_call_httpGetClient_with_correct_params() {
         let httpClient = HttpGetClientSpy()
+        let model = makeFetchTwitterProfileModel()
         let url = makeUrl()
         let sut = makeSut(url: url, httpGetClient: httpClient)
-        let model = makeFetchTwitterProfileModel()
+        let expectedUrl = URL(string: "http://any-url.com/any_name")
         
         // When
         sut.fetchTwitterProfile(fetchTwitterProfileModel: model) { _ in }
         
         // Then
-        XCTAssertEqual(httpClient.urls, [url])
+        XCTAssertEqual(httpClient.urls, [expectedUrl])
     }
 
     func test_fetchTwitterProfile_should_complete_with_error_if_client_completes_with_error() {
@@ -53,6 +54,36 @@ class RemoteTwitterProfileTests: XCTestCase {
         })
     }
 
+    func test_makeTwitterProfileUrl_should_return_complete_url_with_correct_path() {
+        let url = makeUrl()
+        let model = makeFetchTwitterProfileModel()
+        let sut = makeSut(url: url)
+        
+        let completeUrl = sut.makeTwitterProfileUrl(model) { _ in }
+        
+        let expectedUrl = URL(string: "http://any-url.com/any_name")
+        
+        XCTAssertEqual(completeUrl, expectedUrl)
+    }
+
+    func test_makeTwitterProfileUrl_should_return_url_without_path_when_path_is_invalid() {
+        let url = makeUrl()
+        let model = FetchTwitterProfileModel(userName: "˜!@")
+        let sut = makeSut(url: url)
+        
+        let completeUrl = sut.makeTwitterProfileUrl(model) { _ in }
+        
+        XCTAssertEqual(completeUrl, url)
+    }
+    
+    func test_makeTwitterProfileUrl_should_completes_with_invalidaUserName_when_userName_is_invalid() {
+        let url = makeUrl()
+        let model = FetchTwitterProfileModel(userName: "˜!@")
+        let sut = makeSut(url: url)
+        
+        expect(sut, expectedResult: .failure(.invalidUserName), model: model)
+    }
+
 }
 
 extension RemoteTwitterProfileTests {
@@ -69,12 +100,13 @@ extension RemoteTwitterProfileTests {
     
     func expect(_ sut: RemoteTwitterProfile,
                 expectedResult: TwitterProfile.Result,
-                when action: () -> Void,
+                when action: () -> Void = { _ = (() -> Void).self },
+                model: FetchTwitterProfileModel = makeFetchTwitterProfileModel(),
                 file: StaticString = #filePath,
                 line: UInt = #line) {
         
         let exp = expectation(description: "waiting")
-        sut.fetchTwitterProfile(fetchTwitterProfileModel: makeFetchTwitterProfileModel()) { receivedResult in
+        sut.fetchTwitterProfile(fetchTwitterProfileModel: model) { receivedResult in
             switch (expectedResult, receivedResult) {
             case (.failure(let expectedError), .failure(let receivedError)):
                 XCTAssertEqual(expectedError, receivedError, file: file, line: line)
