@@ -23,3 +23,7 @@ target 'Infra' do
   end
 
 end
+
+target 'UseCaseIntegrationTests' do
+    pod 'Alamofire', '5.4.3'
+ end

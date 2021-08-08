@@ -11,16 +11,18 @@ import Domain
 public final class RemoteTwitterProfile: TwitterProfile {
     
     private let url: URL
+    private let header: [String: String]
     private let httpGetClient: HttpGetClient
     
-    public init(url: URL, httpGetClient: HttpGetClient) {
+    public init(url: URL, httpGetClient: HttpGetClient, header: [String: String]) {
         self.url = url
         self.httpGetClient = httpGetClient
+        self.header = header
     }
 
     public func fetchTwitterProfile(fetchTwitterProfileModel: FetchTwitterProfileModel,
                              completion: @escaping (TwitterProfile.Result) -> Void) {
-        httpGetClient.get(to: url, params: nil, headers: nil) { result in
+        httpGetClient.get(to: url, params: nil, headers: header) { result in
             switch result {
             case .success(let data):
                 if let model: TwitterProfileModel = data?.toModel() {

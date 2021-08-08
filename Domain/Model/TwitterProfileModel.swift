@@ -20,11 +20,11 @@ public struct TwitterProfileModel: Model {
 public struct Profile: Model {
     public let id: String
     public let name: String
-    public let userName: String
+    public let username: String
     
-    public init(id: String, name: String, userName: String) {
+    public init(id: String, name: String, username: String) {
         self.id = id
         self.name = name
-        self.userName = userName
+        self.username = username
     }
 }
