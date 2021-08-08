@@ -9,15 +9,14 @@ import XCTest
 import Domain
 import Infra
 import Data
-import Alamofire
 
 class TweetTimelineIntegrationTests: XCTestCase {
 
     func test_tweet_timeline() {
-        let url = URL(string: "https://api.twitter.com/2/users/:id/tweets?max_results=100")!
+        let url = URL(string: "https://api.twitter.com/2/users/:id/tweets")!
         let header: [String: String] = ["Authorization": "Bearer AAAAAAAAAAAAAAAAAAAAAI7RSQEAAAAA6Xlma4v%2FZ%2BZ7pvlPE3rmOVkCias%3Dszrq8Ililogdj7Wh91OmYWyDjjQS3ftOpYBKBAgEVTjPjbCmS4"]
         
-        let params: Parameters = ["max_results": 100]
+        let params = ["max_results": 100]
         let model = FetchTweetTimelineModel(id: "232447988")
 
         let alamofire = AlamofireAdapter()

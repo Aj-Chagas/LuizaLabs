@@ -17,7 +17,7 @@ func makeTwitterProfileModel() -> TwitterProfileModel {
 }
 
 func makeTweetTimelineModel() -> TweetTimelineModel {
-    TweetTimelineModel(data: Tweet(id: "any_id", text: "any_tweet"))
+    TweetTimelineModel(data: [Tweet(id: "any_id", text: "any_tweet")])
 }
 
 func makeInvalidFetchTwitterProfileModel() -> FetchTwitterProfileModel {
@@ -42,6 +42,10 @@ func makeParams() -> [String: Any] {
 
 func makeUrl() -> URL {
     URL(string: "http://any-url.com/")!
+}
+
+func makeUrlWithPathID() -> URL {
+    URL(string: "http://any-url.com/:id")!
 }
 
 func makeInvalidData() -> Data {

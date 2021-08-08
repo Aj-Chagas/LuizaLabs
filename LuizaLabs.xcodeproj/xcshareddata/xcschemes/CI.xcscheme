@@ -107,6 +107,16 @@
                ReferencedContainer = "container:LuizaLabs.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B4370A9F26BF52300070C155"
+               BuildableName = "UseCaseIntegrationTests.xctest"
+               BlueprintName = "UseCaseIntegrationTests"
+               ReferencedContainer = "container:LuizaLabs.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

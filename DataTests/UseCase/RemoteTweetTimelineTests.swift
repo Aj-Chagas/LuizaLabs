@@ -13,7 +13,7 @@ class RemoteTweetTimelineTests: XCTestCase {
     func test_fetchTweetTimeLine_should_call_httpGetClient_with_correct_params() {
         let httpClient = HttpGetClientSpy()
         let model = makeFetchTwitterTimeLine()
-        let url = makeUrl()
+        let url = makeUrlWithPathID()
         let params = makeParams()
         let header = makeHeader()
         let sut = makeSut(url: url, httpGetClient: httpClient, params: params, header: header)
@@ -56,7 +56,7 @@ class RemoteTweetTimelineTests: XCTestCase {
     }
     
     func test_makeTweetTimeLineUrl_should_return_complete_url_with_correct_path() {
-        let url = makeUrl()
+        let url = makeUrlWithPathID()
         let model = makeFetchTwitterTimeLine()
         let sut = makeSut(url: url)
         
@@ -68,7 +68,7 @@ class RemoteTweetTimelineTests: XCTestCase {
     }
 
     func test_makeTweetTimeLineUrl_should_return_url_without_path_when_path_is_invalid() {
-        let url = makeUrl()
+        let url = makeUrlWithPathID()
         let model = makeInvalidFetchTwitterTimeLine()
         let sut = makeSut(url: url)
         
@@ -80,7 +80,7 @@ class RemoteTweetTimelineTests: XCTestCase {
 }
 
 extension RemoteTweetTimelineTests {
-    func makeSut(url: URL = makeUrl(),
+    func makeSut(url: URL = makeUrlWithPathID(),
                  httpGetClient: HttpGetClient = HttpGetClientSpy(),
                  params: [String: Any] = makeParams(),
                  header: [String: String] = makeHeader(),
