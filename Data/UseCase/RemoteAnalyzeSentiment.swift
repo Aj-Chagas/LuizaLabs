@@ -24,6 +24,8 @@ public final class RemoteAnalyzeSentiment: AnalyzeSentiment {
             case .success(let data):
                 if let model: AnalyzeSentimentModel = data?.toModel() {
                     completion(.success(model))
+                } else {
+                    completion(.failure(.unexpected))
                 }
             case .failure: completion(.failure(.unexpected))
             }
