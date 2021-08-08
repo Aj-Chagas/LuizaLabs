@@ -9,7 +9,7 @@ import Foundation
 
 public protocol TweetTimeline {
     typealias Result = Swift.Result<TweetTimelineModel, DomainError>
-    func fetchTweetTimeLine(fetchTweetTimeLineModel: FetchTweetTimelineModel, completion: @escaping (Result) -> Void )
+    func fetchTweetTimeLine(fetchTweetTimeLineModel model: FetchTweetTimelineModel, completion: @escaping (Result) -> Void )
 }
 
 public struct FetchTweetTimelineModel: Model {

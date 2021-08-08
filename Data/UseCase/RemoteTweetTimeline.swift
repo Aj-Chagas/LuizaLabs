@@ -25,7 +25,25 @@ public final class RemoteTweetTimeline: TweetTimeline {
         self.header = header
     }
 
-    public func fetchTweetTimeLine(fetchTweetTimeLineModel: FetchTweetTimelineModel, completion: @escaping (TweetTimeline.Result) -> Void) {
-        httpGetClient.get(to: url, params: params, headers: header, completion: { _ in})
+    public func fetchTweetTimeLine(fetchTweetTimeLineModel model: FetchTweetTimelineModel, completion: @escaping (TweetTimeline.Result) -> Void) {
+        httpGetClient.get(to: makeTweetTimeLineUrl(model), params: params, headers: header) { result in
+            switch result {
+            case .success(let data):
+                if let model: TweetTimelineModel = data?.toModel() {
+                    completion(.success(model))
+                } else {
+                    completion(.failure(.unexpected))
+                }
+            case .failure: completion(.failure(.unexpected))
+            }
+            
+        }
+    }
+    
+    public func makeTweetTimeLineUrl(_ model: FetchTweetTimelineModel) -> URL {
+        guard let newUrl = URL(string: "\(url.absoluteURL)\(model.id)") else {
+            return url
+        }
+        return newUrl
     }
 }

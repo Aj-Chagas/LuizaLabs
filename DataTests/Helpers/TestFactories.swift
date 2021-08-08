@@ -16,6 +16,10 @@ func makeTwitterProfileModel() -> TwitterProfileModel {
     TwitterProfileModel(data: Profile(id: "any_id", name: "any_name", username: "any_userName"))
 }
 
+func makeTweetTimelineModel() -> TweetTimelineModel {
+    TweetTimelineModel(data: Tweet(id: "any_id", text: "any_tweet"))
+}
+
 func makeInvalidFetchTwitterProfileModel() -> FetchTwitterProfileModel {
     FetchTwitterProfileModel(userName: "˜!@")
 }
