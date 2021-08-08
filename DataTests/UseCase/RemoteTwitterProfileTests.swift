@@ -68,7 +68,7 @@ class RemoteTwitterProfileTests: XCTestCase {
 
     func test_makeTwitterProfileUrl_should_return_url_without_path_when_path_is_invalid() {
         let url = makeUrl()
-        let model = FetchTwitterProfileModel(userName: "˜!@")
+        let model = makeInvalidFetchTwitterProfileModel()
         let sut = makeSut(url: url)
         
         let completeUrl = sut.makeTwitterProfileUrl(model) { _ in }
@@ -78,7 +78,7 @@ class RemoteTwitterProfileTests: XCTestCase {
     
     func test_makeTwitterProfileUrl_should_completes_with_invalidaUserName_when_userName_is_invalid() {
         let url = makeUrl()
-        let model = FetchTwitterProfileModel(userName: "˜!@")
+        let model = makeInvalidFetchTwitterProfileModel()
         let sut = makeSut(url: url)
         
         expect(sut, expectedResult: .failure(.invalidUserName), model: model)
