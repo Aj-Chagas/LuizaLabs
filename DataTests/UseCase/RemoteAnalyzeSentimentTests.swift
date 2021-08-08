@@ -30,7 +30,16 @@ class RemoteAnalyzeSentimentTests: XCTestCase {
         expect(sut, expectedResult: .failure(.unexpected), when: {
             httpPostClient.completionWithError()
         })
-
+    }
+    
+    func test_fetchAnalyzeSentiment_should_complete_with_success_if_client_with_valid_data() {
+        let httpPostClient = HttpPostClientSpy()
+        let sut = makeSut(httpPostClient: httpPostClient)
+        let model = makeAnalyzeSentimentModel()
+        
+        expect(sut, expectedResult: .success(model), when: {
+            httpPostClient.completionWithSuccess(model.toData())
+        })
     }
 }
 

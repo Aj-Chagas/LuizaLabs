@@ -16,6 +16,10 @@ func makeTwitterProfileModel() -> TwitterProfileModel {
     TwitterProfileModel(data: Profile(id: "any_id", name: "any_name", username: "any_userName"))
 }
 
+func makeAnalyzeSentimentModel() -> AnalyzeSentimentModel {
+    AnalyzeSentimentModel(documentSentiment: DocumentSentiment(magnitude: 0.0, score: 0.0), language: "en")
+}
+
 func makeTweetTimelineModel() -> TweetTimelineModel {
     TweetTimelineModel(data: [Tweet(id: "any_id", text: "any_tweet")])
 }
