@@ -17,7 +17,7 @@ class TwitterProfileIntegrationTests: XCTestCase {
         let headers: [String: String] = ["Authorization": "Bearer AAAAAAAAAAAAAAAAAAAAAI7RSQEAAAAA6Xlma4v%2FZ%2BZ7pvlPE3rmOVkCias%3Dszrq8Ililogdj7Wh91OmYWyDjjQS3ftOpYBKBAgEVTjPjbCmS4",
                                          "Content-Type": "application/json"]
 
-        let alamofire = AlamofireGetAdapter()
+        let alamofire = AlamofireAdapter()
         let twitterProfile = RemoteTwitterProfile(url: url, httpGetClient: alamofire, header: headers)
 
         let exp = expectation(description: "waiting")

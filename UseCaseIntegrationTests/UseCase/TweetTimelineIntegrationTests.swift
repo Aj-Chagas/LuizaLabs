@@ -22,7 +22,7 @@ class TweetTimelineIntegrationTests: XCTestCase {
 
         let model = FetchTweetTimelineModel(id: "232447988")
 
-        let alamofire = AlamofireGetAdapter()
+        let alamofire = AlamofireAdapter()
         let twitterTimeline = RemoteTweetTimeline(url: url, httpGetClient: alamofire, header: header)
 
         let exp = expectation(description: "waiting")

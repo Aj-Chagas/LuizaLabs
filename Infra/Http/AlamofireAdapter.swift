@@ -9,7 +9,7 @@ import Foundation
 import Data
 import Alamofire
 
-public final class AlamofireGetAdapter: HttpClient {
+public final class AlamofireAdapter: HttpClient {
 
     private let session: Session
 

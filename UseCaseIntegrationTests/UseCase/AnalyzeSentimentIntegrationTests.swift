@@ -21,7 +21,7 @@ class AnalyzeSentimentIntegrationTests: XCTestCase {
         
         let model = FetchAnalyzeSentimentModel(document: Document(content: "Happy Birthday!"))
 
-        let alamofire = AlamofireGetAdapter()
+        let alamofire = AlamofireAdapter()
         let analizySentiment = RemoteAnalyzeSentiment(url: url, httpClient: alamofire)
 
         let exp = expectation(description: "waiting")
