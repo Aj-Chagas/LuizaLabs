@@ -39,11 +39,3 @@ public final class AlamofireAdapter: HttpGetClient {
     }
 
 }
-
-extension Dictionary where Key == String, Value == String {
-    func toHeaders() -> HTTPHeaders {
-        let result = HTTPHeaders(self)
-        return result
-    }
-}
-
