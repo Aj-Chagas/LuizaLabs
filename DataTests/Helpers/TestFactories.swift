@@ -20,8 +20,20 @@ func makeInvalidFetchTwitterProfileModel() -> FetchTwitterProfileModel {
     FetchTwitterProfileModel(userName: "˜!@")
 }
 
+func makeFetchTwitterTimeLine() -> FetchTweetTimelineModel {
+    FetchTweetTimelineModel(id: "any_id")
+}
+
+func makeInvalidFetchTwitterTimeLine() -> FetchTweetTimelineModel {
+    FetchTweetTimelineModel(id: "˜!@")
+}
+
 func makeHeader() -> [String: String] {
     ["any_name": "any_value"]
+}
+
+func makeParams() -> [String: Any] {
+    ["any_Id": 24]
 }
 
 func makeUrl() -> URL {

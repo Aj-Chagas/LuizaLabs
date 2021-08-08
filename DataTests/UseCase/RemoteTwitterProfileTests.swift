@@ -92,9 +92,7 @@ extension RemoteTwitterProfileTests {
                  file: StaticString = #filePath,
                  line: UInt = #line) -> RemoteTwitterProfile {
         let sut = RemoteTwitterProfile(url: url, httpGetClient: httpGetClient, header: makeHeader())
-        addTeardownBlock { [weak sut] in
-            XCTAssertNil(sut, file: file, line: line)
-        }
+        checkMemoryLeak(for: sut, file: file, line: line)
         return sut
     }
     
