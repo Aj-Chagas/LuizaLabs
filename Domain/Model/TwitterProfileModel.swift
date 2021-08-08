@@ -8,13 +8,11 @@
 import Foundation
 
 public struct TwitterProfileModel: Model {
-    
     public let data: Profile
     
     public init(data: Profile) {
         self.data = data
     }
-
 }
 
 public struct Profile: Model {
