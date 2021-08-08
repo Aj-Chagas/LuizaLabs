@@ -11,10 +11,10 @@ import Domain
 
 class RemoteAnalyzeSentimentTests: XCTestCase {
     func test_fetchTweetTimeLine_should_call_httpGetClient_with_correct_params() {
-        let httpClient = HttpPostClientSpy()
+        let httpClient = HttpClientSpy()
         let model = makeFetchAnalyzeSentimentModel()
         let url = makeUrl()
-        let sut = makeSut(url: url, httpPostClient: httpClient)
+        let sut = makeSut(url: url, httpClient: httpClient)
         
         // When
         sut.fetchAnalyzeSentiment(fetchTweetTimeLineModel: model) { _ in }
@@ -24,38 +24,38 @@ class RemoteAnalyzeSentimentTests: XCTestCase {
     }
     
     func test_fetchAnalyzeSentiment_should_complete_with_error_if_client_completes_with_error() {
-        let httpPostClient = HttpPostClientSpy()
-        let sut = makeSut(httpPostClient: httpPostClient)
+        let httpClient = HttpClientSpy()
+        let sut = makeSut(httpClient: httpClient)
 
         expect(sut, expectedResult: .failure(.unexpected), when: {
-            httpPostClient.completionWithError()
+            httpClient.completionWithError()
         })
     }
     
     func test_fetchAnalyzeSentiment_should_complete_with_success_if_client_completes_with_valid_data() {
-        let httpPostClient = HttpPostClientSpy()
-        let sut = makeSut(httpPostClient: httpPostClient)
+        let httpClient = HttpClientSpy()
+        let sut = makeSut(httpClient: httpClient)
         let model = makeAnalyzeSentimentModel()
         
         expect(sut, expectedResult: .success(model), when: {
-            httpPostClient.completionWithSuccess(model.toData())
+            httpClient.completionWithSuccess(model.toData())
         })
     }
 
     func test_fetchAnalyzeSentiment_should_complete_with_error_if_client_with_invalid_data() {
-        let httpPostClient = HttpPostClientSpy()
-        let sut = makeSut(httpPostClient: httpPostClient)
+        let httpClient = HttpClientSpy()
+        let sut = makeSut(httpClient: httpClient)
         
         expect(sut, expectedResult: .failure(.unexpected), when: {
-            httpPostClient.completionWithSuccess(makeInvalidData())
+            httpClient.completionWithSuccess(makeInvalidData())
         })
     }
 }
 
 extension RemoteAnalyzeSentimentTests {
     func makeSut(url: URL = makeUrl(),
-                 httpPostClient: HttpPostClient) -> RemoteAnalyzeSentiment {
-        let sut = RemoteAnalyzeSentiment(url: url, httpPostClient: httpPostClient)
+                 httpClient: HttpClient) -> RemoteAnalyzeSentiment {
+        let sut = RemoteAnalyzeSentiment(url: url, httpClient: httpClient)
         checkMemoryLeak(for: sut)
         return sut
     }

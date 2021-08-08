@@ -12,9 +12,9 @@ public final class RemoteTwitterProfile: TwitterProfile {
     
     private let url: URL
     private let header: [String: String]
-    private let httpGetClient: HttpGetClient
+    private let httpGetClient: HttpClient
     
-    public init(url: URL, httpGetClient: HttpGetClient, header: [String: String]) {
+    public init(url: URL, httpGetClient: HttpClient, header: [String: String]) {
         self.url = url
         self.httpGetClient = httpGetClient
         self.header = header
@@ -22,7 +22,7 @@ public final class RemoteTwitterProfile: TwitterProfile {
 
     public func fetchTwitterProfile(fetchTwitterProfileModel model: FetchTwitterProfileModel,
                              completion: @escaping (TwitterProfile.Result) -> Void) {
-        httpGetClient.get(to: makeTwitterProfileUrl(model, completion: completion), params: nil, headers: header) { result in
+        httpGetClient.request(to: makeTwitterProfileUrl(model, completion: completion), method: .get, params: nil, headers: header) { result in
             switch result {
             case .success(let data):
                 if let model: TwitterProfileModel = data?.toModel() {

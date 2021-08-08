@@ -11,15 +11,15 @@ import Domain
 public final class RemoteAnalyzeSentiment: AnalyzeSentiment {
 
     private let url: URL
-    private let httpPostClient: HttpPostClient
+    private let httpClient: HttpClient
     
-    public init(url: URL, httpPostClient: HttpPostClient) {
+    public init(url: URL, httpClient: HttpClient) {
         self.url = url
-        self.httpPostClient = httpPostClient
+        self.httpClient = httpClient
     }
     
     public func fetchAnalyzeSentiment(fetchTweetTimeLineModel model: FetchAnalyzeSentimentModel, completion: @escaping (AnalyzeSentiment.Result) -> Void) {
-        httpPostClient.post(to: url, params: nil) { result in
+        httpClient.request(to: url, method: .post, params: nil, headers: nil) { result in
             switch result {
             case .success(let data):
                 if let model: AnalyzeSentimentModel = data?.toModel() {

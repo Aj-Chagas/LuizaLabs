@@ -9,16 +9,16 @@ import Foundation
 import Data
 import Alamofire
 
-public final class AlamofireGetAdapter: HttpGetClient {
-    
+public final class AlamofireGetAdapter: HttpClient {
+
     private let session: Session
-    
+
     public init(session: Session = .default) {
         self.session = session
     }
 
-    public func get(to url: URL, params: [String : Any]?, headers: [String : String]?, completion: @escaping (Result<Data?, HttpError>) -> Void) {
-        session.request(url, method: .get, parameters: params, headers: headers?.toHeaders()).responseData { dataResponse in
+    public func request(to url: URL, method: HttpMethod, params: [String : Any]?, headers: [String : String]?, completion: @escaping (Result<Data?, HttpError>) -> Void) {
+        session.request(url, method: HTTPMethod(rawValue: method.rawValue), parameters: params, headers: headers?.toHeaders()).responseData { dataResponse in
             guard let statusCode = dataResponse.response?.statusCode else { return completion(.failure(.noConnectivity)) }
             switch dataResponse.result {
             case .failure: completion(.failure(.noConnectivity))

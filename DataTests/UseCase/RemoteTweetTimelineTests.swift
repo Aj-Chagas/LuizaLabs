@@ -11,7 +11,7 @@ import Domain
 
 class RemoteTweetTimelineTests: XCTestCase {
     func test_fetchTweetTimeLine_should_call_httpGetClient_with_correct_params() {
-        let httpClient = HttpGetClientSpy()
+        let httpClient = HttpClientSpy()
         let model = makeFetchTwitterTimeLine()
         let url = makeUrlWithPathID()
         let params = makeParams()
@@ -28,7 +28,7 @@ class RemoteTweetTimelineTests: XCTestCase {
     }
     
     func test_fetchTweetTimeLine_should_complete_with_error_if_client_completes_with_error() {
-        let httpGetClient = HttpGetClientSpy()
+        let httpGetClient = HttpClientSpy()
         let sut = makeSut(httpGetClient: httpGetClient)
 
         expect(sut, expectedResult: .failure(.unexpected), when: {
@@ -37,7 +37,7 @@ class RemoteTweetTimelineTests: XCTestCase {
     }
     
     func test_fetchTweetTimeLine_should_complete_with_success_if_client_with_valid_data() {
-        let httpGetClient = HttpGetClientSpy()
+        let httpGetClient = HttpClientSpy()
         let sut = makeSut(httpGetClient: httpGetClient)
         let model = makeTweetTimelineModel()
         
@@ -47,7 +47,7 @@ class RemoteTweetTimelineTests: XCTestCase {
     }
 
     func test_fetchTweetTimeLine_should_complete_with_error_if_client_with_invalid_data() {
-        let httpGetClient = HttpGetClientSpy()
+        let httpGetClient = HttpClientSpy()
         let sut = makeSut(httpGetClient: httpGetClient)
         
         expect(sut, expectedResult: .failure(.unexpected), when: {
@@ -81,7 +81,7 @@ class RemoteTweetTimelineTests: XCTestCase {
 
 extension RemoteTweetTimelineTests {
     func makeSut(url: URL = makeUrlWithPathID(),
-                 httpGetClient: HttpGetClient = HttpGetClientSpy(),
+                 httpGetClient: HttpClient = HttpClientSpy(),
                  params: [String: Any] = makeParams(),
                  header: [String: String] = makeHeader(),
                  file: StaticString = #filePath,

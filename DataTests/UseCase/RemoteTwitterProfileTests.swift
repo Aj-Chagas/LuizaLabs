@@ -12,7 +12,7 @@ import Data
 class RemoteTwitterProfileTests: XCTestCase {
 
     func test_fetchTwitterProfile_should_call_httpGetClient_with_correct_params() {
-        let httpClient = HttpGetClientSpy()
+        let httpClient = HttpClientSpy()
         let model = makeFetchTwitterProfileModel()
         let url = makeUrl()
         let sut = makeSut(url: url, httpGetClient: httpClient)
@@ -26,7 +26,7 @@ class RemoteTwitterProfileTests: XCTestCase {
     }
 
     func test_fetchTwitterProfile_should_complete_with_error_if_client_completes_with_error() {
-        let httpGetClient = HttpGetClientSpy()
+        let httpGetClient = HttpClientSpy()
         let sut = makeSut(httpGetClient: httpGetClient)
 
         expect(sut, expectedResult: .failure(.unexpected), when: {
@@ -36,7 +36,7 @@ class RemoteTwitterProfileTests: XCTestCase {
     }
 
     func test_fetchTwitterProfile_should_complete_with_success_if_client_with_valid_data() {
-        let httpGetClient = HttpGetClientSpy()
+        let httpGetClient = HttpClientSpy()
         let sut = makeSut(httpGetClient: httpGetClient)
         let model = makeTwitterProfileModel()
         
@@ -46,7 +46,7 @@ class RemoteTwitterProfileTests: XCTestCase {
     }
 
     func test_fetchTwitterProfile_should_complete_with_error_if_client_with_invalid_data() {
-        let httpGetClient = HttpGetClientSpy()
+        let httpGetClient = HttpClientSpy()
         let sut = makeSut(httpGetClient: httpGetClient)
         
         expect(sut, expectedResult: .failure(.userNameNotFound), when: {
@@ -88,7 +88,7 @@ class RemoteTwitterProfileTests: XCTestCase {
 
 extension RemoteTwitterProfileTests {
     func makeSut(url: URL = makeUrl(),
-                 httpGetClient: HttpGetClient = HttpGetClientSpy(),
+                 httpGetClient: HttpClient = HttpClientSpy(),
                  file: StaticString = #filePath,
                  line: UInt = #line) -> RemoteTwitterProfile {
         let sut = RemoteTwitterProfile(url: url, httpGetClient: httpGetClient, header: makeHeader())
