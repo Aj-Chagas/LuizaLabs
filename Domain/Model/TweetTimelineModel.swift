@@ -8,9 +8,9 @@
 import Foundation
 
 public struct TweetTimelineModel: Model {
-    public let data: Tweet
+    public let data: [Tweet]
     
-    public init(data: Tweet) {
+    public init(data: [Tweet]) {
         self.data = data
     }
 }
