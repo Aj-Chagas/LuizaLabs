@@ -18,7 +18,7 @@ class AlamofireAdapterTests: XCTestCase {
         let url = URL(string: "http://any-url.com")!
         var request: URLRequest?
         URLProtocolStubs.observerRequest(completion: { request = $0 })
-        sut.request(to: url, method: .get, params: nil, headers: nil, completion: { _ in exp.fulfill() })
+        sut.request(to: url, method: .get, body: nil, headers: nil, completion: { _ in exp.fulfill() })
         wait(for: [exp], timeout: 1)
         XCTAssertEqual(url, request?.url)
         XCTAssertEqual("GET", request?.httpMethod)
@@ -81,7 +81,7 @@ extension AlamofireAdapterTests {
         let exp = expectation(description: "Waiting")
         URLProtocolStubs.requestSimulate(data: stub.data, response: stub.response, error: stub.error)
     
-        sut.request(to: makeUrl(), method: .get, params: nil, headers: nil) { receivedResult in
+        sut.request(to: makeUrl(), method: .get, body: nil, headers: nil) { receivedResult in
             switch (expectedResult, receivedResult) {
             case (.failure(let expectedError), .failure(let receivedError)): XCTAssertEqual(expectedError, receivedError, file: file, line: line)
             case (.success(let expectedSuccess), .success(let receivedSuccess)): XCTAssertEqual(expectedSuccess, receivedSuccess, file: file, line: line)

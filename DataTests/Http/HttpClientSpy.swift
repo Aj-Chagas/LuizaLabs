@@ -12,15 +12,14 @@ class HttpClientSpy: HttpClient {
 
     var urls = [URL]()
     var completion: ((Result<Data?, HttpError>) -> Void)?
-    var params: [String : Any]?
+    var body: [String : Any]?
     var headers: [String : String]?
     var method: HttpMethod?
     
-    func request(to url: URL, method: HttpMethod, params: [String : Any]?, headers: [String : String]?, completion: @escaping (Result<Data?, HttpError>) -> Void) {
+    func request(to url: URL, method: HttpMethod, body: [String : Any]?, headers: [String : String]?, completion: @escaping (Result<Data?, HttpError>) -> Void) {
         self.urls.append(url)
-        self.params = params
+        self.body = body
         self.completion = completion
-        self.params = params
         self.headers = headers
         self.method = method
     }
