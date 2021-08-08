@@ -22,7 +22,6 @@ class RemoteTwitterProfileTests: XCTestCase {
         
         // Then
         XCTAssertEqual(httpClient.urls, [url])
-        XCTAssertEqual(httpClient.data, model.toData())
     }
 
     func test_fetchTwitterProfile_should_complete_with_error_if_client_completes_with_error() {
@@ -49,7 +48,7 @@ class RemoteTwitterProfileTests: XCTestCase {
         let httpGetClient = HttpGetClientSpy()
         let sut = makeSut(httpGetClient: httpGetClient)
         
-        expect(sut, expectedResult: .failure(.unexpected), when: {
+        expect(sut, expectedResult: .failure(.userNameNotFound), when: {
             httpGetClient.completionWithSuccess(makeInvalidData())
         })
     }
@@ -61,7 +60,7 @@ extension RemoteTwitterProfileTests {
                  httpGetClient: HttpGetClient = HttpGetClientSpy(),
                  file: StaticString = #filePath,
                  line: UInt = #line) -> RemoteTwitterProfile {
-        let sut = RemoteTwitterProfile(url: url, httpGetClient: httpGetClient)
+        let sut = RemoteTwitterProfile(url: url, httpGetClient: httpGetClient, header: makeHeader())
         addTeardownBlock { [weak sut] in
             XCTAssertNil(sut, file: file, line: line)
         }
@@ -94,21 +93,24 @@ extension RemoteTwitterProfileTests {
     
 
 class HttpGetClientSpy: HttpGetClient {
-    
-    var urls = [URL]()
-    var data: Data?
-    var completion: ((Result<Data?, HttpError>) -> Void)?
 
-    func get(to url: URL, with data: Data?, completion: @escaping (Result<Data?, HttpError>) -> Void) {
+    var urls = [URL]()
+    var completion: ((Result<Data?, HttpError>) -> Void)?
+    var params: [String : Any]?
+    var headers: [String : String]?
+
+    func get(to url: URL, params: [String : Any]?, headers: [String : String]?, completion: @escaping (Result<Data?, HttpError>) -> Void) {
         self.urls.append(url)
-        self.data = data
+        self.params = params
         self.completion = completion
+        self.params = params
+        self.headers = headers
     }
-    
+
     func completionWithError(_ httpError: HttpError = .noConnectivity) {
         completion?(.failure(httpError))
     }
-    
+
     func completionWithSuccess(_ data: Data?) {
         completion?(.success(data))
     }

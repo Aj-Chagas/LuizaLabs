@@ -13,7 +13,11 @@ func makeFetchTwitterProfileModel() -> FetchTwitterProfileModel {
 }
 
 func makeTwitterProfileModel() -> TwitterProfileModel {
-    TwitterProfileModel(data: Profile(id: "any_id", name: "any_name", userName: "any_userName"))
+    TwitterProfileModel(data: Profile(id: "any_id", name: "any_name", username: "any_userName"))
+}
+
+func makeHeader() -> [String: String] {
+    ["any_name": "any_value"]
 }
 
 func makeUrl() -> URL {
