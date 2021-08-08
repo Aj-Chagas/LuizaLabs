@@ -19,7 +19,6 @@ public final class AlamofireAdapter: HttpGetClient {
 
     public func get(to url: URL, params: [String : Any]?, headers: [String : String]?, completion: @escaping (Result<Data?, HttpError>) -> Void) {
         session.request(url, method: .get, parameters: params, encoding: JSONEncoding.default, headers: headers?.toHeaders()).responseData { dataResponse in
-            // debugPrint(String(data: dataResponse.data!, encoding: .utf8))
             guard let statusCode = dataResponse.response?.statusCode else { return completion(.failure(.noConnectivity)) }
             switch dataResponse.result {
             case .failure: completion(.failure(.noConnectivity))
