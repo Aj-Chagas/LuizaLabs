@@ -1,5 +1,5 @@
 //
-//  UseCaseIntegrationTests.swift
+//  TwitterProfileIntegrationTests.swift
 //  UseCaseIntegrationTests
 //
 //  Created by Anderson Chagas on 07/08/21.
@@ -10,9 +10,9 @@ import Domain
 import Infra
 import Data
 
-class UseCaseIntegrationTests: XCTestCase {
+class TwitterProfileIntegrationTests: XCTestCase {
 
-    func test() {        
+    func test_twitter_profile() {        
         let url = URL(string: "https://api.twitter.com/2/users/by/username/")!
         let headers: [String: String] = ["Authorization": "Bearer AAAAAAAAAAAAAAAAAAAAAI7RSQEAAAAA6Xlma4v%2FZ%2BZ7pvlPE3rmOVkCias%3Dszrq8Ililogdj7Wh91OmYWyDjjQS3ftOpYBKBAgEVTjPjbCmS4",
                                          "Content-Type": "application/json"]

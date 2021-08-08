@@ -12,7 +12,7 @@
 		5EC8A71084DB30CDFCC28352 /* Pods_Infra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8FF7A0401D5EF4010DC46E /* Pods_Infra.framework */; };
 		85028CF81D9018C6A4FDDE9E /* Pods_UseCaseIntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37DB686AA9FD4F6AA4064497 /* Pods_UseCaseIntegrationTests.framework */; };
 		A761CBD24146BF86919C9B14 /* Pods_Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D92CB2340C3A33640084B5 /* Pods_Data.framework */; };
-		B4370AA326BF52300070C155 /* UseCaseIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4370AA226BF52300070C155 /* UseCaseIntegrationTests.swift */; };
+		B4370AA326BF52300070C155 /* TwitterProfileIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4370AA226BF52300070C155 /* TwitterProfileIntegrationTests.swift */; };
 		B4370AC826BF63860070C155 /* HttpGetClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4370AC726BF63860070C155 /* HttpGetClientSpy.swift */; };
 		B4370AD726BF643C0070C155 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4370AD626BF643C0070C155 /* DictionaryExtensions.swift */; };
 		B4FEAEA026BEDD9F005F4A81 /* TwitterProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FEAE9F26BEDD9F005F4A81 /* TwitterProfile.swift */; };
@@ -107,7 +107,7 @@
 		A1E9B9320D3D1AFA4A38E7EA /* Pods-Infra-InfraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infra-InfraTests.debug.xcconfig"; path = "Target Support Files/Pods-Infra-InfraTests/Pods-Infra-InfraTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AC4F640F7DCB2256963C3EEE /* Pods_Infra_InfraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Infra_InfraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4370AA026BF52300070C155 /* UseCaseIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UseCaseIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B4370AA226BF52300070C155 /* UseCaseIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseIntegrationTests.swift; sourceTree = "<group>"; };
+		B4370AA226BF52300070C155 /* TwitterProfileIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterProfileIntegrationTests.swift; sourceTree = "<group>"; };
 		B4370AA426BF52300070C155 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4370AC726BF63860070C155 /* HttpGetClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpGetClientSpy.swift; sourceTree = "<group>"; };
 		B4370AD626BF643C0070C155 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 		B4370AA126BF52300070C155 /* UseCaseIntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
-				B4370AA226BF52300070C155 /* UseCaseIntegrationTests.swift */,
+				B4370AE026C01E2C0070C155 /* UseCase */,
 				B4370AA426BF52300070C155 /* Info.plist */,
 			);
 			path = UseCaseIntegrationTests;
@@ -254,6 +254,14 @@
 				B4370AD626BF643C0070C155 /* DictionaryExtensions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B4370AE026C01E2C0070C155 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				B4370AA226BF52300070C155 /* TwitterProfileIntegrationTests.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		B4FEAE7726BEDBB7005F4A81 = {
@@ -847,7 +855,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4370AA326BF52300070C155 /* UseCaseIntegrationTests.swift in Sources */,
+				B4370AA326BF52300070C155 /* TwitterProfileIntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
