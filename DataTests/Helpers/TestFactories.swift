@@ -28,6 +28,10 @@ func makeFetchTwitterTimeLine() -> FetchTweetTimelineModel {
     FetchTweetTimelineModel(id: "any_id")
 }
 
+func makeFetchAnalyzeSentimentModel() -> FetchAnalyzeSentimentModel {
+    FetchAnalyzeSentimentModel(document: Document(content: "Enjoy your vacation!"))
+}
+
 func makeInvalidFetchTwitterTimeLine() -> FetchTweetTimelineModel {
     FetchTweetTimelineModel(id: "˜!@")
 }

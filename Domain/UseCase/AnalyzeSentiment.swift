@@ -9,7 +9,7 @@ import Foundation
 
 public protocol AnalyzeSentiment {
     typealias Result = Swift.Result<AnalyzeSentimentModel, DomainError>
-    func fetchTweetTimeLine(fetchTweetTimeLineModel model: FetchAnalyzeSentimentModel, completion: @escaping (Result) -> Void )
+    func fetchAnalyzeSentiment(fetchTweetTimeLineModel model: FetchAnalyzeSentimentModel, completion: @escaping (Result) -> Void )
 }
 
 public struct FetchAnalyzeSentimentModel: Model {
@@ -27,7 +27,7 @@ public struct Document: Model {
     public let type: String
     public let content: String
     
-    public init(type: String, content: String) {
+    public init(type: String = "PLAIN_TEXT", content: String) {
         self.type = type
         self.content = content
     }
