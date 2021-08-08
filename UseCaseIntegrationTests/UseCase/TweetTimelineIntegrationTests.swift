@@ -13,14 +13,17 @@ import Data
 class TweetTimelineIntegrationTests: XCTestCase {
 
     func test_tweet_timeline() {
-        let url = URL(string: "https://api.twitter.com/2/users/:id/tweets")!
+        let baseUrl = "https://api.twitter.com/2/users/:id/tweets"
+        var urlComponents = URLComponents(string: baseUrl)
+        urlComponents?.queryItems = [URLQueryItem(name: "max_results", value: "100")]
+        let url = urlComponents!.url!.absoluteURL
+
         let header: [String: String] = ["Authorization": "Bearer AAAAAAAAAAAAAAAAAAAAAI7RSQEAAAAA6Xlma4v%2FZ%2BZ7pvlPE3rmOVkCias%3Dszrq8Ililogdj7Wh91OmYWyDjjQS3ftOpYBKBAgEVTjPjbCmS4"]
-        
-        let params = ["max_results": 100]
+
         let model = FetchTweetTimelineModel(id: "232447988")
 
         let alamofire = AlamofireGetAdapter()
-        let twitterTimeline = RemoteTweetTimeline(url: url, httpGetClient: alamofire, params: params, header: header)
+        let twitterTimeline = RemoteTweetTimeline(url: url, httpGetClient: alamofire, header: header)
 
         let exp = expectation(description: "waiting")
         twitterTimeline.fetchTweetTimeLine(fetchTweetTimeLineModel: model){ result in

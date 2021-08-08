@@ -19,7 +19,7 @@ public final class RemoteAnalyzeSentiment: AnalyzeSentiment {
     }
     
     public func fetchAnalyzeSentiment(fetchTweetTimeLineModel model: FetchAnalyzeSentimentModel, completion: @escaping (AnalyzeSentiment.Result) -> Void) {
-        httpClient.request(to: url, method: .post, params: nil, headers: nil) { result in
+        httpClient.request(to: url, method: .post, params: model.toJson(), headers: nil) { result in
             switch result {
             case .success(let data):
                 if let model: AnalyzeSentimentModel = data?.toModel() {

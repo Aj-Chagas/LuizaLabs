@@ -12,21 +12,19 @@ public final class RemoteTweetTimeline: TweetTimeline {
 
     private let url: URL
     private let httpGetClient: HttpClient
-    private let params: [String: Any]
     private let header: [String: String]
     
     
     public init(url: URL,
                 httpGetClient: HttpClient,
-                params: [String: Any], header: [String: String]) {
+                header: [String: String]) {
         self.url = url
         self.httpGetClient = httpGetClient
-        self.params = params
         self.header = header
     }
 
     public func fetchTweetTimeLine(fetchTweetTimeLineModel model: FetchTweetTimelineModel, completion: @escaping (TweetTimeline.Result) -> Void) {
-        httpGetClient.request(to: makeTweetTimeLineUrl(model), method: .get, params: params, headers: header) { result in
+        httpGetClient.request(to: makeTweetTimeLineUrl(model), method: .get, params: nil, headers: header) { result in
             switch result {
             case .success(let data):
                 if let model: TweetTimelineModel = data?.toModel() {

@@ -14,9 +14,8 @@ class RemoteTweetTimelineTests: XCTestCase {
         let httpClient = HttpClientSpy()
         let model = makeFetchTwitterTimeLine()
         let url = makeUrlWithPathID()
-        let params = makeParams()
         let header = makeHeader()
-        let sut = makeSut(url: url, httpGetClient: httpClient, params: params, header: header)
+        let sut = makeSut(url: url, httpGetClient: httpClient, header: header)
         
         // When
         sut.fetchTweetTimeLine(fetchTweetTimeLineModel: model) { _ in }
@@ -24,7 +23,6 @@ class RemoteTweetTimelineTests: XCTestCase {
         // Then
         XCTAssertEqual(httpClient.urls, [URL(string: "http://any-url.com/any_id")])
         XCTAssertEqual(httpClient.headers, header)
-        XCTAssertEqual(httpClient.params as! [String: Int], params as! [String: Int])
     }
     
     func test_fetchTweetTimeLine_should_complete_with_error_if_client_completes_with_error() {
@@ -82,12 +80,10 @@ class RemoteTweetTimelineTests: XCTestCase {
 extension RemoteTweetTimelineTests {
     func makeSut(url: URL = makeUrlWithPathID(),
                  httpGetClient: HttpClient = HttpClientSpy(),
-                 params: [String: Any] = makeParams(),
                  header: [String: String] = makeHeader(),
                  file: StaticString = #filePath,
                  line: UInt = #line) -> RemoteTweetTimeline {
-        let sut = RemoteTweetTimeline(url: url, httpGetClient: httpGetClient,
-                                      params: params, header: header)
+        let sut = RemoteTweetTimeline(url: url, httpGetClient: httpGetClient, header: header)
         checkMemoryLeak(for: sut, file: file, line: line)
         return sut
     }
