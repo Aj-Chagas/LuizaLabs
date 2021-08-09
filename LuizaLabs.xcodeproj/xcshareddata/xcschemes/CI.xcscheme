@@ -76,6 +76,48 @@
                ReferencedContainer = "container:LuizaLabs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B4370A9F26BF52300070C155"
+               BuildableName = "UseCaseIntegrationTests.xctest"
+               BlueprintName = "UseCaseIntegrationTests"
+               ReferencedContainer = "container:LuizaLabs.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B456A18D26C1F6EB0007877F"
+               BuildableName = "Presentation.framework"
+               BlueprintName = "Presentation"
+               ReferencedContainer = "container:LuizaLabs.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B456A19526C1F6EB0007877F"
+               BuildableName = "PresentationTests.xctest"
+               BlueprintName = "PresentationTests"
+               ReferencedContainer = "container:LuizaLabs.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -108,12 +150,13 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4370A9F26BF52300070C155"
-               BuildableName = "UseCaseIntegrationTests.xctest"
-               BlueprintName = "UseCaseIntegrationTests"
+               BlueprintIdentifier = "B456A19526C1F6EB0007877F"
+               BuildableName = "PresentationTests.xctest"
+               BlueprintName = "PresentationTests"
                ReferencedContainer = "container:LuizaLabs.xcodeproj">
             </BuildableReference>
          </TestableReference>
