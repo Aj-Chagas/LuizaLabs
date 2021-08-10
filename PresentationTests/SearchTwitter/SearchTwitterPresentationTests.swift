@@ -117,9 +117,11 @@ extension SearchTwitterPresentationTests {
 
     func makeSut(twitterProfile: TwitterProfile = TwitterProfileSpy(),
                  tweetTimeLine: TweetTimeline = TweetTimelineSpy(),
-                 delegate: SearchTwitterDelegate = SearchTwitterDelegateSpy()) -> SearchTwitterPresentation {
+                 delegate: SearchTwitterDelegate = SearchTwitterDelegateSpy(),
+                 file: StaticString = #filePath, line: UInt = #line) -> SearchTwitterPresentation {
         
         let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, tweetTimeline: tweetTimeLine, delegate: delegate)
+        checkMemoryLeak(for: sut, file: file, line: line)
         return sut
     }
 

@@ -30,7 +30,8 @@ public final class SearchTwitterPresentation {
         if let message = validate(model: model) {
             delegate.showErrorMessage(message)
         } else {
-            twitterProfile.fetchTwitterProfile(fetchTwitterProfileModel: model.toFetchTweetProfileModel()) { result in
+            twitterProfile.fetchTwitterProfile(fetchTwitterProfileModel: model.toFetchTweetProfileModel()) { [weak self] result in
+                guard let self = self else { return }
                 switch result {
                 case .success(let twitterProfileModel):
                     let twitterProfileViewModel = TwitterProfileViewModel(twitterProfile: twitterProfileModel)
@@ -50,7 +51,8 @@ public final class SearchTwitterPresentation {
     }
 
     public func fetchTweetTimeline(with viewModel: TwitterProfileViewModel) {
-        tweetTimeline.fetchTweetTimeLine(fetchTweetTimeLineModel: FetchTweetTimelineModel(id: viewModel.id)) { result in
+        tweetTimeline.fetchTweetTimeLine(fetchTweetTimeLineModel: FetchTweetTimelineModel(id: viewModel.id)) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let tweetTimelineModel):
                 let tweetViewModel = tweetTimelineModel.data.map { TweetViewModel(tweet: $0) }

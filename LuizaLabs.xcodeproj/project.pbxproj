@@ -40,6 +40,8 @@
 		B456A25926C32F9A0007877F /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456A25826C32F9A0007877F /* TweetViewModel.swift */; };
 		B4B0DF9B26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B0DF9A26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift */; };
 		B4F5A1B926C33605003289F6 /* TwitterProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5A1B826C33605003289F6 /* TwitterProfileViewModel.swift */; };
+		B4F5A1BF26C33A4D003289F6 /* XCTestCaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4370B0E26C025220070C155 /* XCTestCaseExtensions.swift */; };
+		B4F5A1C526C33A51003289F6 /* XCTestCaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4370B0E26C025220070C155 /* XCTestCaseExtensions.swift */; };
 		B4FEAEA026BEDD9F005F4A81 /* TwitterProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FEAE9F26BEDD9F005F4A81 /* TwitterProfile.swift */; };
 		B4FEAEA526BEDF6B005F4A81 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FEAEA426BEDF6B005F4A81 /* DomainError.swift */; };
 		B4FEAEAA26BEE0F0005F4A81 /* TwitterProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FEAEA926BEE0F0005F4A81 /* TwitterProfileModel.swift */; };
@@ -1105,6 +1107,7 @@
 				B456A20126C2140A0007877F /* TwitterProfileSpy.swift in Sources */,
 				B456A20D26C214800007877F /* SearchTwitterDelegateSpy.swift in Sources */,
 				B456A21526C214BF0007877F /* TweetTimelineSpy.swift in Sources */,
+				B4F5A1BF26C33A4D003289F6 /* XCTestCaseExtensions.swift in Sources */,
 				B456A19C26C1F6EB0007877F /* SearchTwitterPresentationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1164,6 +1167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F5A1C526C33A51003289F6 /* XCTestCaseExtensions.swift in Sources */,
 				B4FEB02D26BF1429005F4A81 /* TestFactories.swift in Sources */,
 				B4FEAFDD26BF10E2005F4A81 /* AlamofireAdapterTests.swift in Sources */,
 				B4FEB02626BF13C4005F4A81 /* URLProtocolStubs.swift in Sources */,
