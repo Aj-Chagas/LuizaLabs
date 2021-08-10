@@ -174,17 +174,3 @@ extension SearchTwitterPresentationTests {
     }
 
 }
-
-class LoadingViewSpy: LoadingView {
-    
-    var emit: ((LoadingViewModel) -> Void)?
-    
-    func observer(completion: @escaping (LoadingViewModel) -> Void) {
-        self.emit = completion
-    }
-    
-    func display(viewModel: LoadingViewModel) {
-        emit?(viewModel)
-    }
-
-}
