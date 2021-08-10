@@ -34,6 +34,8 @@ public final class SearchTwitterPresentation {
                     switch error {
                     case .invalidUserName:
                         self.delegate.showErrorMessage("nome de usuário inválido")
+                    case .userNameNotFound:
+                        self.delegate.showErrorMessage("nome de usuário não encontrado")
                     default:
                         self.delegate.showErrorScreen()
                     }

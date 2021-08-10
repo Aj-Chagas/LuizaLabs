@@ -52,6 +52,18 @@ class SearchTwitterPresentationTests: XCTestCase {
         
         XCTAssertEqual(searchTwitterSpy.errorMessage, "nome de usuário inválido")
     }
+    
+    func test_searchTwitter_should_call_showErrorMessage_when_twitterProfile_completes_with_userNameNotFound() {
+        let twitterProfile = TwitterProfileSpy()
+        let searchTwitterSpy = SearchTwitterSpy()
+        let sut = makeSut(twitterProfile: twitterProfile, delegate: searchTwitterSpy)
+        
+        sut.searchTwitter(searchTwitterRequest: makeSearchTwitterRequest())
+        
+        twitterProfile.completionWithError(.userNameNotFound)
+        
+        XCTAssertEqual(searchTwitterSpy.errorMessage, "nome de usuário não encontrado")
+    }
 }
 
 extension SearchTwitterPresentationTests {
