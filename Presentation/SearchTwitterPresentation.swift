@@ -30,8 +30,13 @@ public final class SearchTwitterPresentation {
             twitterProfile.fetchTwitterProfile(fetchTwitterProfileModel: model.toFetchTweetProfileModel()) { result in
                 switch result {
                 case .success: break
-                case .failure: 
-                    self.delegate.showErrorScreen()
+                case .failure(let error):
+                    switch error {
+                    case .invalidUserName:
+                        self.delegate.showErrorMessage("nome de usuário inválido")
+                    default:
+                        self.delegate.showErrorScreen()
+                    }
                 }
             }
         }

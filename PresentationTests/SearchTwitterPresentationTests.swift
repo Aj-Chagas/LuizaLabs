@@ -29,7 +29,7 @@ class SearchTwitterPresentationTests: XCTestCase {
         XCTAssertEqual(searchTwitterSpy.errorMessage, "o campo nome do usuário é obrigatório")
     }
 
-    func test_searchTwitter_should_call_showErrorMessage_when_twitterProfile_completes_with_failure() {
+    func test_searchTwitter_should_call_showErrorMessage_when_twitterProfile_completes_with_unexpected() {
         let twitterProfile = TwitterProfileSpy()
         let searchTwitterSpy = SearchTwitterSpy()
         let sut = makeSut(twitterProfile: twitterProfile, delegate: searchTwitterSpy)
@@ -39,6 +39,18 @@ class SearchTwitterPresentationTests: XCTestCase {
         twitterProfile.completionWithError(.unexpected)
         
         XCTAssert(searchTwitterSpy.errorScreen)
+    }
+
+    func test_searchTwitter_should_call_showErrorMessage_when_twitterProfile_completes_with_invalidUserName() {
+        let twitterProfile = TwitterProfileSpy()
+        let searchTwitterSpy = SearchTwitterSpy()
+        let sut = makeSut(twitterProfile: twitterProfile, delegate: searchTwitterSpy)
+        
+        sut.searchTwitter(searchTwitterRequest: makeSearchTwitterRequest())
+        
+        twitterProfile.completionWithError(.invalidUserName)
+        
+        XCTAssertEqual(searchTwitterSpy.errorMessage, "nome de usuário inválido")
     }
 }
 
