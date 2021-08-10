@@ -11,19 +11,38 @@ import Domain
 
 class SearchTwitterPresentationTests: XCTestCase {
 
-    func test_seachTwitter_should_call_twitter_profile_with_correct_values() {
+    func test_searchTwitter_should_call_twitter_profile_with_correct_values() {
         let twitterProfile = TwitterProfileSpy()
-        let sut = SearchTwitterPresentation(twitterProfile: twitterProfile)
+        let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, delegate: SearchTwitterSpy())
         
         sut.seachTwitter(searchTwitterRequest: makeSearchTwitterRequest())
         
         XCTAssertEqual(twitterProfile.fetchTwitterProfileModel, makeFetchTwitterProfileModel())
     }
+    
+    func test_searchTwitter_should_call_showErrorMessage_when_userName_is_empty() {
+        let twitterProfile = TwitterProfileSpy()
+        let searchTwitterSpy = SearchTwitterSpy()
+        let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, delegate: searchTwitterSpy)
+        
+        sut.seachTwitter(searchTwitterRequest: makeSearchTwitterRequest(userName: ""))
+        
+        XCTAssertEqual(searchTwitterSpy.errorMessage, "o campo nome do usuário é obrigatório")
+    }
 }
 
 extension SearchTwitterPresentationTests {
-    func makeSearchTwitterRequest() -> SearchTwitterRequest {
-        SearchTwitterRequest(userName: "any_name")
+    func makeSearchTwitterRequest(userName: String = "any_name") -> SearchTwitterRequest {
+        SearchTwitterRequest(userName: userName)
+    }
+    
+}
+
+class SearchTwitterSpy: SearchTwitterDelegate {
+    var errorMessage: String?
+    
+    func showErrorMessage(_ errorMessage: String) {
+        self.errorMessage = errorMessage
     }
 }
 

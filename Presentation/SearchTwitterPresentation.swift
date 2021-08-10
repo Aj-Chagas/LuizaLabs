@@ -8,16 +8,33 @@
 import Foundation
 import Domain
 
+public protocol SearchTwitterDelegate: AnyObject {
+    func showErrorMessage(_ errorMessage: String)
+}
+
 public final class SearchTwitterPresentation {
     
     private let twitterProfile: TwitterProfile
+    private let delegate: SearchTwitterDelegate
     
-    public init(twitterProfile: TwitterProfile) {
+    public init(twitterProfile: TwitterProfile, delegate: SearchTwitterDelegate) {
         self.twitterProfile = twitterProfile
+        self.delegate = delegate
     }
 
     public func seachTwitter(searchTwitterRequest model: SearchTwitterRequest) {
-        twitterProfile.fetchTwitterProfile(fetchTwitterProfileModel: model.toFetchTweetProfileModel()) { _ in }
+        if let message = validate(model: model) {
+            delegate.showErrorMessage(message)
+        } else {
+            twitterProfile.fetchTwitterProfile(fetchTwitterProfileModel: model.toFetchTweetProfileModel()) { _ in }
+        }
+    }
+    
+    private func validate(model: SearchTwitterRequest) -> String? {
+        if model.userName.isEmpty {
+            return "o campo nome do usuário é obrigatório"
+        }
+        return nil
     }
 
 }
