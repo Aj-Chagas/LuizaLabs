@@ -13,7 +13,7 @@ class SearchTwitterPresentationTests: XCTestCase {
 
     func test_searchTwitter_should_call_twitter_profile_with_correct_values() {
         let twitterProfile = TwitterProfileSpy()
-        let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, delegate: SearchTwitterSpy())
+        let sut = makeSut(twitterProfile: twitterProfile)
         
         sut.searchTwitter(searchTwitterRequest: makeSearchTwitterRequest())
         
@@ -21,9 +21,8 @@ class SearchTwitterPresentationTests: XCTestCase {
     }
     
     func test_searchTwitter_should_call_showErrorMessage_when_userName_is_empty() {
-        let twitterProfile = TwitterProfileSpy()
         let searchTwitterSpy = SearchTwitterSpy()
-        let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, delegate: searchTwitterSpy)
+        let sut = makeSut(delegate: searchTwitterSpy)
         
         sut.searchTwitter(searchTwitterRequest: makeSearchTwitterRequest(userName: ""))
         
@@ -33,7 +32,7 @@ class SearchTwitterPresentationTests: XCTestCase {
     func test_searchTwitter_should_call_showErrorMessage_when_twitterProfile_completes_with_failure() {
         let twitterProfile = TwitterProfileSpy()
         let searchTwitterSpy = SearchTwitterSpy()
-        let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, delegate: searchTwitterSpy)
+        let sut = makeSut(twitterProfile: twitterProfile, delegate: searchTwitterSpy)
         
         sut.searchTwitter(searchTwitterRequest: makeSearchTwitterRequest())
         
@@ -44,10 +43,18 @@ class SearchTwitterPresentationTests: XCTestCase {
 }
 
 extension SearchTwitterPresentationTests {
+
+    func makeSut(twitterProfile: TwitterProfile = TwitterProfileSpy(),
+                 delegate: SearchTwitterDelegate = SearchTwitterSpy()) -> SearchTwitterPresentation {
+        
+        let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, delegate: delegate)
+        return sut
+    }
+
     func makeSearchTwitterRequest(userName: String = "any_name") -> SearchTwitterRequest {
         SearchTwitterRequest(userName: userName)
     }
-    
+
 }
 
 class SearchTwitterSpy: SearchTwitterDelegate {
