@@ -7,7 +7,12 @@
 
 import Foundation
 import Presentation
+import Domain
 
 func makeSearchTwitterRequest(userName: String = "any_name") -> SearchTwitterRequest {
     SearchTwitterRequest(userName: userName)
+}
+
+func makeTweetViewModel() -> [TweetViewModel] {
+    [TweetViewModel(tweet: Tweet(id: "any_id", text: "any_tweet"))]
 }

@@ -21,7 +21,7 @@ class SearchTwitterPresentationTests: XCTestCase {
     }
     
     func test_searchTwitter_should_call_showErrorMessage_when_userName_is_empty() {
-        let searchTwitterSpy = SearchTwitterSpy()
+        let searchTwitterSpy = SearchTwitterDelegateSpy()
         let sut = makeSut(delegate: searchTwitterSpy)
         
         sut.searchTwitter(searchTwitterRequest: makeSearchTwitterRequest(userName: ""))
@@ -31,7 +31,7 @@ class SearchTwitterPresentationTests: XCTestCase {
 
     func test_searchTwitter_should_call_showErrorMessage_when_twitterProfile_completes_with_unexpected() {
         let twitterProfile = TwitterProfileSpy()
-        let searchTwitterSpy = SearchTwitterSpy()
+        let searchTwitterSpy = SearchTwitterDelegateSpy()
         let sut = makeSut(twitterProfile: twitterProfile, delegate: searchTwitterSpy)
         
         sut.searchTwitter(searchTwitterRequest: makeSearchTwitterRequest())
@@ -43,7 +43,7 @@ class SearchTwitterPresentationTests: XCTestCase {
 
     func test_searchTwitter_should_call_showErrorMessage_when_twitterProfile_completes_with_invalidUserName() {
         let twitterProfile = TwitterProfileSpy()
-        let searchTwitterSpy = SearchTwitterSpy()
+        let searchTwitterSpy = SearchTwitterDelegateSpy()
         let sut = makeSut(twitterProfile: twitterProfile, delegate: searchTwitterSpy)
         
         sut.searchTwitter(searchTwitterRequest: makeSearchTwitterRequest())
@@ -55,7 +55,7 @@ class SearchTwitterPresentationTests: XCTestCase {
     
     func test_searchTwitter_should_call_showErrorMessage_when_twitterProfile_completes_with_userNameNotFound() {
         let twitterProfile = TwitterProfileSpy()
-        let searchTwitterSpy = SearchTwitterSpy()
+        let searchTwitterSpy = SearchTwitterDelegateSpy()
         let sut = makeSut(twitterProfile: twitterProfile, delegate: searchTwitterSpy)
         
         sut.searchTwitter(searchTwitterRequest: makeSearchTwitterRequest())
@@ -67,7 +67,7 @@ class SearchTwitterPresentationTests: XCTestCase {
 
     func test_searchTwitter_should_call_tweetTimeline_when_twitterProfile_completes_with_success() {
         let twitterProfile = TwitterProfileSpy()
-        let searchTwitterSpy = SearchTwitterSpy()
+        let searchTwitterSpy = SearchTwitterDelegateSpy()
         let tweetTimelineSpy = TweetTimelineSpy()
         let sut = makeSut(twitterProfile: twitterProfile, tweetTimeLine: tweetTimelineSpy, delegate: searchTwitterSpy)
         
@@ -89,7 +89,7 @@ class SearchTwitterPresentationTests: XCTestCase {
 
     func test_fetchTweetTimeline_should_call_showErrorScreen_when_tweetTimeline_completes_with_fails() {
         let tweetTimeline = TweetTimelineSpy()
-        let searchTwitterSpy = SearchTwitterSpy()
+        let searchTwitterSpy = SearchTwitterDelegateSpy()
         let sut = makeSut(tweetTimeLine: tweetTimeline, delegate: searchTwitterSpy)
         
         sut.fetchTweetTimeline(with: makeFetchTwitterTimeLine())
@@ -99,17 +99,18 @@ class SearchTwitterPresentationTests: XCTestCase {
         XCTAssert(searchTwitterSpy.errorScreen)
     }
 
+    // criar uma viewModel
+    // tratar memoryleak
     func test_fetchTweetTimeline_should_call_goToTimeline_when_tweetTimeline_completes_with_success() {
         let tweetTimeline = TweetTimelineSpy()
-        let searchTwitterSpy = SearchTwitterSpy()
+        let searchTwitterSpy = SearchTwitterDelegateSpy()
         let sut = makeSut(tweetTimeLine: tweetTimeline, delegate: searchTwitterSpy)
         
         sut.fetchTweetTimeline(with: makeFetchTwitterTimeLine())
         
         tweetTimeline.completionWithSuccess(twitterTimeline: makeTweetTimelineModel())
         
-        XCTAssertEqual(searchTwitterSpy.tweetTimelineModel, makeTweetTimelineModel())
-    
+        XCTAssertEqual(searchTwitterSpy.tweetViewModel, makeTweetViewModel())
     }
 }
 
@@ -117,7 +118,7 @@ extension SearchTwitterPresentationTests {
 
     func makeSut(twitterProfile: TwitterProfile = TwitterProfileSpy(),
                  tweetTimeLine: TweetTimeline = TweetTimelineSpy(),
-                 delegate: SearchTwitterDelegate = SearchTwitterSpy()) -> SearchTwitterPresentation {
+                 delegate: SearchTwitterDelegate = SearchTwitterDelegateSpy()) -> SearchTwitterPresentation {
         
         let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, tweetTimeline: tweetTimeLine, delegate: delegate)
         return sut

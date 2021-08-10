@@ -1,5 +1,5 @@
 //
-//  SearchTwitterSpy.swift
+//  SearchTwitterDelegateSpy.swift
 //  PresentationTests
 //
 //  Created by Anderson Chagas on 09/08/21.
@@ -9,10 +9,10 @@ import Foundation
 import Presentation
 import Domain
 
-class SearchTwitterSpy: SearchTwitterDelegate {
+class SearchTwitterDelegateSpy: SearchTwitterDelegate {
     var errorMessage: String?
     var errorScreen: Bool = false
-    var tweetTimelineModel: TweetTimelineModel?
+    var tweetViewModel: [TweetViewModel]?
     
     func showErrorMessage(_ errorMessage: String) {
         self.errorMessage = errorMessage
@@ -22,7 +22,7 @@ class SearchTwitterSpy: SearchTwitterDelegate {
         errorScreen = true
     }
 
-    func goToTimeline(_ tweetTimelineModel: TweetTimelineModel) {
-        self.tweetTimelineModel = tweetTimelineModel
+    func goToTimeline(_ tweetViewModel: [TweetViewModel]) {
+        self.tweetViewModel = tweetViewModel
     }
 }

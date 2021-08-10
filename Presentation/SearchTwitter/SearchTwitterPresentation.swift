@@ -11,7 +11,7 @@ import Domain
 public protocol SearchTwitterDelegate: AnyObject {
     func showErrorMessage(_ errorMessage: String)
     func showErrorScreen()
-    func goToTimeline(_ tweetTimelineModel: TweetTimelineModel)
+    func goToTimeline(_ tweetTimelineModel: [TweetViewModel])
 }
 
 public final class SearchTwitterPresentation {
@@ -51,7 +51,9 @@ public final class SearchTwitterPresentation {
     public func fetchTweetTimeline(with model: FetchTweetTimelineModel) {
         tweetTimeline.fetchTweetTimeLine(fetchTweetTimeLineModel: model) { result in
             switch result {
-            case .success(let tweetTimelineModel): self.delegate.goToTimeline(tweetTimelineModel)
+            case .success(let tweetTimelineModel):
+                let tweetViewModel = tweetTimelineModel.data.map { TweetViewModel(tweet: $0) }
+                self.delegate.goToTimeline(tweetViewModel)
             case .failure: self.delegate.showErrorScreen()
             }
         }
