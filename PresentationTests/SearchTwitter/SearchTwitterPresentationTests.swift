@@ -107,17 +107,3 @@ class TweetTimelineSpy: TweetTimeline {
     }
 
 }
-
-class SearchTwitterSpy: SearchTwitterDelegate {
-    var errorMessage: String?
-    var errorScreen: Bool = false
-    
-    func showErrorMessage(_ errorMessage: String) {
-        self.errorMessage = errorMessage
-    }
-    
-    func showErrorScreen() {
-        errorScreen = true
-    }
-}
-
