@@ -57,6 +57,7 @@ public final class SearchTwitterPresentation {
     public func fetchTweetTimeline(with viewModel: TwitterProfileViewModel) {
         tweetTimeline.fetchTweetTimeLine(fetchTweetTimeLineModel: FetchTweetTimelineModel(id: viewModel.id)) { [weak self] result in
             guard let self = self else { return }
+            self.loadingView.display(viewModel: LoadingViewModel(isLoading: false))
             switch result {
             case .success(let tweetTimelineModel):
                 let tweetViewModel = tweetTimelineModel.data.map { TweetViewModel(tweet: $0) }
