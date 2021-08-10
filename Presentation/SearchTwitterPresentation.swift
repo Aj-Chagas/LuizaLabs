@@ -10,6 +10,7 @@ import Domain
 
 public protocol SearchTwitterDelegate: AnyObject {
     func showErrorMessage(_ errorMessage: String)
+    func showErrorScreen()
 }
 
 public final class SearchTwitterPresentation {
@@ -22,11 +23,17 @@ public final class SearchTwitterPresentation {
         self.delegate = delegate
     }
 
-    public func seachTwitter(searchTwitterRequest model: SearchTwitterRequest) {
+    public func searchTwitter(searchTwitterRequest model: SearchTwitterRequest) {
         if let message = validate(model: model) {
             delegate.showErrorMessage(message)
         } else {
-            twitterProfile.fetchTwitterProfile(fetchTwitterProfileModel: model.toFetchTweetProfileModel()) { _ in }
+            twitterProfile.fetchTwitterProfile(fetchTwitterProfileModel: model.toFetchTweetProfileModel()) { result in
+                switch result {
+                case .success: break
+                case .failure: 
+                    self.delegate.showErrorScreen()
+                }
+            }
         }
     }
     

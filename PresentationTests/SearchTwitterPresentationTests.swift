@@ -15,7 +15,7 @@ class SearchTwitterPresentationTests: XCTestCase {
         let twitterProfile = TwitterProfileSpy()
         let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, delegate: SearchTwitterSpy())
         
-        sut.seachTwitter(searchTwitterRequest: makeSearchTwitterRequest())
+        sut.searchTwitter(searchTwitterRequest: makeSearchTwitterRequest())
         
         XCTAssertEqual(twitterProfile.fetchTwitterProfileModel, makeFetchTwitterProfileModel())
     }
@@ -25,9 +25,21 @@ class SearchTwitterPresentationTests: XCTestCase {
         let searchTwitterSpy = SearchTwitterSpy()
         let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, delegate: searchTwitterSpy)
         
-        sut.seachTwitter(searchTwitterRequest: makeSearchTwitterRequest(userName: ""))
+        sut.searchTwitter(searchTwitterRequest: makeSearchTwitterRequest(userName: ""))
         
         XCTAssertEqual(searchTwitterSpy.errorMessage, "o campo nome do usuário é obrigatório")
+    }
+
+    func test_searchTwitter_should_call_showErrorMessage_when_twitterProfile_completes_with_failure() {
+        let twitterProfile = TwitterProfileSpy()
+        let searchTwitterSpy = SearchTwitterSpy()
+        let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, delegate: searchTwitterSpy)
+        
+        sut.searchTwitter(searchTwitterRequest: makeSearchTwitterRequest())
+        
+        twitterProfile.completionWithError(.unexpected)
+        
+        XCTAssert(searchTwitterSpy.errorScreen)
     }
 }
 
@@ -40,9 +52,14 @@ extension SearchTwitterPresentationTests {
 
 class SearchTwitterSpy: SearchTwitterDelegate {
     var errorMessage: String?
+    var errorScreen: Bool = false
     
     func showErrorMessage(_ errorMessage: String) {
         self.errorMessage = errorMessage
+    }
+    
+    func showErrorScreen() {
+        errorScreen = true
     }
 }
 
@@ -56,7 +73,7 @@ class TwitterProfileSpy: TwitterProfile {
         self.completion = completion
     }
     
-    func completionWithErro(_ error: DomainError = .unexpected){
+    func completionWithError(_ error: DomainError = .unexpected){
         completion?(.failure(error))
     }
     
