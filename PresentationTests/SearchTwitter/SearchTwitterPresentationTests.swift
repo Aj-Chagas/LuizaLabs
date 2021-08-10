@@ -76,7 +76,6 @@ class SearchTwitterPresentationTests: XCTestCase {
         twitterProfile.completionWithSuccess(twitterProfileModel: makeTwitterProfileModel())
         
         XCTAssertEqual(tweetTimelineSpy.model, makeFetchTwitterTimeLine())
-        
     }
 }
 
@@ -88,22 +87,6 @@ extension SearchTwitterPresentationTests {
         
         let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, tweetTimeline: tweetTimeLine, delegate: delegate)
         return sut
-    }
-
-    func makeSearchTwitterRequest(userName: String = "any_name") -> SearchTwitterRequest {
-        SearchTwitterRequest(userName: userName)
-    }
-
-}
-
-class TweetTimelineSpy: TweetTimeline {
-
-    var model: FetchTweetTimelineModel?
-    var completion: ((TweetTimeline.Result) -> Void)?
-
-    func fetchTweetTimeLine(fetchTweetTimeLineModel model: FetchTweetTimelineModel, completion: @escaping (TweetTimeline.Result) -> Void) {
-        self.model = model
-        self.completion = completion
     }
 
 }
