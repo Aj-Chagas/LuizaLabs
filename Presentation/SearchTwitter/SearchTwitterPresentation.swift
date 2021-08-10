@@ -47,7 +47,7 @@ public final class SearchTwitterPresentation {
         }
     }
 
-    private func fetchTweetTimeline(with model: FetchTweetTimelineModel) {
+    public func fetchTweetTimeline(with model: FetchTweetTimelineModel) {
         tweetTimeline.fetchTweetTimeLine(fetchTweetTimeLineModel: model) { _ in }
     }
     

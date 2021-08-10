@@ -77,6 +77,15 @@ class SearchTwitterPresentationTests: XCTestCase {
         
         XCTAssertEqual(tweetTimelineSpy.model, makeFetchTwitterTimeLine())
     }
+
+    func test_fetchTweetTimeline_should_call_tweet_timeline_with_correct_values() {
+        let tweetTimeline = TweetTimelineSpy()
+        let sut = makeSut(tweetTimeLine: tweetTimeline)
+        
+        sut.fetchTweetTimeline(with: makeFetchTwitterTimeLine())
+        
+        XCTAssertEqual(tweetTimeline.model, makeFetchTwitterTimeLine())
+    }
 }
 
 extension SearchTwitterPresentationTests {
