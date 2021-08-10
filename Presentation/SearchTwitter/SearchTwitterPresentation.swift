@@ -11,7 +11,7 @@ import Domain
 public protocol SearchTwitterDelegate: AnyObject {
     func showErrorMessage(_ errorMessage: String)
     func showErrorScreen()
-    func goToTimeline(_ tweetTimelineModel: [TweetViewModel])
+    func goToTimeline(_ tweetTimelineViewModel: [TweetViewModel], _ twitterProfileViewModel: TwitterProfileViewModel)
 }
 
 public final class SearchTwitterPresentation {
@@ -33,7 +33,8 @@ public final class SearchTwitterPresentation {
             twitterProfile.fetchTwitterProfile(fetchTwitterProfileModel: model.toFetchTweetProfileModel()) { result in
                 switch result {
                 case .success(let twitterProfileModel):
-                    self.fetchTweetTimeline(with: FetchTweetTimelineModel(id: twitterProfileModel.data.id))
+                    let twitterProfileViewModel = TwitterProfileViewModel(twitterProfile: twitterProfileModel)
+                     self.fetchTweetTimeline(with: twitterProfileViewModel)
                 case .failure(let error):
                     switch error {
                     case .invalidUserName:
@@ -48,12 +49,12 @@ public final class SearchTwitterPresentation {
         }
     }
 
-    public func fetchTweetTimeline(with model: FetchTweetTimelineModel) {
-        tweetTimeline.fetchTweetTimeLine(fetchTweetTimeLineModel: model) { result in
+    public func fetchTweetTimeline(with viewModel: TwitterProfileViewModel) {
+        tweetTimeline.fetchTweetTimeLine(fetchTweetTimeLineModel: FetchTweetTimelineModel(id: viewModel.id)) { result in
             switch result {
             case .success(let tweetTimelineModel):
                 let tweetViewModel = tweetTimelineModel.data.map { TweetViewModel(tweet: $0) }
-                self.delegate.goToTimeline(tweetViewModel)
+                self.delegate.goToTimeline(tweetViewModel, viewModel)
             case .failure: self.delegate.showErrorScreen()
             }
         }

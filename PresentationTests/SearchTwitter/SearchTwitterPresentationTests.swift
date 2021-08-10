@@ -82,7 +82,7 @@ class SearchTwitterPresentationTests: XCTestCase {
         let tweetTimeline = TweetTimelineSpy()
         let sut = makeSut(tweetTimeLine: tweetTimeline)
         
-        sut.fetchTweetTimeline(with: makeFetchTwitterTimeLine())
+        sut.fetchTweetTimeline(with: makeTwitterProfileViewModel())
         
         XCTAssertEqual(tweetTimeline.model, makeFetchTwitterTimeLine())
     }
@@ -92,21 +92,20 @@ class SearchTwitterPresentationTests: XCTestCase {
         let searchTwitterSpy = SearchTwitterDelegateSpy()
         let sut = makeSut(tweetTimeLine: tweetTimeline, delegate: searchTwitterSpy)
         
-        sut.fetchTweetTimeline(with: makeFetchTwitterTimeLine())
+        sut.fetchTweetTimeline(with: makeTwitterProfileViewModel())
         
         tweetTimeline.completionWithError(.unexpected)
         
         XCTAssert(searchTwitterSpy.errorScreen)
     }
 
-    // criar uma viewModel
     // tratar memoryleak
     func test_fetchTweetTimeline_should_call_goToTimeline_when_tweetTimeline_completes_with_success() {
         let tweetTimeline = TweetTimelineSpy()
         let searchTwitterSpy = SearchTwitterDelegateSpy()
         let sut = makeSut(tweetTimeLine: tweetTimeline, delegate: searchTwitterSpy)
         
-        sut.fetchTweetTimeline(with: makeFetchTwitterTimeLine())
+        sut.fetchTweetTimeline(with: makeTwitterProfileViewModel())
         
         tweetTimeline.completionWithSuccess(twitterTimeline: makeTweetTimelineModel())
         

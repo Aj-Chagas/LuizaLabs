@@ -16,3 +16,7 @@ func makeSearchTwitterRequest(userName: String = "any_name") -> SearchTwitterReq
 func makeTweetViewModel() -> [TweetViewModel] {
     [TweetViewModel(tweet: Tweet(id: "any_id", text: "any_tweet"))]
 }
+
+func makeTwitterProfileViewModel() -> TwitterProfileViewModel {
+    TwitterProfileViewModel(twitterProfile: makeTwitterProfileModel())
+}

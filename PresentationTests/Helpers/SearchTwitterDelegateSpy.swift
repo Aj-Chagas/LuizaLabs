@@ -13,6 +13,7 @@ class SearchTwitterDelegateSpy: SearchTwitterDelegate {
     var errorMessage: String?
     var errorScreen: Bool = false
     var tweetViewModel: [TweetViewModel]?
+    var twitterProfileViewModel: TwitterProfileViewModel?
     
     func showErrorMessage(_ errorMessage: String) {
         self.errorMessage = errorMessage
@@ -22,7 +23,8 @@ class SearchTwitterDelegateSpy: SearchTwitterDelegate {
         errorScreen = true
     }
 
-    func goToTimeline(_ tweetViewModel: [TweetViewModel]) {
-        self.tweetViewModel = tweetViewModel
+    func goToTimeline(_ tweetTimelineViewModel: [TweetViewModel], _ twitterProfileViewModel: TwitterProfileViewModel) {
+        self.tweetViewModel = tweetTimelineViewModel
+        self.twitterProfileViewModel = twitterProfileViewModel
     }
 }
