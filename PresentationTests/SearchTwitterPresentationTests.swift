@@ -64,19 +64,46 @@ class SearchTwitterPresentationTests: XCTestCase {
         
         XCTAssertEqual(searchTwitterSpy.errorMessage, "nome de usuário não encontrado")
     }
+
+    func test_searchTwitter_should_call_tweetTimeline_when_twitterProfile_completes_with_success() {
+        let twitterProfile = TwitterProfileSpy()
+        let searchTwitterSpy = SearchTwitterSpy()
+        let tweetTimelineSpy = TweetTimelineSpy()
+        let sut = makeSut(twitterProfile: twitterProfile, tweetTimeLine: tweetTimelineSpy, delegate: searchTwitterSpy)
+        
+        sut.searchTwitter(searchTwitterRequest: makeSearchTwitterRequest())
+        
+        twitterProfile.completionWithSuccess(twitterProfileModel: makeTwitterProfileModel())
+        
+        XCTAssertEqual(tweetTimelineSpy.model, makeFetchTwitterTimeLine())
+        
+    }
 }
 
 extension SearchTwitterPresentationTests {
 
     func makeSut(twitterProfile: TwitterProfile = TwitterProfileSpy(),
+                 tweetTimeLine: TweetTimeline = TweetTimelineSpy(),
                  delegate: SearchTwitterDelegate = SearchTwitterSpy()) -> SearchTwitterPresentation {
         
-        let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, delegate: delegate)
+        let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, tweetTimeline: tweetTimeLine, delegate: delegate)
         return sut
     }
 
     func makeSearchTwitterRequest(userName: String = "any_name") -> SearchTwitterRequest {
         SearchTwitterRequest(userName: userName)
+    }
+
+}
+
+class TweetTimelineSpy: TweetTimeline {
+
+    var model: FetchTweetTimelineModel?
+    var completion: ((TweetTimeline.Result) -> Void)?
+
+    func fetchTweetTimeLine(fetchTweetTimeLineModel model: FetchTweetTimelineModel, completion: @escaping (TweetTimeline.Result) -> Void) {
+        self.model = model
+        self.completion = completion
     }
 
 }

@@ -16,10 +16,12 @@ public protocol SearchTwitterDelegate: AnyObject {
 public final class SearchTwitterPresentation {
     
     private let twitterProfile: TwitterProfile
+    private let tweetTimeline: TweetTimeline
     private let delegate: SearchTwitterDelegate
     
-    public init(twitterProfile: TwitterProfile, delegate: SearchTwitterDelegate) {
+    public init(twitterProfile: TwitterProfile, tweetTimeline: TweetTimeline, delegate: SearchTwitterDelegate) {
         self.twitterProfile = twitterProfile
+        self.tweetTimeline = tweetTimeline
         self.delegate = delegate
     }
 
@@ -29,7 +31,8 @@ public final class SearchTwitterPresentation {
         } else {
             twitterProfile.fetchTwitterProfile(fetchTwitterProfileModel: model.toFetchTweetProfileModel()) { result in
                 switch result {
-                case .success: break
+                case .success(let twitterProfileModel):
+                    self.fetchTweetTimeline(with: FetchTweetTimelineModel(id: twitterProfileModel.data.id))
                 case .failure(let error):
                     switch error {
                     case .invalidUserName:
@@ -42,6 +45,10 @@ public final class SearchTwitterPresentation {
                 }
             }
         }
+    }
+
+    private func fetchTweetTimeline(with model: FetchTweetTimelineModel) {
+        tweetTimeline.fetchTweetTimeLine(fetchTweetTimeLineModel: model) { _ in }
     }
     
     private func validate(model: SearchTwitterRequest) -> String? {
