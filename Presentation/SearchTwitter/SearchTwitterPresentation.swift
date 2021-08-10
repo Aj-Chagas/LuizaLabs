@@ -11,6 +11,7 @@ import Domain
 public protocol SearchTwitterDelegate: AnyObject {
     func showErrorMessage(_ errorMessage: String)
     func showErrorScreen()
+    func goToTimeline(_ tweetTimelineModel: TweetTimelineModel)
 }
 
 public final class SearchTwitterPresentation {
@@ -48,7 +49,12 @@ public final class SearchTwitterPresentation {
     }
 
     public func fetchTweetTimeline(with model: FetchTweetTimelineModel) {
-        tweetTimeline.fetchTweetTimeLine(fetchTweetTimeLineModel: model) { _ in }
+        tweetTimeline.fetchTweetTimeLine(fetchTweetTimeLineModel: model) { result in
+            switch result {
+            case .success(let tweetTimelineModel): self.delegate.goToTimeline(tweetTimelineModel)
+            case .failure: self.delegate.showErrorScreen()
+            }
+        }
     }
     
     private func validate(model: SearchTwitterRequest) -> String? {

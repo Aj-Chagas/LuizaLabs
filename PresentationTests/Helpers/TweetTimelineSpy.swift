@@ -18,4 +18,11 @@ class TweetTimelineSpy: TweetTimeline {
         self.completion = completion
     }
 
+    func completionWithError(_ error: DomainError = .unexpected){
+        completion?(.failure(error))
+    }
+    
+    func completionWithSuccess(twitterTimeline model: TweetTimelineModel) {
+        completion?(.success(model))
+    }
 }

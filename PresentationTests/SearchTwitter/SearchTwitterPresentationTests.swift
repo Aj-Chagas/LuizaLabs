@@ -86,6 +86,31 @@ class SearchTwitterPresentationTests: XCTestCase {
         
         XCTAssertEqual(tweetTimeline.model, makeFetchTwitterTimeLine())
     }
+
+    func test_fetchTweetTimeline_should_call_showErrorScreen_when_tweetTimeline_completes_with_fails() {
+        let tweetTimeline = TweetTimelineSpy()
+        let searchTwitterSpy = SearchTwitterSpy()
+        let sut = makeSut(tweetTimeLine: tweetTimeline, delegate: searchTwitterSpy)
+        
+        sut.fetchTweetTimeline(with: makeFetchTwitterTimeLine())
+        
+        tweetTimeline.completionWithError(.unexpected)
+        
+        XCTAssert(searchTwitterSpy.errorScreen)
+    }
+
+    func test_fetchTweetTimeline_should_call_goToTimeline_when_tweetTimeline_completes_with_success() {
+        let tweetTimeline = TweetTimelineSpy()
+        let searchTwitterSpy = SearchTwitterSpy()
+        let sut = makeSut(tweetTimeLine: tweetTimeline, delegate: searchTwitterSpy)
+        
+        sut.fetchTweetTimeline(with: makeFetchTwitterTimeLine())
+        
+        tweetTimeline.completionWithSuccess(twitterTimeline: makeTweetTimelineModel())
+        
+        XCTAssertEqual(searchTwitterSpy.tweetTimelineModel, makeTweetTimelineModel())
+    
+    }
 }
 
 extension SearchTwitterPresentationTests {

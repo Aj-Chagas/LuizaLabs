@@ -7,10 +7,12 @@
 
 import Foundation
 import Presentation
+import Domain
 
 class SearchTwitterSpy: SearchTwitterDelegate {
     var errorMessage: String?
     var errorScreen: Bool = false
+    var tweetTimelineModel: TweetTimelineModel?
     
     func showErrorMessage(_ errorMessage: String) {
         self.errorMessage = errorMessage
@@ -18,5 +20,9 @@ class SearchTwitterSpy: SearchTwitterDelegate {
     
     func showErrorScreen() {
         errorScreen = true
+    }
+
+    func goToTimeline(_ tweetTimelineModel: TweetTimelineModel) {
+        self.tweetTimelineModel = tweetTimelineModel
     }
 }
