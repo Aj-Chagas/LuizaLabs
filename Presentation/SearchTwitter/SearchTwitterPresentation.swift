@@ -19,17 +19,20 @@ public final class SearchTwitterPresentation {
     private let twitterProfile: TwitterProfile
     private let tweetTimeline: TweetTimeline
     private let delegate: SearchTwitterDelegate
+    private let loadingView: LoadingView
     
-    public init(twitterProfile: TwitterProfile, tweetTimeline: TweetTimeline, delegate: SearchTwitterDelegate) {
+    public init(twitterProfile: TwitterProfile, tweetTimeline: TweetTimeline, delegate: SearchTwitterDelegate, loadingView: LoadingView) {
         self.twitterProfile = twitterProfile
         self.tweetTimeline = tweetTimeline
         self.delegate = delegate
+        self.loadingView = loadingView
     }
 
     public func searchTwitter(searchTwitterRequest model: SearchTwitterRequest) {
         if let message = validate(model: model) {
             delegate.showErrorMessage(message)
         } else {
+            loadingView.display(viewModel: LoadingViewModel(isLoading: true))
             twitterProfile.fetchTwitterProfile(fetchTwitterProfileModel: model.toFetchTweetProfileModel()) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
@@ -37,6 +40,7 @@ public final class SearchTwitterPresentation {
                     let twitterProfileViewModel = TwitterProfileViewModel(twitterProfile: twitterProfileModel)
                      self.fetchTweetTimeline(with: twitterProfileViewModel)
                 case .failure(let error):
+                    self.loadingView.display(viewModel: LoadingViewModel(isLoading: false))
                     switch error {
                     case .invalidUserName:
                         self.delegate.showErrorMessage("nome de usuário inválido")

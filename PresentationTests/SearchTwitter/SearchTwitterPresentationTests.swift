@@ -41,6 +41,34 @@ class SearchTwitterPresentationTests: XCTestCase {
         XCTAssert(searchTwitterSpy.errorScreen)
     }
 
+    func test_searchTwitter_should_should_show_loading_before_and_after_twitterProfile() {
+        let twitterProfile = TwitterProfileSpy()
+        let loadingView = LoadingViewSpy()
+        let searchTwitterSpy = SearchTwitterDelegateSpy()
+        let sut = makeSut(twitterProfile: twitterProfile, delegate: searchTwitterSpy, loadingView: loadingView)
+
+        XCTContext.runActivity(named: "before calls twitterProfile isLoading should be true") { _ in
+            let exp = expectation(description: "waiting")
+            loadingView.observer { viewModel in
+                XCTAssertEqual(viewModel, LoadingViewModel(isLoading: true))
+                exp.fulfill()
+            }
+            sut.searchTwitter(searchTwitterRequest: makeSearchTwitterRequest())
+            wait(for: [exp], timeout: 1)
+        }
+
+        XCTContext.runActivity(named: "after calls twitterProfile with failure isLoading should be false") { _ in
+            let exp1 = expectation(description: "waiting")
+            loadingView.observer { viewModel in
+                XCTAssertEqual(viewModel, LoadingViewModel(isLoading: false))
+                exp1.fulfill()
+            }
+            
+            twitterProfile.completionWithError()
+            wait(for: [exp1], timeout: 1)
+        }
+    }
+
     func test_searchTwitter_should_call_showErrorMessage_when_twitterProfile_completes_with_invalidUserName() {
         let twitterProfile = TwitterProfileSpy()
         let searchTwitterSpy = SearchTwitterDelegateSpy()
@@ -118,11 +146,26 @@ extension SearchTwitterPresentationTests {
     func makeSut(twitterProfile: TwitterProfile = TwitterProfileSpy(),
                  tweetTimeLine: TweetTimeline = TweetTimelineSpy(),
                  delegate: SearchTwitterDelegate = SearchTwitterDelegateSpy(),
+                 loadingView: LoadingView = LoadingViewSpy(),
                  file: StaticString = #filePath, line: UInt = #line) -> SearchTwitterPresentation {
         
-        let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, tweetTimeline: tweetTimeLine, delegate: delegate)
+        let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, tweetTimeline: tweetTimeLine, delegate: delegate, loadingView: loadingView)
         checkMemoryLeak(for: sut, file: file, line: line)
         return sut
+    }
+
+}
+
+class LoadingViewSpy: LoadingView {
+    
+    var emit: ((LoadingViewModel) -> Void)?
+    
+    func observer(completion: @escaping (LoadingViewModel) -> Void) {
+        self.emit = completion
+    }
+    
+    func display(viewModel: LoadingViewModel) {
+        emit?(viewModel)
     }
 
 }
