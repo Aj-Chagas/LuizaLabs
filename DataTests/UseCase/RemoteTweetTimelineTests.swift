@@ -48,7 +48,7 @@ class RemoteTweetTimelineTests: XCTestCase {
         let httpGetClient = HttpClientSpy()
         let sut = makeSut(httpGetClient: httpGetClient)
         
-        expect(sut, expectedResult: .failure(.unexpected), when: {
+        expect(sut, expectedResult: .failure(.tweetsNotFound), when: {
             httpGetClient.completionWithSuccess(makeInvalidData())
         })
     }

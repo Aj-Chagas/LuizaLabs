@@ -66,22 +66,28 @@ class RemoteTwitterProfileTests: XCTestCase {
         XCTAssertEqual(completeUrl, expectedUrl)
     }
 
-    func test_makeTwitterProfileUrl_should_return_url_without_path_when_path_is_invalid() {
+    func test_makeTwitterProfileUrl_should_return_nil_when_path_is_invalid() {
         let url = makeUrl()
         let model = makeInvalidFetchTwitterProfileModel()
         let sut = makeSut(url: url)
         
         let completeUrl = sut.makeTwitterProfileUrl(model) { _ in }
         
-        XCTAssertEqual(completeUrl, url)
+        XCTAssertNil(completeUrl)
     }
     
-    func test_makeTwitterProfileUrl_should_completes_with_invalidaUserName_when_userName_is_invalid() {
+    func test_fetchTwitterProfile_should_completes_with_invalidaUserName_when_userName_is_invalid() {
         let url = makeUrl()
+        let httpGetClient = HttpClientSpy()
         let model = makeInvalidFetchTwitterProfileModel()
-        let sut = makeSut(url: url)
+        let sut = makeSut(url: url, httpGetClient: httpGetClient)
         
         expect(sut, expectedResult: .failure(.invalidUserName), model: model)
+        
+        XCTAssertEqual(httpGetClient.urls, [URL]())
+        XCTAssertNil(httpGetClient.method)
+        XCTAssertNil(httpGetClient.headers)
+        
     }
 
 }
