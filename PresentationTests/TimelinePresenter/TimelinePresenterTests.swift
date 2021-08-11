@@ -20,7 +20,7 @@ class TimelinePresenterTests: XCTestCase {
         XCTAssertEqual(analyzeSentiment.model, model)
     }
 
-    func test_analyzeSentiment_should_call_showErrorScreen_when_analyzeSentiment_completes_with_failure() {
+    func test_analyzeSentiment_should_call_handlerError_when_analyzeSentiment_completes_with_failure() {
         let analyzeSentiment = AnalyzeSentimentSpy()
         let delegate = TimelineDelegateSpy()
         let model = makeFetchAnalyzeSentimentModel()
@@ -30,7 +30,19 @@ class TimelinePresenterTests: XCTestCase {
         
         analyzeSentiment.completionWithError()
         
-        XCTAssert(delegate.screenError)
+        XCTAssert(delegate.error)
+    }
+
+    func test_analyzeSentiment_should_call_handlerSuccess_when_analyzeSentiment_completes_with_success() {
+        let analyzeSentiment = AnalyzeSentimentSpy()
+        let delegate = TimelineDelegateSpy()
+        let sut = makeSut(analyzeSentiment: analyzeSentiment, delegate: delegate)
+        
+        sut.analyzeSentiment(with: makeFetchAnalyzeSentimentModel())
+        
+        analyzeSentiment.completionWithSuccess(makeAnalyzeSentimentModel())
+        
+        XCTAssert(delegate.success)
     }
 }
 
@@ -54,15 +66,24 @@ class AnalyzeSentimentSpy: AnalyzeSentiment {
     func completionWithError(_ error: DomainError = .unexpected) {
         completion?(.failure(.unexpected))
     }
+    
+    func completionWithSuccess(_ model: AnalyzeSentimentModel) {
+        completion?(.success(model))
+    }
 
 }
 
 class TimelineDelegateSpy: TimelineDelegate {
 
-    var screenError: Bool = false
+    var error: Bool = false
+    var success: Bool = false
 
-    func showErrorScreen() {
-        screenError = true
+    func handlerError() {
+        self.error = true
+    }
+    
+    func handlerSuccess() {
+        self.success = true
     }
 
 }

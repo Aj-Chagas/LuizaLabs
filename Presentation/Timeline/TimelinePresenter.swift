@@ -9,7 +9,8 @@ import Foundation
 import Domain
 
 public protocol TimelineDelegate: AnyObject {
-    func showErrorScreen()
+    func handlerError()
+    func handlerSuccess()
 }
 
 public final class TimelinePresenter {
@@ -25,8 +26,8 @@ public final class TimelinePresenter {
     public func analyzeSentiment(with model: FetchAnalyzeSentimentModel) {
         analyzeSentiment.fetchAnalyzeSentiment(fetchTweetTimeLineModel: model) { result in
             switch result {
-            case .success: break
-            case .failure: self.delegate.showErrorScreen()
+            case .success: self.delegate.handlerSuccess()
+            case .failure: self.delegate.handlerError()
             }
         }
     }
