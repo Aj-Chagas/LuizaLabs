@@ -16,6 +16,6 @@ public final class TimelinePresenter {
     }
     
     public func analyzeSentiment(with model: FetchAnalyzeSentimentModel) {
-        analyzeSentiment.fetchAnalyzeSentiment(fetchTweetTimeLineModel: model) {_ in }
+        analyzeSentiment.fetchAnalyzeSentiment(fetchTweetTimeLineModel: model) { _ in }
     }
 }

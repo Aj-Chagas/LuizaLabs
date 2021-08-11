@@ -13,11 +13,17 @@ class TimelinePresenterTests: XCTestCase {
     func test_searchTwitter_should_call_twitter_profile_with_correct_values() {
         let analyzeSentiment = AnalyzeSentimentSpy()
         let model = makeFetchAnalyzeSentimentModel()
-        let sut = TimelinePresenter(analyzeSentiment: analyzeSentiment)
+        let sut = makeSut(analyzeSentiment: analyzeSentiment)
         
         sut.analyzeSentiment(with: model)
         
         XCTAssertEqual(analyzeSentiment.model, model)
+    }
+}
+
+extension TimelinePresenterTests {
+    func makeSut(analyzeSentiment: AnalyzeSentiment = AnalyzeSentimentSpy()) -> TimelinePresenter {
+        return TimelinePresenter(analyzeSentiment: analyzeSentiment)
     }
 }
 
