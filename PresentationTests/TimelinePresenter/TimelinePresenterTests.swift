@@ -45,12 +45,43 @@ class TimelinePresenterTests: XCTestCase {
         
         XCTAssertEqual(delegate.viewmodel, AnalyzeSentimentViewModel(analyzeSentiment: model))
     }
+
+    func test_analyzeSentiment_should_should_show_loading_before_and_after_analyzeSentiment() {
+
+        let analyzeSentiment = AnalyzeSentimentSpy()
+        let delegate = TimelineDelegateSpy()
+        let loadingView = LoadingViewSpy()
+        let sut = makeSut(analyzeSentiment: analyzeSentiment, loadingView: loadingView, delegate: delegate)
+
+        XCTContext.runActivity(named: "before calls analyzeSentiment isLoading should be true") { _ in
+            let exp = expectation(description: "waiting")
+            loadingView.observer { viewModel in
+                XCTAssertEqual(viewModel, LoadingViewModel(isLoading: true))
+                exp.fulfill()
+            }
+            sut.analyzeSentiment(with: makeFetchAnalyzeSentimentModel())
+            wait(for: [exp], timeout: 1)
+        }
+
+        XCTContext.runActivity(named: "after calls analyzeSentiment with failure isLoading should be false") { _ in
+            let exp1 = expectation(description: "waiting")
+            loadingView.observer { viewModel in
+                XCTAssertEqual(viewModel, LoadingViewModel(isLoading: false))
+                exp1.fulfill()
+            }
+            
+            analyzeSentiment.completionWithError()
+            wait(for: [exp1], timeout: 1)
+        }
+    }
 }
 
 extension TimelinePresenterTests {
     func makeSut(analyzeSentiment: AnalyzeSentiment = AnalyzeSentimentSpy(),
+                 loadingView: LoadingView = LoadingViewSpy(),
                  delegate: TimelineDelegate = TimelineDelegateSpy()) -> TimelinePresenter {
-        let sut = TimelinePresenter(analyzeSentiment: analyzeSentiment, delegate: delegate)
+        let sut = TimelinePresenter(analyzeSentiment: analyzeSentiment,
+                                    loadingView: loadingView, delegate: delegate)
         checkMemoryLeak(for: sut)
         return sut
     }
