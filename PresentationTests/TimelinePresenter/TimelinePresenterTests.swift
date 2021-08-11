@@ -36,13 +36,14 @@ class TimelinePresenterTests: XCTestCase {
     func test_analyzeSentiment_should_call_handlerSuccess_when_analyzeSentiment_completes_with_success() {
         let analyzeSentiment = AnalyzeSentimentSpy()
         let delegate = TimelineDelegateSpy()
+        let model = makeAnalyzeSentimentModel()
         let sut = makeSut(analyzeSentiment: analyzeSentiment, delegate: delegate)
         
         sut.analyzeSentiment(with: makeFetchAnalyzeSentimentModel())
         
-        analyzeSentiment.completionWithSuccess(makeAnalyzeSentimentModel())
+        analyzeSentiment.completionWithSuccess(model)
         
-        XCTAssert(delegate.success)
+        XCTAssertEqual(delegate.viewmodel, AnalyzeSentimentViewModel(analyzeSentiment: model))
     }
 }
 
@@ -78,14 +79,14 @@ class AnalyzeSentimentSpy: AnalyzeSentiment {
 class TimelineDelegateSpy: TimelineDelegate {
 
     var error: Bool = false
-    var success: Bool = false
+    var viewmodel: AnalyzeSentimentViewModel?
 
     func handlerError() {
         self.error = true
     }
     
-    func handlerSuccess() {
-        self.success = true
+    func handlerSuccess(viewmodel: AnalyzeSentimentViewModel) {
+        self.viewmodel = viewmodel
     }
 
 }

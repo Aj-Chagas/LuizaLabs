@@ -10,7 +10,7 @@ import Domain
 
 public protocol TimelineDelegate: AnyObject {
     func handlerError()
-    func handlerSuccess()
+    func handlerSuccess(viewmodel: AnalyzeSentimentViewModel)
 }
 
 public final class TimelinePresenter {
@@ -27,9 +27,26 @@ public final class TimelinePresenter {
         analyzeSentiment.fetchAnalyzeSentiment(fetchTweetTimeLineModel: model) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success: self.delegate.handlerSuccess()
+            case .success(let model): self.delegate.handlerSuccess(viewmodel: AnalyzeSentimentViewModel(analyzeSentiment: model))
             case .failure: self.delegate.handlerError()
             }
         }
     }
+}
+
+public struct AnalyzeSentimentViewModel: Model {
+    private let analyzeSentiment: AnalyzeSentimentModel
+
+    public init(analyzeSentiment: AnalyzeSentimentModel) {
+        self.analyzeSentiment = analyzeSentiment
+    }
+
+    public var magnitude: Double {
+        analyzeSentiment.documentSentiment.magnitude
+    }
+
+    public var score: Double {
+        analyzeSentiment.documentSentiment.score
+    }
+
 }
