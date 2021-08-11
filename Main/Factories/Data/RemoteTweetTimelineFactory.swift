@@ -8,7 +8,7 @@
 import Foundation
 import Data
 
-private let ktwitterProfileURL = "https://api.twitter.com/2/users/by/username/"
+private let ktwitterProfileURL = "https://api.twitter.com/2/users/:id/tweets"
 private let Kbearer = "Bearer AAAAAAAAAAAAAAAAAAAAAI7RSQEAAAAA6Xlma4v%2FZ%2BZ7pvlPE3rmOVkCias%3Dszrq8Ililogdj7Wh91OmYWyDjjQS3ftOpYBKBAgEVTjPjbCmS4"
 private let kAuthorization = "Authorization"
 

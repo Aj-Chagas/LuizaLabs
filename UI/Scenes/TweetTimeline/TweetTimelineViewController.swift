@@ -12,5 +12,13 @@ public final class TweetTimelineViewController: UIViewController, ControllerWith
 
     typealias MainView = TweetTimelineView
     
+    public override func viewDidLoad() {
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = "Timeline"
+    }
+    
     
 }
