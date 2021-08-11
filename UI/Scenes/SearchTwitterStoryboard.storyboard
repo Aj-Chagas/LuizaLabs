@@ -97,6 +97,14 @@
                             <constraint firstItem="yfb-6g-VCV" firstAttribute="trailing" secondItem="Ml1-WN-taq" secondAttribute="trailing" id="tyV-oR-6yi"/>
                             <constraint firstItem="or2-MX-YSl" firstAttribute="trailing" secondItem="Ml1-WN-taq" secondAttribute="trailing" id="z1c-yd-qAT"/>
                         </constraints>
+                        <connections>
+                            <outlet property="dividerView" destination="yfb-6g-VCV" id="4qi-Z1-Qjf"/>
+                            <outlet property="errorIcon" destination="KCf-4F-bjL" id="7bO-mn-bfG"/>
+                            <outlet property="errorMessageLabel" destination="2fo-eN-3wk" id="2nj-iU-EAQ"/>
+                            <outlet property="errorView" destination="dIP-zB-iac" id="QpZ-xS-rmh"/>
+                            <outlet property="textField" destination="or2-MX-YSl" id="cSf-2g-ku5"/>
+                            <outlet property="titleLabel" destination="Ml1-WN-taq" id="0M4-lU-bwm"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8f0-B1-zW1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
