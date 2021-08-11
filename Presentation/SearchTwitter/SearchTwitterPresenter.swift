@@ -62,7 +62,13 @@ public final class SearchTwitterPresenter {
             case .success(let tweetTimelineModel):
                 let tweetViewModel = tweetTimelineModel.data.map { TweetViewModel(tweet: $0) }
                 self.delegate.goToTimeline(tweetViewModel, viewModel)
-            case .failure: self.delegate.showErrorScreen()
+            case .failure(let error):
+                switch error {
+                case .tweetsNotFound:
+                    self.delegate.showErrorMessage("nenhum tweet encontrado")
+                default:
+                    self.delegate.showErrorScreen()
+                }
             }
         }
     }

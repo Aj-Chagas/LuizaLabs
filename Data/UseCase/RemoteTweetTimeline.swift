@@ -30,7 +30,7 @@ public final class RemoteTweetTimeline: TweetTimeline {
                 if let model: TweetTimelineModel = data?.toModel() {
                     completion(.success(model))
                 } else {
-                    completion(.failure(.unexpected))
+                    completion(.failure(.tweetsNotFound))
                 }
             case .failure: completion(.failure(.unexpected))
             }

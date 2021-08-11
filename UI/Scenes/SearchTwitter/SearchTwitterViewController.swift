@@ -13,6 +13,7 @@ public final class SearchTwitterViewController: UIViewController, ControllerWith
     
     public var errorFactory: (() -> Void)?
     public var tweetTimelineFactory: (() -> Void)?
+    public var searchTwitter: ((SearchTwitterRequest) -> Void)?
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,9 @@ public final class SearchTwitterViewController: UIViewController, ControllerWith
     
     @objc
     func searchButtonTapped() {
-        tweetTimelineFactory?()
+        let userName = mainView.textField.text?.replacingOccurrences(of: "@", with: "")
+        print("username: \(userName)")
+        searchTwitter?(SearchTwitterRequest(userName: userName ?? String()))
     }
 }
 
@@ -69,7 +72,7 @@ extension SearchTwitterViewController: SearchTwitterDelegate {
     }
     
     public func showErrorScreen() {
-        // call showError
+        errorFactory?()
     }
     
     public func goToTimeline(_ tweetTimelineViewModel: [TweetViewModel], _ twitterProfileViewModel: TwitterProfileViewModel) {

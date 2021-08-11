@@ -29,7 +29,6 @@ target 'UI' do
 end
 
 target 'Infra' do
-  use_frameworks!
 
   pod 'Alamofire', '5.4.3'
 

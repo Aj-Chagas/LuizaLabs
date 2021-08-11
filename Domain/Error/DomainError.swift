@@ -11,4 +11,5 @@ public enum DomainError: Error {
     case unexpected
     case userNameNotFound
     case invalidUserName
+    case tweetsNotFound
 }

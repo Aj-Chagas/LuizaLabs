@@ -60,6 +60,15 @@
 		B456A21C26C214F10007877F /* TestFactoriesPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456A21B26C214F10007877F /* TestFactoriesPresentation.swift */; };
 		B456A25926C32F9A0007877F /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456A25826C32F9A0007877F /* TweetViewModel.swift */; };
 		B4B0DF9B26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B0DF9A26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift */; };
+		B4BE9BA926C4511B00C1141F /* SearchTwitterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BE9BA826C4511B00C1141F /* SearchTwitterFactory.swift */; };
+		B4BE9BB326C4516600C1141F /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FEAE9326BEDBDA005F4A81 /* Domain.framework */; };
+		B4BE9BB426C4516600C1141F /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4FEAE9326BEDBDA005F4A81 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B4BE9BC026C4516D00C1141F /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B456A18E26C1F6EB0007877F /* Presentation.framework */; };
+		B4BE9BC126C4516D00C1141F /* Presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B456A18E26C1F6EB0007877F /* Presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B4BE9BCD26C4517400C1141F /* Infra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FEAFCF26BF10E2005F4A81 /* Infra.framework */; };
+		B4BE9BCE26C4517400C1141F /* Infra.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4FEAFCF26BF10E2005F4A81 /* Infra.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B4BE9BDA26C4517B00C1141F /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FEAF7A26BEE93D005F4A81 /* Data.framework */; };
+		B4BE9BDB26C4517B00C1141F /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4FEAF7A26BEE93D005F4A81 /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B4C264D226C35907007A614E /* UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C264C926C35907007A614E /* UI.framework */; };
 		B4C264D726C35907007A614E /* SearchTwitterViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C264D626C35907007A614E /* SearchTwitterViewControllerTests.swift */; };
 		B4C264EF26C35958007A614E /* SearchTwitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C264EE26C35958007A614E /* SearchTwitterViewController.swift */; };
@@ -136,6 +145,34 @@
 			remoteGlobalIDString = B4FEAE9226BEDBDA005F4A81;
 			remoteInfo = Domain;
 		};
+		B4BE9BB526C4516600C1141F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4FEAE7826BEDBB7005F4A81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4FEAE9226BEDBDA005F4A81;
+			remoteInfo = Domain;
+		};
+		B4BE9BC226C4516D00C1141F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4FEAE7826BEDBB7005F4A81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B456A18D26C1F6EB0007877F;
+			remoteInfo = Presentation;
+		};
+		B4BE9BCF26C4517400C1141F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4FEAE7826BEDBB7005F4A81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4FEAFCE26BF10E2005F4A81;
+			remoteInfo = Infra;
+		};
+		B4BE9BDC26C4517B00C1141F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4FEAE7826BEDBB7005F4A81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4FEAF7926BEE93D005F4A81;
+			remoteInfo = Data;
+		};
 		B4C264D326C35907007A614E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B4FEAE7826BEDBB7005F4A81 /* Project object */;
@@ -180,7 +217,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B4BE9BB426C4516600C1141F /* Domain.framework in Embed Frameworks */,
 				B430639726C416930054ED2A /* UI.framework in Embed Frameworks */,
+				B4BE9BC126C4516D00C1141F /* Presentation.framework in Embed Frameworks */,
+				B4BE9BDB26C4517B00C1141F /* Data.framework in Embed Frameworks */,
+				B4BE9BCE26C4517400C1141F /* Infra.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +333,7 @@
 		B456A21B26C214F10007877F /* TestFactoriesPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFactoriesPresentation.swift; sourceTree = "<group>"; };
 		B456A25826C32F9A0007877F /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
 		B4B0DF9A26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeSentimentIntegrationTests.swift; sourceTree = "<group>"; };
+		B4BE9BA826C4511B00C1141F /* SearchTwitterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTwitterFactory.swift; sourceTree = "<group>"; };
 		B4C264C926C35907007A614E /* UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C264CC26C35907007A614E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4C264D126C35907007A614E /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -353,7 +395,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4BE9BDA26C4517B00C1141F /* Data.framework in Frameworks */,
+				B4BE9BB326C4516600C1141F /* Domain.framework in Frameworks */,
+				B4BE9BCD26C4517400C1141F /* Infra.framework in Frameworks */,
 				B430639626C416930054ED2A /* UI.framework in Frameworks */,
+				B4BE9BC026C4516D00C1141F /* Presentation.framework in Frameworks */,
 				2247718A3B732D7428613DEF /* Pods_Main.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -594,6 +640,7 @@
 		B43064BA26C448D50054ED2A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B4BE9BA826C4511B00C1141F /* SearchTwitterFactory.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1020,11 +1067,16 @@
 				B430633B26C4146C0054ED2A /* Frameworks */,
 				B430633C26C4146C0054ED2A /* Resources */,
 				B430639A26C416930054ED2A /* Embed Frameworks */,
+				AC92C7B5188E52D2BECF74CF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				B430639926C416930054ED2A /* PBXTargetDependency */,
+				B4BE9BB626C4516600C1141F /* PBXTargetDependency */,
+				B4BE9BC326C4516D00C1141F /* PBXTargetDependency */,
+				B4BE9BD026C4517400C1141F /* PBXTargetDependency */,
+				B4BE9BDD26C4517B00C1141F /* PBXTargetDependency */,
 			);
 			name = Main;
 			productName = Main;
@@ -1691,6 +1743,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AC92C7B5188E52D2BECF74CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Main/Pods-Main-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Main/Pods-Main-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Main/Pods-Main-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D3E40E11DACE2AB57D672751 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1778,6 +1847,7 @@
 			files = (
 				B430634126C4146C0054ED2A /* AppDelegate.swift in Sources */,
 				B430634326C4146C0054ED2A /* SceneDelegate.swift in Sources */,
+				B4BE9BA926C4511B00C1141F /* SearchTwitterFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1952,6 +2022,26 @@
 			platformFilter = ios;
 			target = B4FEAE9226BEDBDA005F4A81 /* Domain */;
 			targetProxy = B456A1EF26C1FC7B0007877F /* PBXContainerItemProxy */;
+		};
+		B4BE9BB626C4516600C1141F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4FEAE9226BEDBDA005F4A81 /* Domain */;
+			targetProxy = B4BE9BB526C4516600C1141F /* PBXContainerItemProxy */;
+		};
+		B4BE9BC326C4516D00C1141F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B456A18D26C1F6EB0007877F /* Presentation */;
+			targetProxy = B4BE9BC226C4516D00C1141F /* PBXContainerItemProxy */;
+		};
+		B4BE9BD026C4517400C1141F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4FEAFCE26BF10E2005F4A81 /* Infra */;
+			targetProxy = B4BE9BCF26C4517400C1141F /* PBXContainerItemProxy */;
+		};
+		B4BE9BDD26C4517B00C1141F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4FEAF7926BEE93D005F4A81 /* Data */;
+			targetProxy = B4BE9BDC26C4517B00C1141F /* PBXContainerItemProxy */;
 		};
 		B4C264D426C35907007A614E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
