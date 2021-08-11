@@ -63,6 +63,7 @@
 		B46C41E226C4863B00042551 /* AlamofireAdapterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C41E126C4863B00042551 /* AlamofireAdapterFactory.swift */; };
 		B46C41FF26C486A000042551 /* RemoteTweetTimelineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C41FE26C486A000042551 /* RemoteTweetTimelineFactory.swift */; };
 		B46C420B26C486F700042551 /* SearchTwitterRouterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C420A26C486F700042551 /* SearchTwitterRouterFactory.swift */; };
+		B46C422026C488D500042551 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C421F26C488D500042551 /* NavigationController.swift */; };
 		B4B0DF9B26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B0DF9A26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift */; };
 		B4BE9BA926C4511B00C1141F /* SearchTwitterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BE9BA826C4511B00C1141F /* SearchTwitterFactory.swift */; };
 		B4BE9BB326C4516600C1141F /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FEAE9326BEDBDA005F4A81 /* Domain.framework */; };
@@ -340,6 +341,7 @@
 		B46C41E126C4863B00042551 /* AlamofireAdapterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireAdapterFactory.swift; sourceTree = "<group>"; };
 		B46C41FE26C486A000042551 /* RemoteTweetTimelineFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTweetTimelineFactory.swift; sourceTree = "<group>"; };
 		B46C420A26C486F700042551 /* SearchTwitterRouterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTwitterRouterFactory.swift; sourceTree = "<group>"; };
+		B46C421F26C488D500042551 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		B4B0DF9A26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeSentimentIntegrationTests.swift; sourceTree = "<group>"; };
 		B4BE9BA826C4511B00C1141F /* SearchTwitterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTwitterFactory.swift; sourceTree = "<group>"; };
 		B4C264C926C35907007A614E /* UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -769,10 +771,19 @@
 			path = Routers;
 			sourceTree = "<group>";
 		};
+		B46C421E26C488C200042551 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B46C421F26C488D500042551 /* NavigationController.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		B4C264CA26C35907007A614E /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				B4C2655126C35BE4007A614E /* Helpers */,
+				B46C421E26C488C200042551 /* Components */,
 				B4C2654126C35BD2007A614E /* Scenes */,
 				B4C264CC26C35907007A614E /* Info.plist */,
 			);
@@ -1950,6 +1961,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B46C422026C488D500042551 /* NavigationController.swift in Sources */,
 				B430649C26C444E20054ED2A /* SearchTwitterRouter.swift in Sources */,
 				B4C2655C26C35C73007A614E /* SearchTwitterView.swift in Sources */,
 				B430645326C432930054ED2A /* TweetTimelineViewController.swift in Sources */,

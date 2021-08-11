@@ -16,9 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
 
-        let nav = UINavigationController()
+        let nav = NavigationController()
         let controller = makeSearchTwitterFactory(router: makeSearchTwitterRouter(nav: nav))
-        nav.setViewControllers([controller], animated: true)
+        nav.setRootViewController(controller)
 
         window?.rootViewController = nav
         window?.makeKeyAndVisible()

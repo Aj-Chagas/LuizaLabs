@@ -33,7 +33,11 @@ extension UIColor {
     }
     
     static func labelColorHEX605751() -> UIColor {
-        return UIColor(hexdecimal: 0x707070)
+        UIColor(hexdecimal: 0x707070)
+    }
+    
+    static func primary() -> UIColor {
+        UIColor(hexdecimal: 0x0A84FF)
     }
 
 }

@@ -24,6 +24,11 @@ public final class SearchTwitterViewController: UIViewController, ControllerWith
         super.viewDidDisappear(animated)
         hideErrorView()
     }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = "Buscar tweets"
+    }
 
     func setupViews() {
         hideErrorView()
@@ -45,7 +50,6 @@ public final class SearchTwitterViewController: UIViewController, ControllerWith
     @objc
     func searchButtonTapped() {
         let userName = mainView.textField.text?.replacingOccurrences(of: "@", with: "")
-        print("username: \(userName)")
         searchTwitter?(SearchTwitterRequest(userName: userName ?? String()))
     }
 }
