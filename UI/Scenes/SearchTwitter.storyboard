@@ -103,6 +103,7 @@
                             <outlet property="errorIcon" destination="KCf-4F-bjL" id="7bO-mn-bfG"/>
                             <outlet property="errorMessageLabel" destination="2fo-eN-3wk" id="2nj-iU-EAQ"/>
                             <outlet property="errorView" destination="dIP-zB-iac" id="QpZ-xS-rmh"/>
+                            <outlet property="searchButton" destination="oqe-i1-dcB" id="aVa-jH-3Zk"/>
                             <outlet property="textField" destination="or2-MX-YSl" id="cSf-2g-ku5"/>
                             <outlet property="titleLabel" destination="Ml1-WN-taq" id="0M4-lU-bwm"/>
                         </connections>
