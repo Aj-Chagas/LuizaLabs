@@ -24,7 +24,8 @@ public final class TimelinePresenter {
     }
     
     public func analyzeSentiment(with model: FetchAnalyzeSentimentModel) {
-        analyzeSentiment.fetchAnalyzeSentiment(fetchTweetTimeLineModel: model) { result in
+        analyzeSentiment.fetchAnalyzeSentiment(fetchTweetTimeLineModel: model) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success: self.delegate.handlerSuccess()
             case .failure: self.delegate.handlerError()

@@ -49,7 +49,9 @@ class TimelinePresenterTests: XCTestCase {
 extension TimelinePresenterTests {
     func makeSut(analyzeSentiment: AnalyzeSentiment = AnalyzeSentimentSpy(),
                  delegate: TimelineDelegate = TimelineDelegateSpy()) -> TimelinePresenter {
-        return TimelinePresenter(analyzeSentiment: analyzeSentiment, delegate: delegate)
+        let sut = TimelinePresenter(analyzeSentiment: analyzeSentiment, delegate: delegate)
+        checkMemoryLeak(for: sut)
+        return sut
     }
 }
 
