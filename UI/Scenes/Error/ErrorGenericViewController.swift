@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ErrorGenericViewController: UIViewController, Storyboarded, ControllerWithMainView {
+public class ErrorGenericViewController: UIViewController, Storyboarded, ControllerWithMainView {
     
     typealias MainView = ErrorGenericView
     

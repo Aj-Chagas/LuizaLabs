@@ -10,6 +10,9 @@ import Presentation
 
 public final class SearchTwitterViewController: UIViewController, ControllerWithMainView, Storyboarded {
     typealias MainView = SearchTwitterView
+    
+    public var errorFactory: (() -> Void)?
+    public var tweetTimelineFactory: (() -> Void)?
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,14 @@ public final class SearchTwitterViewController: UIViewController, ControllerWith
 
     func setupSearchButton() {
         mainView.searchButton.layer.cornerRadius = 4
+        mainView.searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
+    }
+    
+    // MARK: - Actions
+    
+    @objc
+    func searchButtonTapped() {
+        tweetTimelineFactory?()
     }
 }
 
@@ -62,7 +73,7 @@ extension SearchTwitterViewController: SearchTwitterDelegate {
     }
     
     public func goToTimeline(_ tweetTimelineViewModel: [TweetViewModel], _ twitterProfileViewModel: TwitterProfileViewModel) {
-        // call goToTimeLine
+        tweetTimelineFactory?()
     }
     
 
