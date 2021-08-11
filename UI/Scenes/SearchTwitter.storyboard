@@ -78,6 +78,10 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="zDY-cl-0AX">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" red="0.039215686270000001" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="p0d-d6-Ks7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -86,6 +90,8 @@
                             <constraint firstItem="oqe-i1-dcB" firstAttribute="leading" secondItem="p0d-d6-Ks7" secondAttribute="leading" constant="16" id="2gs-DE-cRG"/>
                             <constraint firstItem="dIP-zB-iac" firstAttribute="trailing" secondItem="Ml1-WN-taq" secondAttribute="trailing" id="AdI-L2-o1k"/>
                             <constraint firstItem="Ml1-WN-taq" firstAttribute="top" secondItem="p0d-d6-Ks7" secondAttribute="top" constant="32" id="Kpv-62-oGL"/>
+                            <constraint firstItem="zDY-cl-0AX" firstAttribute="centerX" secondItem="13F-sI-ydL" secondAttribute="centerX" id="Ktd-9c-g9R"/>
+                            <constraint firstItem="zDY-cl-0AX" firstAttribute="centerY" secondItem="13F-sI-ydL" secondAttribute="centerY" id="LEX-fa-Ml1"/>
                             <constraint firstItem="p0d-d6-Ks7" firstAttribute="bottom" secondItem="oqe-i1-dcB" secondAttribute="bottom" constant="16" id="Nio-MZ-Sra"/>
                             <constraint firstItem="p0d-d6-Ks7" firstAttribute="trailing" secondItem="oqe-i1-dcB" secondAttribute="trailing" constant="16" id="O2m-yW-3gR"/>
                             <constraint firstItem="Ml1-WN-taq" firstAttribute="leading" secondItem="p0d-d6-Ks7" secondAttribute="leading" constant="16" id="Psf-ap-g22"/>
@@ -103,6 +109,7 @@
                             <outlet property="errorIcon" destination="KCf-4F-bjL" id="7bO-mn-bfG"/>
                             <outlet property="errorMessageLabel" destination="2fo-eN-3wk" id="2nj-iU-EAQ"/>
                             <outlet property="errorView" destination="dIP-zB-iac" id="QpZ-xS-rmh"/>
+                            <outlet property="loadingIndicator" destination="zDY-cl-0AX" id="vhp-fW-vaH"/>
                             <outlet property="searchButton" destination="oqe-i1-dcB" id="aVa-jH-3Zk"/>
                             <outlet property="textField" destination="or2-MX-YSl" id="cSf-2g-ku5"/>
                             <outlet property="titleLabel" destination="Ml1-WN-taq" id="0M4-lU-bwm"/>

@@ -16,4 +16,5 @@ class SearchTwitterView: UIView {
     @IBOutlet weak var errorIcon: UIImageView!
     @IBOutlet weak var errorMessageLabel: UILabel!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 }
