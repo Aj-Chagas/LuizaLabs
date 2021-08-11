@@ -1,16 +1,43 @@
 PODS:
   - Alamofire (5.4.3)
+  - iOSSnapshotTestCase (6.2.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 6.2.0)
+  - iOSSnapshotTestCase/Core (6.2.0)
+  - iOSSnapshotTestCase/SwiftSupport (6.2.0):
+    - iOSSnapshotTestCase/Core
+  - Nimble (9.0.1)
+  - Nimble-Snapshots (9.1.0):
+    - Nimble-Snapshots/Core (= 9.1.0)
+  - Nimble-Snapshots/Core (9.1.0):
+    - iOSSnapshotTestCase (~> 6.0)
+    - Nimble
+  - Quick (3.1.2)
+  - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (= 5.4.3)
+  - Nimble (~> 9.0.1)
+  - Nimble-Snapshots (~> 9.1.0)
+  - Quick (~> 3.1.2)
+  - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - iOSSnapshotTestCase
+    - Nimble
+    - Nimble-Snapshots
+    - Quick
+    - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
+  Nimble: 7bed62ffabd6dbfe05f5925cbc43722533248990
+  Nimble-Snapshots: 6605431525245f967ca9d558bb12a49da3d040e3
+  Quick: 60f0ea3b8e0cfc0df3259a5c06a238ad8b3c46e0
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 0564cc5d519625ba0b2e96d2552c8615033d6d07
+PODFILE CHECKSUM: 8ae6f16e673c27873740e6b65980ebea6a0ab788
 
 COCOAPODS: 1.10.1

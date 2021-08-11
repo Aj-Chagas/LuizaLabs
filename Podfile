@@ -13,6 +13,23 @@ end
 target 'Domain' do
 end
 
+target 'Presentation' do
+  target 'PresentationTests' do
+  end
+end
+
+target 'UI' do
+
+  pod 'SnapKit', '~> 5.0.0'
+
+  target 'UITests' do
+    pod 'Nimble', '~> 9.0.1'
+    pod 'Nimble-Snapshots', '~> 9.1.0'
+    pod 'Quick' , '~> 3.1.2'
+  end
+
+end
+
 target 'Infra' do
   use_frameworks!
 
