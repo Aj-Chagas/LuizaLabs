@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tweet Timeline View Controller-->
+        <scene sceneID="lZF-0Z-K3j">
+            <objects>
+                <viewController storyboardIdentifier="TweetTimelineViewController" id="OSD-hA-v6d" customClass="TweetTimelineViewController" customModule="UI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SQj-qu-gUG" customClass="TweetTimelineView" customModule="UI" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7HG-Vf-ecP">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" red="0.039215686270000001" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="k3J-MC-Hgx">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Timeline do  @LuizaLabs com os últimos 100 tweets.  " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzZ-Ig-D4i">
+                                            <rect key="frame" x="16" y="16" width="382" height="41"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escolha um tweet e descubra se é um tweet Feliz, neutro ou triste." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qU2-Mg-dDc">
+                                            <rect key="frame" x="16" y="65" width="382" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="qU2-Mg-dDc" secondAttribute="trailing" constant="16" id="7oZ-UY-l3G"/>
+                                        <constraint firstAttribute="bottom" secondItem="qU2-Mg-dDc" secondAttribute="bottom" constant="16" id="C7H-SC-NoU"/>
+                                        <constraint firstItem="qU2-Mg-dDc" firstAttribute="top" secondItem="bzZ-Ig-D4i" secondAttribute="bottom" constant="8" id="K8t-rw-wUC"/>
+                                        <constraint firstItem="bzZ-Ig-D4i" firstAttribute="leading" secondItem="k3J-MC-Hgx" secondAttribute="leading" constant="16" id="M8x-1V-ZgL"/>
+                                        <constraint firstAttribute="trailing" secondItem="bzZ-Ig-D4i" secondAttribute="trailing" constant="16" id="SJu-U0-r13"/>
+                                        <constraint firstItem="bzZ-Ig-D4i" firstAttribute="top" secondItem="k3J-MC-Hgx" secondAttribute="top" constant="16" id="cBg-nC-YpD"/>
+                                        <constraint firstItem="qU2-Mg-dDc" firstAttribute="leading" secondItem="k3J-MC-Hgx" secondAttribute="leading" constant="16" id="xkg-Mj-hap"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="C3N-RS-50J">
+                                        <rect key="frame" x="0.0" y="153" width="414" height="99.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C3N-RS-50J" id="me5-oX-EKv">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Criando meu primeiro projeto para o Luiza labs. Estou adorando criar o projeto de teste, esta sendo um grande desafio." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vhh-Ff-ASV">
+                                                    <rect key="frame" x="36" y="19" width="322" height="61.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wex-fn-RYB">
+                                                    <rect key="frame" x="374" y="20" width="24" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="24" id="Bdy-vT-0Cq"/>
+                                                        <constraint firstAttribute="height" constant="24" id="Rav-cn-J6V"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wex-fn-RYB" firstAttribute="leading" secondItem="Vhh-Ff-ASV" secondAttribute="trailing" constant="16" id="0XT-TX-dwq"/>
+                                                <constraint firstItem="Vhh-Ff-ASV" firstAttribute="top" secondItem="me5-oX-EKv" secondAttribute="topMargin" constant="8" id="MrX-DK-bTX"/>
+                                                <constraint firstItem="Vhh-Ff-ASV" firstAttribute="leading" secondItem="me5-oX-EKv" secondAttribute="leadingMargin" constant="16" id="RaA-Xe-Tho"/>
+                                                <constraint firstAttribute="trailing" secondItem="wex-fn-RYB" secondAttribute="trailing" constant="16" id="UTZ-SG-fZH"/>
+                                                <constraint firstItem="wex-fn-RYB" firstAttribute="top" secondItem="me5-oX-EKv" secondAttribute="top" constant="18" id="cLr-HF-bdL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Vhh-Ff-ASV" secondAttribute="bottom" constant="8" id="j3a-rp-Khc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xjm-6a-0JF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7HG-Vf-ecP" firstAttribute="top" secondItem="Xjm-6a-0JF" secondAttribute="top" id="FKC-KM-M4r"/>
+                            <constraint firstItem="Xjm-6a-0JF" firstAttribute="trailing" secondItem="7HG-Vf-ecP" secondAttribute="trailing" id="mLr-CX-l2v"/>
+                            <constraint firstItem="Xjm-6a-0JF" firstAttribute="bottom" secondItem="7HG-Vf-ecP" secondAttribute="bottom" id="uns-B7-SJ6"/>
+                            <constraint firstItem="7HG-Vf-ecP" firstAttribute="leading" secondItem="Xjm-6a-0JF" secondAttribute="leading" id="yap-rA-LEc"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="tableView" destination="7HG-Vf-ecP" id="a1L-2Q-FLF"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VhI-sD-j5x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-36" y="159"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
