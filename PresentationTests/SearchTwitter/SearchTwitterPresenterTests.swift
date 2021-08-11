@@ -9,7 +9,7 @@ import XCTest
 import Presentation
 import Domain
 
-class SearchTwitterPresentationTests: XCTestCase {
+class SearchTwitterPresenterTests: XCTestCase {
 
     func test_searchTwitter_should_call_twitter_profile_with_correct_values() {
         let twitterProfile = TwitterProfileSpy()
@@ -160,15 +160,15 @@ class SearchTwitterPresentationTests: XCTestCase {
     }
 }
 
-extension SearchTwitterPresentationTests {
+extension SearchTwitterPresenterTests {
 
     func makeSut(twitterProfile: TwitterProfile = TwitterProfileSpy(),
                  tweetTimeLine: TweetTimeline = TweetTimelineSpy(),
                  delegate: SearchTwitterDelegate = SearchTwitterDelegateSpy(),
                  loadingView: LoadingView = LoadingViewSpy(),
-                 file: StaticString = #filePath, line: UInt = #line) -> SearchTwitterPresentation {
+                 file: StaticString = #filePath, line: UInt = #line) -> SearchTwitterPresenter {
         
-        let sut = SearchTwitterPresentation(twitterProfile: twitterProfile, tweetTimeline: tweetTimeLine, delegate: delegate, loadingView: loadingView)
+        let sut = SearchTwitterPresenter(twitterProfile: twitterProfile, tweetTimeline: tweetTimeLine, delegate: delegate, loadingView: loadingView)
         checkMemoryLeak(for: sut, file: file, line: line)
         return sut
     }

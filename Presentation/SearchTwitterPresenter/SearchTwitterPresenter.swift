@@ -14,7 +14,7 @@ public protocol SearchTwitterDelegate: AnyObject {
     func goToTimeline(_ tweetTimelineViewModel: [TweetViewModel], _ twitterProfileViewModel: TwitterProfileViewModel)
 }
 
-public final class SearchTwitterPresentation {
+public final class SearchTwitterPresenter {
     
     private let twitterProfile: TwitterProfile
     private let tweetTimeline: TweetTimeline
