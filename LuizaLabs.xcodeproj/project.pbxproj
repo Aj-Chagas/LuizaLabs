@@ -44,8 +44,11 @@
 		B4C264D226C35907007A614E /* UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C264C926C35907007A614E /* UI.framework */; };
 		B4C264D726C35907007A614E /* SearchTwitterViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C264D626C35907007A614E /* SearchTwitterViewControllerTests.swift */; };
 		B4C264EF26C35958007A614E /* SearchTwitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C264EE26C35958007A614E /* SearchTwitterViewController.swift */; };
-		B4C2655326C35BF4007A614E /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2655226C35BF4007A614E /* CodeView.swift */; };
 		B4C2655C26C35C73007A614E /* SearchTwitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2655B26C35C73007A614E /* SearchTwitterView.swift */; };
+		B4C2657626C35E58007A614E /* BaseSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2657526C35E58007A614E /* BaseSnapshot.swift */; };
+		B4C2658826C36282007A614E /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2658726C36282007A614E /* UIColorExtensions.swift */; };
+		B4C265CF26C36BAF007A614E /* ControllerWithMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C265CE26C36BAF007A614E /* ControllerWithMainView.swift */; };
+		B4C265D826C36CBC007A614E /* SearchTwitterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4C265D726C36CBC007A614E /* SearchTwitterStoryboard.storyboard */; };
 		B4F5A1B926C33605003289F6 /* TwitterProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5A1B826C33605003289F6 /* TwitterProfileViewModel.swift */; };
 		B4F5A1BF26C33A4D003289F6 /* XCTestCaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4370B0E26C025220070C155 /* XCTestCaseExtensions.swift */; };
 		B4F5A1C526C33A51003289F6 /* XCTestCaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4370B0E26C025220070C155 /* XCTestCaseExtensions.swift */; };
@@ -219,8 +222,11 @@
 		B4C264D626C35907007A614E /* SearchTwitterViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTwitterViewControllerTests.swift; sourceTree = "<group>"; };
 		B4C264D826C35907007A614E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4C264EE26C35958007A614E /* SearchTwitterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTwitterViewController.swift; sourceTree = "<group>"; };
-		B4C2655226C35BF4007A614E /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		B4C2655B26C35C73007A614E /* SearchTwitterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTwitterView.swift; sourceTree = "<group>"; };
+		B4C2657526C35E58007A614E /* BaseSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSnapshot.swift; sourceTree = "<group>"; };
+		B4C2658726C36282007A614E /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		B4C265CE26C36BAF007A614E /* ControllerWithMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerWithMainView.swift; sourceTree = "<group>"; };
+		B4C265D726C36CBC007A614E /* SearchTwitterStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchTwitterStoryboard.storyboard; sourceTree = "<group>"; };
 		B4F5A1B826C33605003289F6 /* TwitterProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterProfileViewModel.swift; sourceTree = "<group>"; };
 		B4F5A1CC26C33D32003289F6 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B4F5A1F126C34295003289F6 /* LoadingViewSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewSpy.swift; sourceTree = "<group>"; };
@@ -490,7 +496,7 @@
 		B4C264CA26C35907007A614E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				B4C2655126C35BE4007A614E /* Helper */,
+				B4C2655126C35BE4007A614E /* Helpers */,
 				B4C2654126C35BD2007A614E /* Scenes */,
 				B4C264CC26C35907007A614E /* Info.plist */,
 			);
@@ -500,6 +506,7 @@
 		B4C264D526C35907007A614E /* UITests */ = {
 			isa = PBXGroup;
 			children = (
+				B4C2656D26C35E41007A614E /* Helpers */,
 				B4C2654226C35BDD007A614E /* Scenes */,
 				B4C264D826C35907007A614E /* Info.plist */,
 			);
@@ -511,6 +518,7 @@
 			children = (
 				B4C264EE26C35958007A614E /* SearchTwitterViewController.swift */,
 				B4C2655B26C35C73007A614E /* SearchTwitterView.swift */,
+				B4C265D726C36CBC007A614E /* SearchTwitterStoryboard.storyboard */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -523,12 +531,21 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		B4C2655126C35BE4007A614E /* Helper */ = {
+		B4C2655126C35BE4007A614E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				B4C2655226C35BF4007A614E /* CodeView.swift */,
+				B4C2658726C36282007A614E /* UIColorExtensions.swift */,
+				B4C265CE26C36BAF007A614E /* ControllerWithMainView.swift */,
 			);
-			path = Helper;
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B4C2656D26C35E41007A614E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B4C2657526C35E58007A614E /* BaseSnapshot.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		B4F5A1CB26C33D1F003289F6 /* View */ = {
@@ -1090,6 +1107,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4C265D826C36CBC007A614E /* SearchTwitterStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1457,7 +1475,8 @@
 			files = (
 				B4C2655C26C35C73007A614E /* SearchTwitterView.swift in Sources */,
 				B4C264EF26C35958007A614E /* SearchTwitterViewController.swift in Sources */,
-				B4C2655326C35BF4007A614E /* CodeView.swift in Sources */,
+				B4C2658826C36282007A614E /* UIColorExtensions.swift in Sources */,
+				B4C265CF26C36BAF007A614E /* ControllerWithMainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1465,6 +1484,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4C2657626C35E58007A614E /* BaseSnapshot.swift in Sources */,
 				B4C264D726C35907007A614E /* SearchTwitterViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

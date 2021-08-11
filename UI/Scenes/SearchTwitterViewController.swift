@@ -7,13 +7,10 @@
 
 import UIKit
 
-class SearchTwitterViewController: UIViewController {
+class SearchTwitterViewController: UIViewController, ControllerWithMainView {
+    typealias MainView = SearchTwitterView
     
-    lazy var searchTwitterView: SearchTwitterView = {
-        SearchTwitterView(frame: .zero)
-    }()
-    
-    override func loadView() {
-        self.view = searchTwitterView
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
 }
