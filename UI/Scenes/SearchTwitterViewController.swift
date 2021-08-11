@@ -7,10 +7,10 @@
 
 import UIKit
 
-class SearchTwitterViewController: UIViewController, ControllerWithMainView {
+public final class SearchTwitterViewController: UIViewController, ControllerWithMainView, Storyboarded {
     typealias MainView = SearchTwitterView
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
     }
 }

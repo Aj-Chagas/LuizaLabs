@@ -20,8 +20,6 @@ end
 
 target 'UI' do
 
-  pod 'SnapKit', '~> 5.0.0'
-
   target 'UITests' do
     pod 'Nimble', '~> 9.0.1'
     pod 'Nimble-Snapshots', '~> 9.1.0'
@@ -43,4 +41,9 @@ end
 
 target 'UseCaseIntegrationTests' do
     pod 'Alamofire', '5.4.3'
- end
+end
+
+target 'Main' do
+  target 'MainTests' do
+  end
+end

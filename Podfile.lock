@@ -12,14 +12,12 @@ PODS:
     - iOSSnapshotTestCase (~> 6.0)
     - Nimble
   - Quick (3.1.2)
-  - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (= 5.4.3)
   - Nimble (~> 9.0.1)
   - Nimble-Snapshots (~> 9.1.0)
   - Quick (~> 3.1.2)
-  - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
@@ -28,7 +26,6 @@ SPEC REPOS:
     - Nimble
     - Nimble-Snapshots
     - Quick
-    - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
@@ -36,8 +33,7 @@ SPEC CHECKSUMS:
   Nimble: 7bed62ffabd6dbfe05f5925cbc43722533248990
   Nimble-Snapshots: 6605431525245f967ca9d558bb12a49da3d040e3
   Quick: 60f0ea3b8e0cfc0df3259a5c06a238ad8b3c46e0
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 8ae6f16e673c27873740e6b65980ebea6a0ab788
+PODFILE CHECKSUM: 646afe04c7eec7c71d3ce2d281ed32885ddee7c0
 
 COCOAPODS: 1.10.1
