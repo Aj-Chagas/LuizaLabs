@@ -11,11 +11,11 @@ import Presentation
 
 public func makeSearchTwitterFactory(router: SearchTwitterRouter) -> SearchTwitterViewController {
     let controller = SearchTwitterViewController.instantiate()
-    let twitterProfile = makeRemoteTwitterProfile()
-    let tweetTimeline = makeRemoteTweetTimeline()
-    let presenter = SearchTwitterPresenter(twitterProfile: twitterProfile, tweetTimeline: tweetTimeline, delegate: controller, loadingView: controller)
+    let presenter = SearchTwitterPresenter(twitterProfile: makeRemoteTwitterProfile(),
+                                           tweetTimeline: makeRemoteTweetTimeline(),
+                                           delegate: WeakVarProxy(controller),
+                                           loadingView: WeakVarProxy(controller))
     controller.searchTwitter = presenter.searchTwitter
-
     controller.errorFactory = router.goToError
     controller.tweetTimelineFactory = router.goToTweetTimeline
     return controller
