@@ -35,6 +35,16 @@ extension WeakVarProxy: SearchTwitterDelegate where T: SearchTwitterDelegate {
     func goToTimeline(_ tweetTimelineViewModel: [TweetViewModel], _ twitterProfileViewModel: TwitterProfileViewModel) {
         instance?.goToTimeline(tweetTimelineViewModel, twitterProfileViewModel)
     }
+}
+
+extension WeakVarProxy: TimelineDelegate where T: TimelineDelegate {
+
+    func handlerError() {
+        instance?.handlerError()
+    }
     
+    func handlerSuccess(viewmodel: AnalyzeSentimentViewModel) {
+        instance?.handlerSuccess(viewmodel: viewmodel)
+    }
 
 }

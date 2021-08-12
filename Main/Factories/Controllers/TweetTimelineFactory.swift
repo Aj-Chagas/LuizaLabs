@@ -13,7 +13,9 @@ public func makeTweetTimeViewController(router: TweetTimelineRouter,
                                         twitterViewModel: TwitterProfileViewModel, tweetViewModel: [TweetViewModel]) -> TweetTimelineViewController {
     let controller = TweetTimelineViewController.instantiate()
 
-    let presenter = TimelinePresenter(analyzeSentiment: makeRemoteAnalyzeSentiment(), loadingView: controller, delegate: controller)
+    let presenter = TimelinePresenter(analyzeSentiment: makeRemoteAnalyzeSentiment(),
+                                      loadingView: WeakVarProxy(controller),
+                                      delegate: WeakVarProxy(controller))
 
     controller.analyzeSentimet = presenter.analyzeSentiment
     controller.goToError = router.goToError
