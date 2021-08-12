@@ -18,7 +18,7 @@ public final class TweetTimelineViewController: UIViewController, ControllerWith
     public var goToError: (() -> Void)?
     public var goToConclusion: ((_ tweet: String, _ sentimentViewModel: AnalyzeSentimentViewModel) -> Void)?
 
-    private var tweet: String?
+    var tweet: String?
 
     public override func viewDidLoad() {
         mainView.tableView.delegate = self

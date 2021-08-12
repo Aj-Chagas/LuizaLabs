@@ -6,8 +6,8 @@
 //
 
 import XCTest
-@testable import UI
 import Presentation
+@testable import UI
 
 class SearchTwitterViewControllerTests: XCTestCase {
 
