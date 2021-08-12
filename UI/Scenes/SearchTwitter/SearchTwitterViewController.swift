@@ -15,6 +15,11 @@ public final class SearchTwitterViewController: UIViewController, ControllerWith
     public var tweetTimelineFactory: ((UINavigationController, [TweetViewModel], TwitterProfileViewModel) -> Void)?
     public var searchTwitter: ((SearchTwitterRequest) -> Void)?
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        unregisterForKeyboardNotifications()
+    }
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -34,6 +39,7 @@ public final class SearchTwitterViewController: UIViewController, ControllerWith
         hideErrorView()
         setupSearchButton()
         hideKeyboardOnTap()
+        registerForKeyboardNotifications()
     }
     
     func hideErrorView() {
@@ -82,8 +88,28 @@ extension SearchTwitterViewController: SearchTwitterDelegate {
     
     public func goToTimeline(_ tweetTimelineViewModel: [TweetViewModel], _ twitterProfileViewModel: TwitterProfileViewModel) {
         guard let navController = navigationController else { return }
+        mainView.textField.resignFirstResponder()
         tweetTimelineFactory?(navController, tweetTimelineViewModel, twitterProfileViewModel)
     }
-    
+
+}
+
+extension SearchTwitterViewController: KeyboardSelector {
+    var viewBottomConstraint: NSLayoutConstraint! {
+        get {
+            self.mainView.bottomConstraint
+        }
+        set {
+            self.mainView.bottomConstraint = newValue
+        }
+    }
+
+    func keyBoardWillShow(_ sender: Notification) {
+        ajustViewToShowKeyboard(sender)
+    }
+
+    func keyBoardWillHide() {
+        ajustViewToHideKeyboard(height: 16)
+    }
 
 }

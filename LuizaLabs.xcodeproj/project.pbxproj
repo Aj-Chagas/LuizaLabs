@@ -82,6 +82,7 @@
 		B46C432C26C5702E00042551 /* ConclusionPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C432B26C5702E00042551 /* ConclusionPresenterTests.swift */; };
 		B46C434026C5797400042551 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C433F26C5797400042551 /* StringExtension.swift */; };
 		B46C434B26C5841A00042551 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C434A26C5841900042551 /* UIViewControllerExtensions.swift */; };
+		B46C435626C5855400042551 /* KeyboardSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C435526C5855400042551 /* KeyboardSelector.swift */; };
 		B4B0DF9B26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B0DF9A26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift */; };
 		B4BE9BA926C4511B00C1141F /* SearchTwitterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BE9BA826C4511B00C1141F /* SearchTwitterFactory.swift */; };
 		B4BE9BB326C4516600C1141F /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FEAE9326BEDBDA005F4A81 /* Domain.framework */; };
@@ -378,6 +379,7 @@
 		B46C432B26C5702E00042551 /* ConclusionPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionPresenterTests.swift; sourceTree = "<group>"; };
 		B46C433F26C5797400042551 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		B46C434A26C5841900042551 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		B46C435526C5855400042551 /* KeyboardSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSelector.swift; sourceTree = "<group>"; };
 		B4B0DF9A26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeSentimentIntegrationTests.swift; sourceTree = "<group>"; };
 		B4BE9BA826C4511B00C1141F /* SearchTwitterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTwitterFactory.swift; sourceTree = "<group>"; };
 		B4C264C926C35907007A614E /* UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -907,6 +909,7 @@
 				B43063AD26C4174E0054ED2A /* Storyboarded.swift */,
 				B46C433F26C5797400042551 /* StringExtension.swift */,
 				B46C434A26C5841900042551 /* UIViewControllerExtensions.swift */,
+				B46C435526C5855400042551 /* KeyboardSelector.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -2067,6 +2070,7 @@
 				B430646726C432B70054ED2A /* TweetTimelineView.swift in Sources */,
 				B4C264EF26C35958007A614E /* SearchTwitterViewController.swift in Sources */,
 				B46C42D426C4AC5B00042551 /* ConclusionView.swift in Sources */,
+				B46C435626C5855400042551 /* KeyboardSelector.swift in Sources */,
 				B46C434026C5797400042551 /* StringExtension.swift in Sources */,
 				B430643126C42E620054ED2A /* ErrorGenericViewController.swift in Sources */,
 				B430643C26C42E910054ED2A /* ErrorGenericView.swift in Sources */,
