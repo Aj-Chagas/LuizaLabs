@@ -12,7 +12,7 @@ public final class SearchTwitterViewController: UIViewController, ControllerWith
     typealias MainView = SearchTwitterView
     
     public var errorFactory: (() -> Void)?
-    public var tweetTimelineFactory: (() -> Void)?
+    public var tweetTimelineFactory: ((UINavigationController, [TweetViewModel], TwitterProfileViewModel) -> Void)?
     public var searchTwitter: ((SearchTwitterRequest) -> Void)?
 
     public override func viewDidLoad() {
@@ -80,7 +80,8 @@ extension SearchTwitterViewController: SearchTwitterDelegate {
     }
     
     public func goToTimeline(_ tweetTimelineViewModel: [TweetViewModel], _ twitterProfileViewModel: TwitterProfileViewModel) {
-        tweetTimelineFactory?()
+        guard let navController = navigationController else { return }
+        tweetTimelineFactory?(navController, tweetTimelineViewModel, twitterProfileViewModel)
     }
     
 

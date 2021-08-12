@@ -5,12 +5,9 @@
 //  Created by Anderson Chagas on 11/08/21.
 //
 
-import UIKit
+import Foundation
 import UI
 import Presentation
-import Domain
-import Data
-import Infra
 
 public func makeSearchTwitterFactory(router: SearchTwitterRouter) -> SearchTwitterViewController {
     let controller = SearchTwitterViewController.instantiate()

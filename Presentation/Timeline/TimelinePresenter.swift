@@ -26,9 +26,9 @@ public final class TimelinePresenter {
         self.delegate = delegate
     }
     
-    public func analyzeSentiment(with model: FetchAnalyzeSentimentModel) {
+    public func analyzeSentiment(with model: TimeLineRequest) {
         loadingView.display(viewModel: LoadingViewModel(isLoading: true))
-        analyzeSentiment.fetchAnalyzeSentiment(fetchTweetTimeLineModel: model) { [weak self] result in
+        analyzeSentiment.fetchAnalyzeSentiment(fetchTweetTimeLineModel: model.toFetchAnalyzeSentimentModel()) { [weak self] result in
             guard let self = self else { return }
             self.loadingView.display(viewModel: LoadingViewModel(isLoading: false))
             switch result {

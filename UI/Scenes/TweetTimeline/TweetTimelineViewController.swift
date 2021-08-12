@@ -12,9 +12,10 @@ public final class TweetTimelineViewController: UIViewController, ControllerWith
 
     typealias MainView = TweetTimelineView
 
-    public var twitterProfileViewModel: TwitterProfileViewModel?
+    public var twitterViewModel: TwitterProfileViewModel?
     public var tweetViewModel: [TweetViewModel]?
-    public var analyzeSentimet: (() -> Void)?
+    public var analyzeSentimet: ((TimeLineRequest) -> Void)?
+    public var goToError: (() -> Void)?
 
     public override func viewDidLoad() {
         mainView.tableView.delegate = self
@@ -28,6 +29,16 @@ public final class TweetTimelineViewController: UIViewController, ControllerWith
     
     public func display(viewModel: LoadingViewModel) {
 
+    }
+
+}
+
+extension TweetTimelineViewController: TimelineDelegate {
+
+    public func handlerError() {
+    }
+
+    public func handlerSuccess(viewmodel: AnalyzeSentimentViewModel) {
     }
 
 }
