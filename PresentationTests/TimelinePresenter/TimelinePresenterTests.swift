@@ -43,7 +43,11 @@ class TimelinePresenterTests: XCTestCase {
         
         analyzeSentiment.completionWithSuccess(model)
         
-        XCTAssertEqual(delegate.viewmodel, AnalyzeSentimentViewModel(analyzeSentiment: model))
+        let expectedViewModel = AnalyzeSentimentViewModel(analyzeSentiment: model)
+        
+        XCTAssertEqual(delegate.viewmodel, expectedViewModel)
+        XCTAssertEqual(delegate.viewmodel!.magnitude, expectedViewModel.magnitude)
+        XCTAssertEqual(delegate.viewmodel!.score, expectedViewModel.score)
     }
 
     func test_analyzeSentiment_should_should_show_loading_before_and_after_analyzeSentiment() {

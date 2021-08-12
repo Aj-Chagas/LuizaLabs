@@ -127,6 +127,18 @@ class SearchTwitterPresenterTests: XCTestCase {
         XCTAssert(searchTwitterSpy.errorScreen)
     }
 
+    func test_fetchTweetTimeline_should_call_showErrorMessage_when_tweetTimeline_completes_with_tweetsNotFound() {
+        let tweetTimeline = TweetTimelineSpy()
+        let searchTwitterSpy = SearchTwitterDelegateSpy()
+        let sut = makeSut(tweetTimeLine: tweetTimeline, delegate: searchTwitterSpy)
+        
+        sut.fetchTweetTimeline(with: makeTwitterProfileViewModel())
+        
+        tweetTimeline.completionWithError(.tweetsNotFound)
+        
+        XCTAssertEqual(searchTwitterSpy.errorMessage, "nenhum tweet encontrado")
+    }
+
     func test_fetchTweetTimeline_should_call_goToTimeline_when_tweetTimeline_completes_with_success() {
         let tweetTimeline = TweetTimelineSpy()
         let searchTwitterSpy = SearchTwitterDelegateSpy()
@@ -136,7 +148,11 @@ class SearchTwitterPresenterTests: XCTestCase {
         
         tweetTimeline.completionWithSuccess(twitterTimeline: makeTweetTimelineModel())
         
-        XCTAssertEqual(searchTwitterSpy.tweetViewModel, makeTweetViewModel())
+        let expectedViewModel = makeTweetViewModel()
+        XCTAssertEqual(searchTwitterSpy.tweetViewModel, expectedViewModel)
+        XCTAssertEqual(searchTwitterSpy.tweetViewModel![0].id, expectedViewModel[0].id)
+        XCTAssertEqual(searchTwitterSpy.tweetViewModel![0].text, expectedViewModel[0].text)
+        XCTAssertEqual(searchTwitterSpy.tweetViewModel![0].id, expectedViewModel[0].id)
     }
 
     func test_fetchTweetTimeline_should_should_hidden_loading_TweetTimeline() {
