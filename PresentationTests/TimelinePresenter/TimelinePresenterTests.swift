@@ -86,23 +86,3 @@ extension TimelinePresenterTests {
         return sut
     }
 }
-
-class AnalyzeSentimentSpy: AnalyzeSentiment {
-
-    var model: FetchAnalyzeSentimentModel?
-    var completion: ((AnalyzeSentiment.Result) -> Void)?
-
-    func fetchAnalyzeSentiment(fetchTweetTimeLineModel model: FetchAnalyzeSentimentModel, completion: @escaping (AnalyzeSentiment.Result) -> Void) {
-        self.model = model
-        self.completion = completion
-    }
-
-    func completionWithError(_ error: DomainError = .unexpected) {
-        completion?(.failure(.unexpected))
-    }
-    
-    func completionWithSuccess(_ model: AnalyzeSentimentModel) {
-        completion?(.success(model))
-    }
-
-}
