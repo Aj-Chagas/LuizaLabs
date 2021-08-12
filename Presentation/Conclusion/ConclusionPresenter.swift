@@ -19,11 +19,11 @@ public final class ConclusionPresenter {
         let score = analyzeSentimentViewModel.score
         
         if score >= 0.25 && score <= 1.0 {
-            return ("feliz", hexToGlyph("e008"))
+            return ("esse é um tweet feliz", hexToGlyph("1f603"))
         } else if score >= -0.25 && score <= 0.25 {
-            return ("neutro", hexToGlyph("e008"))
+            return ("esse é um tweet neutro", hexToGlyph("1f610"))
         } else {
-            return ("triste", hexToGlyph("e008"))
+            return ("esse é um tweet triste", hexToGlyph("1f641"))
         }
     }
     

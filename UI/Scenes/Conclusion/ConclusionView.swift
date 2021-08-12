@@ -13,5 +13,5 @@ class ConclusionView: UIView {
     @IBOutlet weak var tweetLabel: UILabel!
     @IBOutlet weak var secondTitle: UILabel!
     @IBOutlet weak var resultLabel: UILabel!
-    @IBOutlet weak var resultIcon: UIImageView!
+    @IBOutlet weak var resultIcon: UILabel!
 }

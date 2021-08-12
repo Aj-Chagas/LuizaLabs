@@ -47,19 +47,23 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="J3G-m5-HLd">
-                                                <rect key="frame" x="183" y="208.5" width="48" height="47"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VmG-sK-e1N">
+                                                <rect key="frame" x="183" y="200" width="48" height="48"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="4X1-bf-Cpm"/>
-                                                    <constraint firstAttribute="width" constant="48" id="5hi-H2-Y6K"/>
+                                                    <constraint firstAttribute="height" constant="48" id="Ahp-wF-4OY"/>
+                                                    <constraint firstAttribute="width" constant="48" id="S66-um-shg"/>
                                                 </constraints>
-                                            </imageView>
+                                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="J3G-m5-HLd" firstAttribute="centerX" secondItem="phK-wQ-09h" secondAttribute="centerX" id="5Nt-a4-Zf6"/>
                                             <constraint firstItem="ARP-dO-caf" firstAttribute="trailing" secondItem="t2o-cq-r8r" secondAttribute="trailing" id="6jT-iz-45n"/>
                                             <constraint firstItem="a7q-Qz-7Bk" firstAttribute="trailing" secondItem="ARP-dO-caf" secondAttribute="trailing" id="8mO-eP-Gwg"/>
+                                            <constraint firstItem="VmG-sK-e1N" firstAttribute="top" secondItem="a7q-Qz-7Bk" secondAttribute="bottom" constant="8" id="INq-eI-fXM"/>
+                                            <constraint firstItem="VmG-sK-e1N" firstAttribute="centerX" secondItem="phK-wQ-09h" secondAttribute="centerX" id="Igl-xG-MrV"/>
                                             <constraint firstAttribute="trailing" secondItem="rHy-x5-Ze0" secondAttribute="trailing" constant="16" id="IlJ-f2-pAu"/>
                                             <constraint firstItem="a7q-Qz-7Bk" firstAttribute="leading" secondItem="ARP-dO-caf" secondAttribute="leading" id="JJy-KM-XNv"/>
                                             <constraint firstItem="t2o-cq-r8r" firstAttribute="leading" secondItem="rHy-x5-Ze0" secondAttribute="leading" id="JaH-UE-Jze"/>
@@ -70,8 +74,6 @@
                                             <constraint firstItem="ARP-dO-caf" firstAttribute="leading" secondItem="t2o-cq-r8r" secondAttribute="leading" id="biU-h8-Ybp"/>
                                             <constraint firstItem="t2o-cq-r8r" firstAttribute="top" secondItem="rHy-x5-Ze0" secondAttribute="bottom" constant="8" id="hcO-4K-fnY"/>
                                             <constraint firstItem="t2o-cq-r8r" firstAttribute="trailing" secondItem="rHy-x5-Ze0" secondAttribute="trailing" id="hsO-Sr-N7P"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="J3G-m5-HLd" secondAttribute="bottom" priority="250" constant="16" id="xIb-hd-Cwv"/>
-                                            <constraint firstItem="J3G-m5-HLd" firstAttribute="top" secondItem="a7q-Qz-7Bk" secondAttribute="bottom" constant="16" id="xNe-Ve-vWw"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -94,7 +96,7 @@
                             <constraint firstItem="bs6-kx-DUN" firstAttribute="bottom" secondItem="wkq-Ab-Lep" secondAttribute="bottom" id="cRZ-n4-qdQ"/>
                         </constraints>
                         <connections>
-                            <outlet property="resultIcon" destination="J3G-m5-HLd" id="o7q-5R-XLz"/>
+                            <outlet property="resultIcon" destination="VmG-sK-e1N" id="c2u-vA-aBm"/>
                             <outlet property="resultLabel" destination="a7q-Qz-7Bk" id="5yt-MP-Ltx"/>
                             <outlet property="secondTitle" destination="ARP-dO-caf" id="RxA-Ee-pW8"/>
                             <outlet property="titleLabel" destination="rHy-x5-Ze0" id="PIH-Us-2x9"/>
@@ -108,7 +110,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pencil.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

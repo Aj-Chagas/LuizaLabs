@@ -65,8 +65,9 @@ extension TweetTimelineViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let tweet = tweetViewModel?[indexPath.row].text else { return }
-        analyzeSentimet?(TimeLineRequest(tweet: tweet))
+        guard let safetweet = tweetViewModel?[indexPath.row].text else { return }
+        self.tweet = safetweet
+        analyzeSentimet?(TimeLineRequest(tweet: safetweet))
     }
     
 }
