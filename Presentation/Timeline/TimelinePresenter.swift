@@ -38,20 +38,3 @@ public final class TimelinePresenter {
         }
     }
 }
-
-public struct AnalyzeSentimentViewModel: Model {
-    private let analyzeSentiment: AnalyzeSentimentModel
-
-    public init(analyzeSentiment: AnalyzeSentimentModel) {
-        self.analyzeSentiment = analyzeSentiment
-    }
-
-    public var magnitude: Double {
-        analyzeSentiment.documentSentiment.magnitude
-    }
-
-    public var score: Double {
-        analyzeSentiment.documentSentiment.score
-    }
-
-}
