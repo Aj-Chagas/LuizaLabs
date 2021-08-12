@@ -26,7 +26,9 @@ public final class ConclusionViewController: UIViewController, ControllerWithMai
     }
 
     func calculateAnalizeSentiment() {
-        let (text, icon) = calculateSentiment!(analyzeSentimentViewModel!.score)
+        guard let score = analyzeSentimentViewModel?.score,
+              let calculateSentiment = calculateSentiment else { return }
+        let (text, icon) = calculateSentiment(score)
         mainView.resultLabel.text = text
         mainView.resultIcon.text = icon.hexToGlyph()
     }
