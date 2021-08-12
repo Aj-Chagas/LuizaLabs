@@ -148,11 +148,16 @@ class SearchTwitterPresenterTests: XCTestCase {
         
         tweetTimeline.completionWithSuccess(twitterTimeline: makeTweetTimelineModel())
         
-        let expectedViewModel = makeTweetViewModel()
-        XCTAssertEqual(searchTwitterSpy.tweetViewModel, expectedViewModel)
-        XCTAssertEqual(searchTwitterSpy.tweetViewModel![0].id, expectedViewModel[0].id)
-        XCTAssertEqual(searchTwitterSpy.tweetViewModel![0].text, expectedViewModel[0].text)
-        XCTAssertEqual(searchTwitterSpy.tweetViewModel![0].id, expectedViewModel[0].id)
+        let expectedTweetViewModel = makeTweetViewModel()
+        XCTAssertEqual(searchTwitterSpy.tweetViewModel, expectedTweetViewModel)
+        XCTAssertEqual(searchTwitterSpy.tweetViewModel![0].id, expectedTweetViewModel[0].id)
+        XCTAssertEqual(searchTwitterSpy.tweetViewModel![0].text, expectedTweetViewModel[0].text)
+        
+        let expectedTwitterViewModel = makeTwitterProfileViewModel()
+        XCTAssertEqual(searchTwitterSpy.twitterProfileViewModel!, expectedTwitterViewModel)
+        XCTAssertEqual(searchTwitterSpy.twitterProfileViewModel!.id, expectedTwitterViewModel.id)
+        XCTAssertEqual(searchTwitterSpy.twitterProfileViewModel!.name, expectedTwitterViewModel.name)
+        XCTAssertEqual(searchTwitterSpy.twitterProfileViewModel!.username, expectedTwitterViewModel.username)
     }
 
     func test_fetchTweetTimeline_should_should_hidden_loading_TweetTimeline() {
