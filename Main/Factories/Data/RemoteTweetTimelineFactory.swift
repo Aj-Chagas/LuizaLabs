@@ -13,5 +13,8 @@ private let Kbearer = "Bearer AAAAAAAAAAAAAAAAAAAAAI7RSQEAAAAA6Xlma4v%2FZ%2BZ7pv
 private let kAuthorization = "Authorization"
 
 func makeRemoteTweetTimeline() -> RemoteTweetTimeline {
-    RemoteTweetTimeline(url: URL(string: ktwitterProfileURL)!, httpGetClient: makeAlamofireAdapter(), header: [kAuthorization: Kbearer])
+    var urlComponents = URLComponents(string: ktwitterProfileURL)
+    urlComponents?.queryItems = [URLQueryItem(name: "max_results", value: "100")]
+    let url = urlComponents!.url!.absoluteURL
+    return RemoteTweetTimeline(url: url, httpGetClient: makeAlamofireAdapter(), header: [kAuthorization: Kbearer])
 }
