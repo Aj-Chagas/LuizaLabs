@@ -83,6 +83,8 @@
 		B46C434026C5797400042551 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C433F26C5797400042551 /* StringExtension.swift */; };
 		B46C434B26C5841A00042551 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C434A26C5841900042551 /* UIViewControllerExtensions.swift */; };
 		B46C435626C5855400042551 /* KeyboardSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C435526C5855400042551 /* KeyboardSelector.swift */; };
+		B46C436026C5A3EC00042551 /* XCTestCaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4370B0E26C025220070C155 /* XCTestCaseExtensions.swift */; };
+		B46C436A26C5A3EE00042551 /* XCTestCaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4370B0E26C025220070C155 /* XCTestCaseExtensions.swift */; };
 		B4B0DF9B26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B0DF9A26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift */; };
 		B4BE9BA926C4511B00C1141F /* SearchTwitterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BE9BA826C4511B00C1141F /* SearchTwitterFactory.swift */; };
 		B4BE9BB326C4516600C1141F /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FEAE9326BEDBDA005F4A81 /* Domain.framework */; };
@@ -2000,6 +2002,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B46C436A26C5A3EE00042551 /* XCTestCaseExtensions.swift in Sources */,
 				B430635826C4146D0054ED2A /* MainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2087,6 +2090,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B46C436026C5A3EC00042551 /* XCTestCaseExtensions.swift in Sources */,
 				B4C2657626C35E58007A614E /* BaseSnapshot.swift in Sources */,
 				B4C264D726C35907007A614E /* SearchTwitterViewControllerTests.swift in Sources */,
 			);
