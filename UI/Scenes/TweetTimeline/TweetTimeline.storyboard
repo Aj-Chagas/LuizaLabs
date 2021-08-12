@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" red="0.039215686270000001" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="k3J-MC-Hgx">
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="k3J-MC-Hgx" customClass="TweetTimelineHeader" customModule="UI" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -48,9 +48,13 @@
                                         <constraint firstItem="bzZ-Ig-D4i" firstAttribute="top" secondItem="k3J-MC-Hgx" secondAttribute="top" constant="16" id="cBg-nC-YpD"/>
                                         <constraint firstItem="qU2-Mg-dDc" firstAttribute="leading" secondItem="k3J-MC-Hgx" secondAttribute="leading" constant="16" id="xkg-Mj-hap"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="subTitleLabel" destination="qU2-Mg-dDc" id="u0c-dz-pH7"/>
+                                        <outlet property="titleLabel" destination="bzZ-Ig-D4i" id="eHz-PK-faU"/>
+                                    </connections>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="C3N-RS-50J">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetTimelineTableViewCell" id="C3N-RS-50J" customClass="TweetTimelineTableViewCell" customModule="UI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="153" width="414" height="99.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C3N-RS-50J" id="me5-oX-EKv">
@@ -80,6 +84,10 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="Vhh-Ff-ASV" secondAttribute="bottom" constant="8" id="j3a-rp-Khc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="arrowRight" destination="wex-fn-RYB" id="Sgi-5a-gV2"/>
+                                            <outlet property="tweetLabel" destination="Vhh-Ff-ASV" id="B1Q-Rm-Fbw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

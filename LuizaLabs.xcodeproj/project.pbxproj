@@ -64,6 +64,8 @@
 		B46C41FF26C486A000042551 /* RemoteTweetTimelineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C41FE26C486A000042551 /* RemoteTweetTimelineFactory.swift */; };
 		B46C420B26C486F700042551 /* SearchTwitterRouterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C420A26C486F700042551 /* SearchTwitterRouterFactory.swift */; };
 		B46C422026C488D500042551 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C421F26C488D500042551 /* NavigationController.swift */; };
+		B46C423526C498E200042551 /* TweetTimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C423426C498E200042551 /* TweetTimelineTableViewCell.swift */; };
+		B46C424026C499B700042551 /* TweetTimelineHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C423F26C499B700042551 /* TweetTimelineHeader.swift */; };
 		B4B0DF9B26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B0DF9A26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift */; };
 		B4BE9BA926C4511B00C1141F /* SearchTwitterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BE9BA826C4511B00C1141F /* SearchTwitterFactory.swift */; };
 		B4BE9BB326C4516600C1141F /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FEAE9326BEDBDA005F4A81 /* Domain.framework */; };
@@ -342,6 +344,8 @@
 		B46C41FE26C486A000042551 /* RemoteTweetTimelineFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTweetTimelineFactory.swift; sourceTree = "<group>"; };
 		B46C420A26C486F700042551 /* SearchTwitterRouterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTwitterRouterFactory.swift; sourceTree = "<group>"; };
 		B46C421F26C488D500042551 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		B46C423426C498E200042551 /* TweetTimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTimelineTableViewCell.swift; sourceTree = "<group>"; };
+		B46C423F26C499B700042551 /* TweetTimelineHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTimelineHeader.swift; sourceTree = "<group>"; };
 		B4B0DF9A26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeSentimentIntegrationTests.swift; sourceTree = "<group>"; };
 		B4BE9BA826C4511B00C1141F /* SearchTwitterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTwitterFactory.swift; sourceTree = "<group>"; };
 		B4C264C926C35907007A614E /* UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -632,6 +636,7 @@
 		B430645126C4326E0054ED2A /* TweetTimeline */ = {
 			isa = PBXGroup;
 			children = (
+				B46C423326C498C500042551 /* cells */,
 				B430645226C432930054ED2A /* TweetTimelineViewController.swift */,
 				B430646626C432B70054ED2A /* TweetTimelineView.swift */,
 				B430647126C432DE0054ED2A /* TweetTimeline.storyboard */,
@@ -777,6 +782,15 @@
 				B46C421F26C488D500042551 /* NavigationController.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B46C423326C498C500042551 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				B46C423426C498E200042551 /* TweetTimelineTableViewCell.swift */,
+				B46C423F26C499B700042551 /* TweetTimelineHeader.swift */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 		B4C264CA26C35907007A614E /* UI */ = {
@@ -1969,9 +1983,11 @@
 				B4C264EF26C35958007A614E /* SearchTwitterViewController.swift in Sources */,
 				B430643126C42E620054ED2A /* ErrorGenericViewController.swift in Sources */,
 				B430643C26C42E910054ED2A /* ErrorGenericView.swift in Sources */,
+				B46C423526C498E200042551 /* TweetTimelineTableViewCell.swift in Sources */,
 				B43063AE26C4174E0054ED2A /* Storyboarded.swift in Sources */,
 				B4C2658826C36282007A614E /* UIColorExtensions.swift in Sources */,
 				B4C265CF26C36BAF007A614E /* ControllerWithMainView.swift in Sources */,
+				B46C424026C499B700042551 /* TweetTimelineHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
