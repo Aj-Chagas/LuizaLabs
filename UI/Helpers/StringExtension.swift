@@ -9,7 +9,7 @@ import Foundation
 
 extension String {
 
-    private func hexToGlyph() -> String {
+    func hexToGlyph() -> String {
         guard let charAsInt = Int(self, radix: 16),
               let uScalar = UnicodeScalar(charAsInt) else { return String() }
         return String(uScalar)

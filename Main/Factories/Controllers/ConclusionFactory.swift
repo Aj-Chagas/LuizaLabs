@@ -12,9 +12,11 @@ import Presentation
 public func makeConclusionFactory(tweet: String,
                                   analyzeSentimentViewModel: AnalyzeSentimentViewModel) -> ConclusionViewController {
     let controller = ConclusionViewController.instantiate()
-    let presenter = ConclusionPresenter(analyzeSentimentViewModel: analyzeSentimentViewModel)
+    let presenter = ConclusionPresenter()
     
     controller.tweet = tweet
+    controller.analyzeSentimentViewModel = analyzeSentimentViewModel
+    
     controller.calculateSentiment = presenter.calculateSentiment
     
     return controller

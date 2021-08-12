@@ -13,14 +13,14 @@ public final class ConclusionViewController: UIViewController, ControllerWithMai
     typealias MainView = ConclusionView
 
     public var tweet: String?
-    public var calculateSentiment: (() -> (text: String, icon: String))?
+    public var analyzeSentimentViewModel: AnalyzeSentimentViewModel?
+    public var calculateSentiment: ((Double) -> (text: String, icon: String))?
 
     public override func viewDidLoad() {
         mainView.tweetLabel.text = tweet
-        let (text, icon) = calculateSentiment!()
+        let (text, icon) = calculateSentiment!(analyzeSentimentViewModel!.score)
         mainView.resultLabel.text = text
-        mainView.resultIcon.text = icon
-        
+        mainView.resultIcon.text = icon.hexToGlyph()
     }
 
 }
