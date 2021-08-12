@@ -73,7 +73,6 @@
 		B46C420B26C486F700042551 /* SearchTwitterRouterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C420A26C486F700042551 /* SearchTwitterRouterFactory.swift */; };
 		B46C422026C488D500042551 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C421F26C488D500042551 /* NavigationController.swift */; };
 		B46C423526C498E200042551 /* TweetTimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C423426C498E200042551 /* TweetTimelineTableViewCell.swift */; };
-		B46C424026C499B700042551 /* TweetTimelineHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C423F26C499B700042551 /* TweetTimelineHeader.swift */; };
 		B46C424B26C49DC700042551 /* TweetTimelineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C424A26C49DC700042551 /* TweetTimelineFactory.swift */; };
 		B46C425626C49EBC00042551 /* RemoteAnalyzeSentimentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C425526C49EBC00042551 /* RemoteAnalyzeSentimentFactory.swift */; };
 		B46C426126C4A01100042551 /* TimeLineRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C426026C4A01100042551 /* TimeLineRequest.swift */; };
@@ -376,7 +375,6 @@
 		B46C420A26C486F700042551 /* SearchTwitterRouterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTwitterRouterFactory.swift; sourceTree = "<group>"; };
 		B46C421F26C488D500042551 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		B46C423426C498E200042551 /* TweetTimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTimelineTableViewCell.swift; sourceTree = "<group>"; };
-		B46C423F26C499B700042551 /* TweetTimelineHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTimelineHeader.swift; sourceTree = "<group>"; };
 		B46C424A26C49DC700042551 /* TweetTimelineFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTimelineFactory.swift; sourceTree = "<group>"; };
 		B46C425526C49EBC00042551 /* RemoteAnalyzeSentimentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAnalyzeSentimentFactory.swift; sourceTree = "<group>"; };
 		B46C426026C4A01100042551 /* TimeLineRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineRequest.swift; sourceTree = "<group>"; };
@@ -862,7 +860,6 @@
 			isa = PBXGroup;
 			children = (
 				B46C423426C498E200042551 /* TweetTimelineTableViewCell.swift */,
-				B46C423F26C499B700042551 /* TweetTimelineHeader.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -2119,7 +2116,6 @@
 				B46C42C026C4AC3000042551 /* ConclusionViewController.swift in Sources */,
 				B4C2658826C36282007A614E /* UIColorExtensions.swift in Sources */,
 				B4C265CF26C36BAF007A614E /* ControllerWithMainView.swift in Sources */,
-				B46C424026C499B700042551 /* TweetTimelineHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

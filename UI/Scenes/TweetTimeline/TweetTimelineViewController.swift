@@ -21,6 +21,7 @@ public final class TweetTimelineViewController: UIViewController, ControllerWith
     var tweet: String?
 
     public override func viewDidLoad() {
+        setupViews()
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
     }
@@ -28,6 +29,11 @@ public final class TweetTimelineViewController: UIViewController, ControllerWith
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = "Timeline"
+    }
+    
+    func setupViews() {
+        let username: String = twitterViewModel?.username ?? String()
+        mainView.titleLabel.text = "Timeline do @\(username) com os últimos 100 tweets."
     }
     
     public func display(viewModel: LoadingViewModel) {

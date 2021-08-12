@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" red="0.039215686270000001" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="k3J-MC-Hgx" customClass="TweetTimelineHeader" customModule="UI" customModuleProvider="target">
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="k3J-MC-Hgx">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="141"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -48,10 +48,6 @@
                                         <constraint firstItem="bzZ-Ig-D4i" firstAttribute="top" secondItem="k3J-MC-Hgx" secondAttribute="top" constant="32" id="cBg-nC-YpD"/>
                                         <constraint firstItem="qU2-Mg-dDc" firstAttribute="leading" secondItem="k3J-MC-Hgx" secondAttribute="leading" constant="16" id="xkg-Mj-hap"/>
                                     </constraints>
-                                    <connections>
-                                        <outlet property="subTitleLabel" destination="qU2-Mg-dDc" id="u0c-dz-pH7"/>
-                                        <outlet property="titleLabel" destination="bzZ-Ig-D4i" id="eHz-PK-faU"/>
-                                    </connections>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetTimelineTableViewCell" id="C3N-RS-50J" customClass="TweetTimelineTableViewCell" customModule="UI" customModuleProvider="target">
@@ -108,7 +104,9 @@
                         </constraints>
                         <connections>
                             <outlet property="loadingIndicator" destination="w36-zv-mYO" id="4Ph-NJ-zok"/>
+                            <outlet property="subTitleLabel" destination="qU2-Mg-dDc" id="zSL-lU-PXB"/>
                             <outlet property="tableView" destination="7HG-Vf-ecP" id="a1L-2Q-FLF"/>
+                            <outlet property="titleLabel" destination="bzZ-Ig-D4i" id="RDz-Bf-VUF"/>
                         </connections>
                     </view>
                 </viewController>

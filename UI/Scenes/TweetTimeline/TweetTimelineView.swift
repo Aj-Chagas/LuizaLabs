@@ -8,6 +8,10 @@
 import UIKit
 
 class TweetTimelineView: UIView {
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 }
