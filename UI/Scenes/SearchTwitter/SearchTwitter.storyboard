@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Digite um nome de usuário do twitter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ml1-WN-taq">
-                                <rect key="frame" x="16" y="76" width="382" height="24"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <rect key="frame" x="16" y="76" width="382" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="@luizalabs" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="or2-MX-YSl">
-                                <rect key="frame" x="16" y="104" width="382" height="48"/>
+                                <rect key="frame" x="16" y="100.5" width="382" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="55Q-cb-LhT"/>
                                 </constraints>
@@ -32,14 +32,14 @@
                                 <textInputTraits key="textInputTraits" keyboardType="twitter" returnKeyType="search"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yfb-6g-VCV">
-                                <rect key="frame" x="16" y="152" width="382" height="2"/>
+                                <rect key="frame" x="16" y="148.5" width="382" height="2"/>
                                 <color key="backgroundColor" red="0.039215686274509803" green="0.51764705882352935" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="kOg-FO-sVo"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIP-zB-iac" userLabel="erroView">
-                                <rect key="frame" x="16" y="158" width="382" height="16"/>
+                                <rect key="frame" x="16" y="154.5" width="382" height="16"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="nome de usuário não encontrado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fo-eN-3wk">
                                         <rect key="frame" x="20" y="0.0" width="362" height="16"/>
