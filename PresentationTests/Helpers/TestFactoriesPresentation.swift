@@ -20,3 +20,7 @@ func makeTweetViewModel() -> [TweetViewModel] {
 func makeTwitterProfileViewModel() -> TwitterProfileViewModel {
     TwitterProfileViewModel(twitterProfile: makeTwitterProfileModel())
 }
+
+func makeTimelineRequest() -> TimeLineRequest {
+    TimeLineRequest(tweet: "any_tweet")
+}

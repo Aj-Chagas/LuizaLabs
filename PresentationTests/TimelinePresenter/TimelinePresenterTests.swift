@@ -12,18 +12,18 @@ import Presentation
 class TimelinePresenterTests: XCTestCase {
     func test_analyzeSentiment_should_call_twitter_profile_with_correct_values() {
         let analyzeSentiment = AnalyzeSentimentSpy()
-        let model = makeFetchAnalyzeSentimentModel()
+        let model = makeTimelineRequest()
         let sut = makeSut(analyzeSentiment: analyzeSentiment)
         
         sut.analyzeSentiment(with: model)
         
-        XCTAssertEqual(analyzeSentiment.model, model)
+        XCTAssertEqual(analyzeSentiment.model, model.toFetchAnalyzeSentimentModel())
     }
 
     func test_analyzeSentiment_should_call_handlerError_when_analyzeSentiment_completes_with_failure() {
         let analyzeSentiment = AnalyzeSentimentSpy()
         let delegate = TimelineDelegateSpy()
-        let model = makeFetchAnalyzeSentimentModel()
+        let model = makeTimelineRequest()
         let sut = makeSut(analyzeSentiment: analyzeSentiment, delegate: delegate)
         
         sut.analyzeSentiment(with: model)
@@ -39,7 +39,7 @@ class TimelinePresenterTests: XCTestCase {
         let model = makeAnalyzeSentimentModel()
         let sut = makeSut(analyzeSentiment: analyzeSentiment, delegate: delegate)
         
-        sut.analyzeSentiment(with: makeFetchAnalyzeSentimentModel())
+        sut.analyzeSentiment(with: makeTimelineRequest())
         
         analyzeSentiment.completionWithSuccess(model)
         
@@ -59,7 +59,7 @@ class TimelinePresenterTests: XCTestCase {
                 XCTAssertEqual(viewModel, LoadingViewModel(isLoading: true))
                 exp.fulfill()
             }
-            sut.analyzeSentiment(with: makeFetchAnalyzeSentimentModel())
+            sut.analyzeSentiment(with: makeTimelineRequest())
             wait(for: [exp], timeout: 1)
         }
 

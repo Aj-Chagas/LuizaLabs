@@ -16,7 +16,7 @@ public struct TimeLineRequest: Model {
         self.tweet = tweet
     }
 
-    func toFetchAnalyzeSentimentModel() -> FetchAnalyzeSentimentModel {
+    public func toFetchAnalyzeSentimentModel() -> FetchAnalyzeSentimentModel {
         FetchAnalyzeSentimentModel(document: Document(content: tweet))
     }
 }
