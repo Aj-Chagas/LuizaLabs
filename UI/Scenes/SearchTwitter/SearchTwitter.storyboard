@@ -29,7 +29,7 @@
                                     <constraint firstAttribute="height" constant="48" id="55Q-cb-LhT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" keyboardType="twitter" returnKeyType="search"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="twitter" returnKeyType="search"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yfb-6g-VCV">
                                 <rect key="frame" x="16" y="148.5" width="382" height="2"/>
