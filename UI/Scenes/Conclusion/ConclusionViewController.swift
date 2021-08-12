@@ -17,10 +17,17 @@ public final class ConclusionViewController: UIViewController, ControllerWithMai
     public var calculateSentiment: ((Double) -> (text: String, icon: String))?
 
     public override func viewDidLoad() {
+        setupViews()
+        calculateAnalizeSentiment()
+    }
+
+    func setupViews() {
         mainView.tweetLabel.text = tweet
+    }
+
+    func calculateAnalizeSentiment() {
         let (text, icon) = calculateSentiment!(analyzeSentimentViewModel!.score)
         mainView.resultLabel.text = text
         mainView.resultIcon.text = icon.hexToGlyph()
     }
-
 }
