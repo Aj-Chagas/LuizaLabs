@@ -11,4 +11,14 @@ public class ErrorGenericViewController: UIViewController, Storyboarded, Control
     
     typealias MainView = ErrorGenericView
     
+    public override func viewDidLoad() {
+        mainView.backButton.layer.cornerRadius = 4
+        mainView.backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }
