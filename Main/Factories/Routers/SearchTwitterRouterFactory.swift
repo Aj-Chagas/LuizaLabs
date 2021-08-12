@@ -14,7 +14,8 @@ private let errorFactory: () -> ErrorGenericViewController = {
 }
 
 private let tweetTimelineController: (_ nav: UINavigationController, _ tweetViewModel: [TweetViewModel], _ twitterViewModel: TwitterProfileViewModel) -> TweetTimelineViewController = { nav, tweetViewModel, twitterViewModel in
-    return makeTweetTimeViewController(router: makeTweetTimelineRouter(nav: nav), twitterViewModel: twitterViewModel, tweetViewModel: tweetViewModel)
+    return makeTweetTimeViewController(router: makeTweetTimelineRouter(nav: nav),
+                                       twitterViewModel: twitterViewModel, tweetViewModel: tweetViewModel)
 }
 
 func makeSearchTwitterRouter(nav: UINavigationController) -> SearchTwitterRouter {
