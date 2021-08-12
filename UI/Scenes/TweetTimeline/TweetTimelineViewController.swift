@@ -31,7 +31,13 @@ public final class TweetTimelineViewController: UIViewController, ControllerWith
     }
     
     public func display(viewModel: LoadingViewModel) {
-
+        if viewModel.isLoading {
+            view.isUserInteractionEnabled = false
+            mainView.loadingIndicator?.startAnimating()
+        } else {
+            view.isUserInteractionEnabled = true
+            mainView.loadingIndicator?.stopAnimating()
+        }
     }
 
 }

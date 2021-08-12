@@ -70,7 +70,6 @@ extension SearchTwitterViewController: LoadingView {
             view.isUserInteractionEnabled = true
             mainView.loadingIndicator?.stopAnimating()
         }
-        
     }
 }
 

@@ -9,4 +9,5 @@ import UIKit
 
 class TweetTimelineView: UIView {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 }
