@@ -24,3 +24,7 @@ func makeTwitterProfileViewModel() -> TwitterProfileViewModel {
 func makeTimelineRequest() -> TimeLineRequest {
     TimeLineRequest(tweet: "any_tweet")
 }
+
+func makeAnalyzeSentimentViewModel() -> AnalyzeSentimentViewModel {
+    AnalyzeSentimentViewModel(analyzeSentiment: AnalyzeSentimentModel(documentSentiment: DocumentSentiment(magnitude: 0.0, score: 0.0), language: "en"))
+}
