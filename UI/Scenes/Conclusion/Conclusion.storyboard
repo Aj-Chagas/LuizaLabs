@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Conclusion View Controller-->
+        <scene sceneID="cdh-uT-dIf">
+            <objects>
+                <viewController storyboardIdentifier="ConclusionViewController" id="flC-04-Z44" customClass="ConclusionViewController" customModule="UI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lqv-Ix-FKv" customClass="ConclusionView" customModule="UI" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkq-Ab-Lep">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phK-wQ-09h" userLabel="containerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitter selecionado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHy-x5-Ze0">
+                                                <rect key="frame" x="16" y="32" width="382" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Criando meu primeiro projeto para o Luiza labs. Estou adorando criar o projeto de teste, esta sendo um grande desafio." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2o-cq-r8r">
+                                                <rect key="frame" x="16" y="61" width="382" height="61"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resultado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARP-dO-caf">
+                                                <rect key="frame" x="16" y="142" width="382" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Esse é um tweet feliz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7q-Qz-7Bk">
+                                                <rect key="frame" x="16" y="171" width="382" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="J3G-m5-HLd">
+                                                <rect key="frame" x="183" y="208.5" width="48" height="47"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="4X1-bf-Cpm"/>
+                                                    <constraint firstAttribute="width" constant="48" id="5hi-H2-Y6K"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="J3G-m5-HLd" firstAttribute="centerX" secondItem="phK-wQ-09h" secondAttribute="centerX" id="5Nt-a4-Zf6"/>
+                                            <constraint firstItem="ARP-dO-caf" firstAttribute="trailing" secondItem="t2o-cq-r8r" secondAttribute="trailing" id="6jT-iz-45n"/>
+                                            <constraint firstItem="a7q-Qz-7Bk" firstAttribute="trailing" secondItem="ARP-dO-caf" secondAttribute="trailing" id="8mO-eP-Gwg"/>
+                                            <constraint firstAttribute="trailing" secondItem="rHy-x5-Ze0" secondAttribute="trailing" constant="16" id="IlJ-f2-pAu"/>
+                                            <constraint firstItem="a7q-Qz-7Bk" firstAttribute="leading" secondItem="ARP-dO-caf" secondAttribute="leading" id="JJy-KM-XNv"/>
+                                            <constraint firstItem="t2o-cq-r8r" firstAttribute="leading" secondItem="rHy-x5-Ze0" secondAttribute="leading" id="JaH-UE-Jze"/>
+                                            <constraint firstItem="rHy-x5-Ze0" firstAttribute="top" secondItem="phK-wQ-09h" secondAttribute="top" constant="32" id="K3m-b2-xQo"/>
+                                            <constraint firstItem="ARP-dO-caf" firstAttribute="top" secondItem="t2o-cq-r8r" secondAttribute="bottom" constant="20" id="MQI-I8-QPL"/>
+                                            <constraint firstItem="a7q-Qz-7Bk" firstAttribute="top" secondItem="ARP-dO-caf" secondAttribute="bottom" constant="8" id="OXd-tR-Sv4"/>
+                                            <constraint firstItem="rHy-x5-Ze0" firstAttribute="leading" secondItem="phK-wQ-09h" secondAttribute="leading" constant="16" id="R3o-dX-1MT"/>
+                                            <constraint firstItem="ARP-dO-caf" firstAttribute="leading" secondItem="t2o-cq-r8r" secondAttribute="leading" id="biU-h8-Ybp"/>
+                                            <constraint firstItem="t2o-cq-r8r" firstAttribute="top" secondItem="rHy-x5-Ze0" secondAttribute="bottom" constant="8" id="hcO-4K-fnY"/>
+                                            <constraint firstItem="t2o-cq-r8r" firstAttribute="trailing" secondItem="rHy-x5-Ze0" secondAttribute="trailing" id="hsO-Sr-N7P"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="J3G-m5-HLd" secondAttribute="bottom" priority="250" constant="16" id="xIb-hd-Cwv"/>
+                                            <constraint firstItem="J3G-m5-HLd" firstAttribute="top" secondItem="a7q-Qz-7Bk" secondAttribute="bottom" constant="16" id="xNe-Ve-vWw"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="phK-wQ-09h" firstAttribute="height" secondItem="wkq-Ab-Lep" secondAttribute="height" id="78l-4j-SNt"/>
+                                    <constraint firstAttribute="trailing" secondItem="phK-wQ-09h" secondAttribute="trailing" id="Ahg-T2-Ec3"/>
+                                    <constraint firstItem="phK-wQ-09h" firstAttribute="leading" secondItem="wkq-Ab-Lep" secondAttribute="leading" id="Cw1-0J-cWB"/>
+                                    <constraint firstItem="phK-wQ-09h" firstAttribute="width" secondItem="wkq-Ab-Lep" secondAttribute="width" id="Tg1-hd-xBm"/>
+                                    <constraint firstItem="phK-wQ-09h" firstAttribute="top" secondItem="wkq-Ab-Lep" secondAttribute="top" id="nOf-ap-XwJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="phK-wQ-09h" secondAttribute="bottom" id="rxv-PK-Gdo"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bs6-kx-DUN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wkq-Ab-Lep" firstAttribute="top" secondItem="bs6-kx-DUN" secondAttribute="top" id="DrA-x1-cVA"/>
+                            <constraint firstItem="wkq-Ab-Lep" firstAttribute="leading" secondItem="bs6-kx-DUN" secondAttribute="leading" id="GC4-hq-iQk"/>
+                            <constraint firstItem="bs6-kx-DUN" firstAttribute="trailing" secondItem="wkq-Ab-Lep" secondAttribute="trailing" id="X5g-OO-pVi"/>
+                            <constraint firstItem="bs6-kx-DUN" firstAttribute="bottom" secondItem="wkq-Ab-Lep" secondAttribute="bottom" id="cRZ-n4-qdQ"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="resultIcon" destination="J3G-m5-HLd" id="o7q-5R-XLz"/>
+                            <outlet property="resultLabel" destination="a7q-Qz-7Bk" id="5yt-MP-Ltx"/>
+                            <outlet property="secondTitle" destination="ARP-dO-caf" id="RxA-Ee-pW8"/>
+                            <outlet property="titleLabel" destination="rHy-x5-Ze0" id="PIH-Us-2x9"/>
+                            <outlet property="tweetLabel" destination="t2o-cq-r8r" id="7hF-qJ-4jd"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XIg-u6-2hQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="117"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pencil.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

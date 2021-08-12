@@ -71,6 +71,9 @@
 		B46C426126C4A01100042551 /* TimeLineRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C426026C4A01100042551 /* TimeLineRequest.swift */; };
 		B46C426C26C4A14100042551 /* TweetTimelineRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C426B26C4A14100042551 /* TweetTimelineRouter.swift */; };
 		B46C428026C4A1BA00042551 /* TweetTimelineRouterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C427F26C4A1BA00042551 /* TweetTimelineRouterFactory.swift */; };
+		B46C42C026C4AC3000042551 /* ConclusionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C42BF26C4AC3000042551 /* ConclusionViewController.swift */; };
+		B46C42D426C4AC5B00042551 /* ConclusionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C42D326C4AC5B00042551 /* ConclusionView.swift */; };
+		B46C42DF26C4AC7600042551 /* Conclusion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B46C42DE26C4AC7600042551 /* Conclusion.storyboard */; };
 		B4B0DF9B26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B0DF9A26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift */; };
 		B4BE9BA926C4511B00C1141F /* SearchTwitterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BE9BA826C4511B00C1141F /* SearchTwitterFactory.swift */; };
 		B4BE9BB326C4516600C1141F /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FEAE9326BEDBDA005F4A81 /* Domain.framework */; };
@@ -356,6 +359,9 @@
 		B46C426026C4A01100042551 /* TimeLineRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineRequest.swift; sourceTree = "<group>"; };
 		B46C426B26C4A14100042551 /* TweetTimelineRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTimelineRouter.swift; sourceTree = "<group>"; };
 		B46C427F26C4A1BA00042551 /* TweetTimelineRouterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTimelineRouterFactory.swift; sourceTree = "<group>"; };
+		B46C42BF26C4AC3000042551 /* ConclusionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionViewController.swift; sourceTree = "<group>"; };
+		B46C42D326C4AC5B00042551 /* ConclusionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionView.swift; sourceTree = "<group>"; };
+		B46C42DE26C4AC7600042551 /* Conclusion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Conclusion.storyboard; sourceTree = "<group>"; };
 		B4B0DF9A26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeSentimentIntegrationTests.swift; sourceTree = "<group>"; };
 		B4BE9BA826C4511B00C1141F /* SearchTwitterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTwitterFactory.swift; sourceTree = "<group>"; };
 		B4C264C926C35907007A614E /* UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -807,6 +813,16 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		B46C42BE26C4AB8A00042551 /* Conclusion */ = {
+			isa = PBXGroup;
+			children = (
+				B46C42BF26C4AC3000042551 /* ConclusionViewController.swift */,
+				B46C42D326C4AC5B00042551 /* ConclusionView.swift */,
+				B46C42DE26C4AC7600042551 /* Conclusion.storyboard */,
+			);
+			path = Conclusion;
+			sourceTree = "<group>";
+		};
 		B4C264CA26C35907007A614E /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -833,6 +849,7 @@
 			children = (
 				B430642426C42CD60054ED2A /* Resources */,
 				B430642326C42C9B0054ED2A /* Error */,
+				B46C42BE26C4AB8A00042551 /* Conclusion */,
 				B430642226C42C8E0054ED2A /* SearchTwitter */,
 				B430645126C4326E0054ED2A /* TweetTimeline */,
 			);
@@ -1533,6 +1550,7 @@
 				B4C265D826C36CBC007A614E /* SearchTwitter.storyboard in Resources */,
 				B430642626C42D080054ED2A /* images.xcassets in Resources */,
 				B430644726C42EBC0054ED2A /* ErrorGeneric.storyboard in Resources */,
+				B46C42DF26C4AC7600042551 /* Conclusion.storyboard in Resources */,
 				B430647226C432DE0054ED2A /* TweetTimeline.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2001,10 +2019,12 @@
 				B430645326C432930054ED2A /* TweetTimelineViewController.swift in Sources */,
 				B430646726C432B70054ED2A /* TweetTimelineView.swift in Sources */,
 				B4C264EF26C35958007A614E /* SearchTwitterViewController.swift in Sources */,
+				B46C42D426C4AC5B00042551 /* ConclusionView.swift in Sources */,
 				B430643126C42E620054ED2A /* ErrorGenericViewController.swift in Sources */,
 				B430643C26C42E910054ED2A /* ErrorGenericView.swift in Sources */,
 				B46C423526C498E200042551 /* TweetTimelineTableViewCell.swift in Sources */,
 				B43063AE26C4174E0054ED2A /* Storyboarded.swift in Sources */,
+				B46C42C026C4AC3000042551 /* ConclusionViewController.swift in Sources */,
 				B4C2658826C36282007A614E /* UIColorExtensions.swift in Sources */,
 				B4C265CF26C36BAF007A614E /* ControllerWithMainView.swift in Sources */,
 				B46C424026C499B700042551 /* TweetTimelineHeader.swift in Sources */,

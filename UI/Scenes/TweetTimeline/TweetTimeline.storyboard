@@ -22,17 +22,17 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" red="0.039215686270000001" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="k3J-MC-Hgx" customClass="TweetTimelineHeader" customModule="UI" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="141"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Timeline do  @LuizaLabs com os últimos 100 tweets.  " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzZ-Ig-D4i">
-                                            <rect key="frame" x="16" y="16" width="382" height="41"/>
+                                            <rect key="frame" x="16" y="32" width="382" height="41"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escolha um tweet e descubra se é um tweet Feliz, neutro ou triste." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qU2-Mg-dDc">
-                                            <rect key="frame" x="16" y="65" width="382" height="44"/>
+                                            <rect key="frame" x="16" y="81" width="382" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                                         <constraint firstItem="qU2-Mg-dDc" firstAttribute="top" secondItem="bzZ-Ig-D4i" secondAttribute="bottom" constant="8" id="K8t-rw-wUC"/>
                                         <constraint firstItem="bzZ-Ig-D4i" firstAttribute="leading" secondItem="k3J-MC-Hgx" secondAttribute="leading" constant="16" id="M8x-1V-ZgL"/>
                                         <constraint firstAttribute="trailing" secondItem="bzZ-Ig-D4i" secondAttribute="trailing" constant="16" id="SJu-U0-r13"/>
-                                        <constraint firstItem="bzZ-Ig-D4i" firstAttribute="top" secondItem="k3J-MC-Hgx" secondAttribute="top" constant="16" id="cBg-nC-YpD"/>
+                                        <constraint firstItem="bzZ-Ig-D4i" firstAttribute="top" secondItem="k3J-MC-Hgx" secondAttribute="top" constant="32" id="cBg-nC-YpD"/>
                                         <constraint firstItem="qU2-Mg-dDc" firstAttribute="leading" secondItem="k3J-MC-Hgx" secondAttribute="leading" constant="16" id="xkg-Mj-hap"/>
                                     </constraints>
                                     <connections>
@@ -55,7 +55,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetTimelineTableViewCell" id="C3N-RS-50J" customClass="TweetTimelineTableViewCell" customModule="UI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="153" width="414" height="99.5"/>
+                                        <rect key="frame" x="0.0" y="169" width="414" height="99.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C3N-RS-50J" id="me5-oX-EKv">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
