@@ -33,6 +33,7 @@ public final class SearchTwitterViewController: UIViewController, ControllerWith
     func setupViews() {
         hideErrorView()
         setupSearchButton()
+        hideKeyboardOnTap()
     }
     
     func hideErrorView() {
