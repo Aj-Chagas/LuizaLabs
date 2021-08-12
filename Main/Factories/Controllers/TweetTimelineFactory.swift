@@ -17,6 +17,7 @@ public func makeTweetTimeViewController(router: TweetTimelineRouter,
 
     controller.analyzeSentimet = presenter.analyzeSentiment
     controller.goToError = router.goToError
+    controller.goToConclusion = router.goToConclusion
     controller.tweetViewModel = tweetViewModel
     controller.twitterViewModel = twitterViewModel
     

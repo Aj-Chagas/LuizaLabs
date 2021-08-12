@@ -11,5 +11,8 @@ import Presentation
 public final class ConclusionViewController: UIViewController, ControllerWithMainView, Storyboarded {
 
     typealias MainView = ConclusionView
-    
+
+    public var tweet: String?
+    public var calculateSentiment: (() -> (text: String, icon: String))?
+
 }

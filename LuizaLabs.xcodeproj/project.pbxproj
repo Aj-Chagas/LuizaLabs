@@ -74,6 +74,8 @@
 		B46C42C026C4AC3000042551 /* ConclusionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C42BF26C4AC3000042551 /* ConclusionViewController.swift */; };
 		B46C42D426C4AC5B00042551 /* ConclusionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C42D326C4AC5B00042551 /* ConclusionView.swift */; };
 		B46C42DF26C4AC7600042551 /* Conclusion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B46C42DE26C4AC7600042551 /* Conclusion.storyboard */; };
+		B46C42EA26C4B4FF00042551 /* ConclusionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C42E926C4B4FF00042551 /* ConclusionFactory.swift */; };
+		B46C42F626C4B69200042551 /* ConclusionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C42F526C4B69200042551 /* ConclusionPresenter.swift */; };
 		B4B0DF9B26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B0DF9A26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift */; };
 		B4BE9BA926C4511B00C1141F /* SearchTwitterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BE9BA826C4511B00C1141F /* SearchTwitterFactory.swift */; };
 		B4BE9BB326C4516600C1141F /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FEAE9326BEDBDA005F4A81 /* Domain.framework */; };
@@ -362,6 +364,8 @@
 		B46C42BF26C4AC3000042551 /* ConclusionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionViewController.swift; sourceTree = "<group>"; };
 		B46C42D326C4AC5B00042551 /* ConclusionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionView.swift; sourceTree = "<group>"; };
 		B46C42DE26C4AC7600042551 /* Conclusion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Conclusion.storyboard; sourceTree = "<group>"; };
+		B46C42E926C4B4FF00042551 /* ConclusionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionFactory.swift; sourceTree = "<group>"; };
+		B46C42F526C4B69200042551 /* ConclusionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionPresenter.swift; sourceTree = "<group>"; };
 		B4B0DF9A26C06D5E00F21E64 /* AnalyzeSentimentIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeSentimentIntegrationTests.swift; sourceTree = "<group>"; };
 		B4BE9BA826C4511B00C1141F /* SearchTwitterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTwitterFactory.swift; sourceTree = "<group>"; };
 		B4C264C926C35907007A614E /* UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -677,6 +681,7 @@
 			children = (
 				B4BE9BA826C4511B00C1141F /* SearchTwitterFactory.swift */,
 				B46C424A26C49DC700042551 /* TweetTimelineFactory.swift */,
+				B46C42E926C4B4FF00042551 /* ConclusionFactory.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -719,6 +724,7 @@
 		B456A18F26C1F6EB0007877F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				B46C42F426C4B68100042551 /* Conclusion */,
 				B4F5A20226C34BE2003289F6 /* Timeline */,
 				B456A1FD26C213AB0007877F /* SearchTwitter */,
 				B4F5A1CB26C33D1F003289F6 /* View */,
@@ -819,6 +825,14 @@
 				B46C42BF26C4AC3000042551 /* ConclusionViewController.swift */,
 				B46C42D326C4AC5B00042551 /* ConclusionView.swift */,
 				B46C42DE26C4AC7600042551 /* Conclusion.storyboard */,
+			);
+			path = Conclusion;
+			sourceTree = "<group>";
+		};
+		B46C42F426C4B68100042551 /* Conclusion */ = {
+			isa = PBXGroup;
+			children = (
+				B46C42F526C4B69200042551 /* ConclusionPresenter.swift */,
 			);
 			path = Conclusion;
 			sourceTree = "<group>";
@@ -1945,6 +1959,7 @@
 				B46C41CD26C485BB00042551 /* RemoteTwitterProfileFactories.swift in Sources */,
 				B430634126C4146C0054ED2A /* AppDelegate.swift in Sources */,
 				B430634326C4146C0054ED2A /* SceneDelegate.swift in Sources */,
+				B46C42EA26C4B4FF00042551 /* ConclusionFactory.swift in Sources */,
 				B46C424B26C49DC700042551 /* TweetTimelineFactory.swift in Sources */,
 				B46C425626C49EBC00042551 /* RemoteAnalyzeSentimentFactory.swift in Sources */,
 				B46C41FF26C486A000042551 /* RemoteTweetTimelineFactory.swift in Sources */,
@@ -1983,6 +1998,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4F5A1B926C33605003289F6 /* TwitterProfileViewModel.swift in Sources */,
+				B46C42F626C4B69200042551 /* ConclusionPresenter.swift in Sources */,
 				B46C426126C4A01100042551 /* TimeLineRequest.swift in Sources */,
 				B456A25926C32F9A0007877F /* TweetViewModel.swift in Sources */,
 				B456A1B926C1F7610007877F /* SearchTwitterPresenter.swift in Sources */,

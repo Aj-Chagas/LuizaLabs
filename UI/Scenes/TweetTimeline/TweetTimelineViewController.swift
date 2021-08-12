@@ -16,6 +16,9 @@ public final class TweetTimelineViewController: UIViewController, ControllerWith
     public var tweetViewModel: [TweetViewModel]?
     public var analyzeSentimet: ((TimeLineRequest) -> Void)?
     public var goToError: (() -> Void)?
+    public var goToConclusion: ((_ tweet: String, _ sentimentViewModel: AnalyzeSentimentViewModel) -> Void)?
+
+    private var tweet: String?
 
     public override func viewDidLoad() {
         mainView.tableView.delegate = self
@@ -36,9 +39,11 @@ public final class TweetTimelineViewController: UIViewController, ControllerWith
 extension TweetTimelineViewController: TimelineDelegate {
 
     public func handlerError() {
+        goToError?()
     }
 
     public func handlerSuccess(viewmodel: AnalyzeSentimentViewModel) {
+        goToConclusion?(tweet ?? String(), viewmodel)
     }
 
 }
@@ -59,5 +64,9 @@ extension TweetTimelineViewController: UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let tweet = tweetViewModel?[indexPath.row].text else { return }
+        analyzeSentimet?(TimeLineRequest(tweet: tweet))
+    }
     
 }
