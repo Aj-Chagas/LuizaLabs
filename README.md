@@ -1,5 +1,11 @@
 # LuizaLabs
 
+## **Protótipo**
+
+link do protótipo
+
+https://xd.adobe.com/view/47bf99fd-a1ed-45e1-a2f5-6f70e69126c0-12ec/
+
 ## **Arquitetura**
 
 Escolhi a arquitetura clean architecture com o pattern composition roots. Nessa arquitetura eu ganho alta testabilidade, escalabilidade e a possibilidade de aplicar as boas práticas do SOLID.
