@@ -45,14 +45,15 @@ observação sobre o testes de snapshots:  para os testes de snapshots feitos no
 
 ## **Taxa de cobertura dos testes, segundo o xcode**
 
-Presentation - 100%
-Data - 100%
-Domain - 100%
-Infra - 100%
-UI - 64,8%
-Main - 67.7%
+Presentation - 100% \
+Data - 100% \
+Domain - 100% \
+Infra - 100% \
+UI - 64,8% \
+Main - 67.7% \
 
-Main e UI testei tudo que eu julguei relevante, mas ficaram algumas coisas de fora, principalmente que fazem uso do UIKIT, mas nada que tenha lógica para ser testada.
+\ \
+As camadas Main e UI foram testados tudo que eu julguei relevante, mas ficaram algumas coisas de fora, principalmente que fazem uso do UIKIT, mas nada que tenha lógica para ser testada.
 
 
 ## **Como instalar o app**
