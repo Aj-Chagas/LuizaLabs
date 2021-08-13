@@ -43,7 +43,7 @@ NimbleSnapshot é um framework que dá possibilidade de testar o layout sem prec
 
 observação sobre o testes de snapshots:  para os testes de snapshots feitos no projeto passarem é preciso rodá-los com o simulador do iphone 8, pois esse framework exige que um simulador seja default. No caso eu escolhi o iphone 8.
 
-Taxa de cobertura dos testes, segundo o xcode
+## **Taxa de cobertura dos testes, segundo o xcode**
 
 Presentation - 100%
 Data - 100%
