@@ -60,8 +60,8 @@ As camadas Main e UI foram testados tudo que eu julguei relevante, mas ficaram a
 
 1. Clonar o projeto
 2. instalar o cocoapods, caso não tenha instalado.
-3. abrir o arquivo .workspace
+3. abrir o arquivo LuizaLabs.xcworkspace
 4. buildar o target main
-5. importante rodar no xcode 12 e recomendo utilizar a essa 1.10.1 versão do cocoapods.
+5. importante app desenvolvido no xcode 12 e como essa versão do cocoapods 1.10.1 versão do cocoapods.
 
 Para rodar todos os teste, selecione o schema CI e rode os testes com o iphone 8 selecionado para garantir que os testes de snapshot também passem.
