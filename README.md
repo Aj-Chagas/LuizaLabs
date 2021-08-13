@@ -8,7 +8,7 @@ O App está desenhado em 6 layer. As layers são main, ui, presentation, domain,
 
 Main é a layer onde é aplicado o composition roots, essa layer faz a composição de todos as outras layers e por conta disso é camada que depende de todas as outras.
 
-UI layer é responsável pelo layout, aqui ficam as view controllers, essa camada é totalmente desacoplada das outras.
+UI layer é responsável pelo layout, aqui ficam as view controllers, essa camada tem como dependência a presenter.
 
 Presentation é a camada que é responsável pelas regras de negócios. Essa tem dependência com a domain
 
